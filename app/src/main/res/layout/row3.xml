@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/rowLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="right|center">
+
+    <ImageView
+        android:id="@+id/imele1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fire"
+        android:layout_gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/imele2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/earth"
+        android:layout_gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/imele3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/air"
+        android:layout_gravity="center_vertical"/>
+
+    <ImageView
+        android:id="@+id/imele4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/water"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="20dp"/>
+</LinearLayout>

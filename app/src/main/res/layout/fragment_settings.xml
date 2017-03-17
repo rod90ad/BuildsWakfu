@@ -1,0 +1,92 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:padding="3dp"
+    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.SettingsFragment">
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:weightSum="1">
+        
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="0.1"
+            android:weightSum="1"
+            android:layout_margin="3dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_img"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:layout_margin="3dp"/>
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Username"
+                android:layout_weight="0.4"/>
+
+            <ImageButton
+                android:id="@+id/user_logout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/logout"
+                android:layout_margin="6dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_weight="0.2"/>
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_weight="0.02"
+            android:weightSum="1"
+            android:layout_margin="3dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/ic_language_black_36dp"
+                android:layout_weight="0.1"/>
+
+            <ImageView
+                android:id="@+id/user_lang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:layout_margin="3dp"/>
+
+            <TextView
+                android:id="@+id/user_langChange"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="@string/select_lang"/>
+
+
+        </LinearLayout>
+        
+        
+    </LinearLayout>
+
+</FrameLayout>

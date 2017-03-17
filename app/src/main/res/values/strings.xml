@@ -1,0 +1,304 @@
+<resources>
+    <string name="app_name">Builds Wakfu</string>
+    <string name="propaganda">Your application to create Builds</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9806703878082584/1615165359</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+    <string name="menu1">Search</string>
+    <string name="menu2">Builds</string>
+    <string name="menu3">Add</string>
+    <string name="menu4">Import</string>
+    <string name="classe">Class:</string>
+    <string name="nome">Name:</string>
+    <string name="txnivel">Level:</string>
+    <string name="elementp">Elemental Priority:</string>
+    <string name="resistp">Resistence Priority:</string>
+    <string name="criar">Create</string>
+    <string name="limpar">Clear</string>
+    <string name="createbuildsucess">Sucess on create Build!</string>
+    <string name="errornamesame">Builds can\'t have same name.</string>
+    <string name="backmsg">"Tap back again to exit"</string>
+    <string name="select_lang">Select Language</string>
+    <string-array name="screens">
+        <item>Search</item>
+        <item>Builds</item>
+        <item>Top Builds</item>
+        <item>Setting</item>
+    </string-array>
+
+    <!-- Import Variables -->
+    <string name="addbuildsucess">Sucess on add Build!</string>
+    <string name="wait">Wait...</string>
+    <string name="adicionando">Adding Itens...</string>
+    <string name="permsok">Permission Granted!</string>
+    <string name="permsnok">Permission Denied!</string>
+    <string name="imagesaved">Image Saved!</string>
+    <string name="scan_code">Scan the Builds Wakfu Code!</string>
+    <string name="send_to">Send To...</string>
+    <string name="codenotok">This code not is from Builds Wakfu</string>
+    <string name="sobreconteudo">Created by Rodrigo Dias\nLibs and API used:\n\nPicasso\nPOI\nZxing</string>
+
+    <!-- ViewBuild variaveis -->
+    <string name="maestria">Mastery</string>
+    <string name="batalha">Battle</string>
+    <string name="Secundario">Secondary</string>
+    <string name="pv">HP</string>
+    <string name="pa">AP</string>
+    <string name="pm">MP</string>
+    <string name="pw">WP</string>
+    <string name="danofinal">Damage inflicted</string>
+    <string name="curas">Heals performed</string>
+    <string name="golpecritico">Critical Hits</string>
+    <string name="parada">Block</string>
+    <string name="iniciativa">Initiative</string>
+    <string name="alcance">Range</string>
+    <string name="esquiva">Dodge</string>
+    <string name="bloqueio">Lock</string>
+    <string name="sabedoria">Wisdom</string>
+    <string name="prospecção">Prospecting</string>
+    <string name="controle">Control</string>
+    <string name="arteequipar">Kit Skill</string>
+    <string name="danocritico">Critical Mastery</string>
+    <string name="rescritica">Critical Resistance</string>
+    <string name="dominiocostas">Rear Mastery</string>
+    <string name="rescostas">Rear Resistance</string>
+    <string name="dominiocac">Melee Mastery</string>
+    <string name="dominiodistancia">Distance Mastery</string>
+    <string name="dominioalvounico">Single Target Mastery</string>
+    <string name="dominiozona">Area Mastery</string>
+    <string name="dominiocura">Healing Mastery</string>
+    <string name="dominiobeserk">Berserk Mastery</string>
+    <string name="stats">Stats:</string>
+    <string name="excluir">Delete</string>
+    <string name="view_nivel">Lv. </string>
+    <string name="deletemsg">Do you want to delete this build?</string>
+    <string name="deletebuildsucess">Build successfully deleted!</string>
+
+    <!-- Share Build Screen -->
+    <string name="share_import">Import</string>
+    <string name="share_date">Date:</string>
+
+    <!-- Settings -->
+    <string name="action_settings">Settings</string>
+    <string name="idioma">Language:</string>
+    <array name="idiomas">
+        <item>English</item>
+        <item>Portuguese</item>
+        <item>French</item>
+        <item>Spanish</item>
+    </array>
+    <string name="pvpoption">Hide pvp items</string>
+    <string name="sobre">About</string>
+    <string name="fechar">Close</string>
+
+    <!-- classes -->
+    <string name="cra">Cra</string>
+    <string name="eca">Ecaflip</string>
+    <string name="elio">Eliotrope</string>
+    <string name="eni">Eniripsa</string>
+    <string name="enu">Enutrof</string>
+    <string name="feca">Feca</string>
+    <string name="hupp">Huppermage</string>
+    <string name="iop">Iop</string>
+    <string name="osa">Osamodas</string>
+    <string name="panda">Pandawa</string>
+    <string name="lad">Rogue</string>
+    <string name="sac">Sacrier</string>
+    <string name="sad">Sadida</string>
+    <string name="sram">Sram</string>
+    <string name="steamer">Foggernaut</string>
+    <string name="xelor">Xelor</string>
+    <string name="zob">Masqueraider</string>
+
+    <!-- raridades -->
+    <string name="todos">All</string>
+    <string name="comun">Common</string>
+    <string name="incomum">Unusual</string>
+    <string name="raro">Rare</string>
+    <string name="mitico">Mythical</string>
+    <string name="lend">Legendary</string>
+    <string name="reliq">Relic</string>
+    <string name="epic">Epique</string>
+    <string name="pvp">PVP</string>
+
+    <!-- Tipos -->
+    <string name="amu">Amulet</string>
+    <string name="cap">Cloak</string>
+    <string name="elm">Helmet</string>
+    <string name="cint">Belt</string>
+    <string name="drag">Epaulettes</string>
+    <string name="anel">Rings</string>
+    <string name="bot">Boots</string>
+    <string name="w1h">One-handed Weapons</string>
+    <string name="w2h">Two-handed Weapons</string>
+    <string name="wsec">Second Hand</string>
+    <string name="pet">Pets</string>
+    <string name="pei">Breastplace</string>
+    <string name="ins">Insignia</string>
+    <string name="montaria">Mounts</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- strings do search -->
+    <string name="trocaitem">Trade of Item</string>
+    <string name="deletebuild">Exclude Build</string>
+    <string name="tiraitem">Remove Item</string>
+    <string name="nivel">Level</string>
+    <string name="noStats">Without Stats</string>
+    <string name="posWP">WP</string>
+    <string name="posPA">AP</string>
+    <string name="posProsp">Prospecting</string>
+    <string name="posRange">Range</string>
+    <string name="posblock">Lock</string>
+    <string name="posstop">% Block</string>
+    <string name="posPM">MP</string>
+    <string name="posPV">Health Points</string>
+    <string name="posCtrl">Control</string>
+    <string name="posEva">Dodge</string>
+    <string name="posRes">Elemental Resistence</string>
+    <string name="posResw">Resistance Water</string>
+    <string name="posResf">Resistance Fire</string>
+    <string name="posResa">Resistence Air</string>
+    <string name="posRest">Resistence Earth</string>
+    <string name="posRes3">Resistance to 3 random elements</string>
+    <string name="posRes2">Resistance to 2 random elements</string>
+    <string name="posRes1">Resistance to 1 random elements</string>
+    <string name="posDmg"> Elemental Mastery</string>
+    <string name="pos1Dmg">Mastery to 1 random elements</string>
+    <string name="pos2Dmg">Mastery to 2 random elements</string>
+    <string name="pos3Dmg">Mastery to 3 random elements</string>
+    <string name="posbskdmg">Berserk Mastery</string>
+    <string name="posdistdmg">Distance Mastery</string>
+    <string name="posareadmg">Area Mastery</string>
+    <string name="posonedmg">Single Target Mastery</string>
+    <string name="poscacdmg">Melee Mastery</string>
+    <string name="posbackdmg">Rear Mastery</string>
+    <string name="posrescritical">Critical Resistance</string>
+    <string name="posresbackdmg">Rear Resistence</string>
+    <string name="posCChance">% Critical Hit</string>
+    <string name="posSab">Wisdom</string>
+    <string name="posHeal">Healing Mastery</string>
+    <string name="posDC">Critical Mastery</string>
+    <string name="posIni">Iniciative</string>
+    <string name="posffogo">Lvl. to spells Fire</string>
+    <string name="posfagua">Lvl. to spells Water</string>
+    <string name="posfar">Lvl. to spells Air</string>
+    <string name="posfterra">Lvl. to spells Earth</string>
+    <string name="posfgeral">Lvl. to spells</string>
+    <string name="posdmgfogo">Mastery Fire</string>
+    <string name="posdmgagua">Mastery Water</string>
+    <string name="posdmgar">Mastery Air</string>
+    <string name="posdmgterra">Mastery Earth</string>
+    <string name="posartequipar">Kit Skill</string>
+    <string name="posminertake">% Mineral Harvesting Quantity</string>
+    <string name="posmovespeed">% Moving Speed</string>
+    <string name="ate">to</string>
+    <string name="errorname">Write a name to Build.</string>
+    <string name="errorNivel">The Lv. minimal is up for Lv. maximal.</string>
+    <string name="buscaNull">The search ends without results.</string>
+    <string name="encontrados1">Search found </string>
+    <string name="encontrados2">item.</string>
+    <string name="errorNivelNull">Preencha os niveis para buscar.</string>
+    <string name="buildnotset">Create and/or select a build to add item</string>
+    <string name="elmoadd">Helmet added on Build</string>
+    <string name="elmotrade">Helmet change on Build</string>
+    <string name="amuadd">Amulet added on Build</string>
+    <string name="amutrade">Amulet change on Build</string>
+    <string name="w1hadd">One-handed Weapon added on Build</string>
+    <string name="w1htrade">One-handed Weapon change on Build</string>
+    <string name="w2hadd">Two-handed Weapon added on Build</string>
+    <string name="w2htrade">Two-handed Weapon change on Build</string>
+    <string name="botaadd">Boots added on Build</string>
+    <string name="botatrade">Boots change on Build</string>
+    <string name="capaadd">Cloak added on Build</string>
+    <string name="capatrade">Cloak change on Build</string>
+    <string name="peitoraladd">Breastplace added on Build</string>
+    <string name="peitoraltrade">Breastplace change on Build</string>
+    <string name="dragadd">Epaulettes added on Build</string>
+    <string name="dragtrade">Epaulettes change on Build</string>
+    <string name="cintadd">Belt added on Build</string>
+    <string name="cinttrade">Belt change on Build</string>
+    <string name="armsecadd">Second Hand added on Build</string>
+    <string name="armsectrade">Second Hand change on Build</string>
+    <string name="anel1add">Ring 1 added on Build</string>
+    <string name="anel1trade">Ring 1 change on Build</string>
+    <string name="anel2add">Ring 2 added on Build</string>
+    <string name="anel2trade">Ring 2 change on Build</string>
+    <string name="petadd">Pet added on Build</string>
+    <string name="pettrade">Pet change on Build</string>
+    <string name="insadd">Insignia added on Build</string>
+    <string name="instrade">Insignia change on Build</string>
+    <string name="pretroca">You are with item: </string>
+    <string name="w2ht">(Two-Handed)</string>
+    <string name="postroca">Want change to: </string>
+    <string name="pretrocaanel">You are with the Rings:</string>
+    <string name="pretrocaanel1">Ring 1:</string>
+    <string name="pretrocaanel2">Ring 2: </string>
+    <string name="postrocaanel">Which you want to trade for:</string>
+    <string name="pretroca2h">Your current weapon is One-Handed (</string>
+    <string name="postroca2h">) you want to trade for:</string>
+    <string name="conditiontroca2h">(The Second Hand Weapon will also be removed)</string>
+    <string name="montadd">Mount added on Build</string>
+    <string name="monttrade">Mount change on Build</string>
+    <string name="remover">You want remove the item:</string>
+    <string name="itemremove">Item removed on build</string>
+
+    <!-- Status -->
+    <string-array name="stats">
+        <item>All</item>
+        <item>AP</item>
+        <item>MP</item>
+        <item>Range</item>
+        <item>Control</item>
+        <item>Health Points</item>
+        <item>Elemental Mastery</item>
+        <item>Heals</item>
+        <item>Lock</item>
+        <item>Critical Hit</item>
+        <item>Rear Mastery</item>
+        <item>Distance Mastery</item>
+        <item>Melee Mastery</item>
+        <item>Area Mastery</item>
+        <item>Single Target Mastery</item>
+        <item>Mastery to 1 random elements</item>
+        <item>Mastery to 2 random elements</item>
+        <item>Mastery to 3 random elements</item>
+        <item>Mastery Water</item>
+        <item>Mastery Fire</item>
+        <item>Mastery Earth</item>
+        <item>Mastery Air</item>
+        <item>Dodge</item>
+        <item>Critical Mastery</item>
+        <item>Iniciative</item>
+        <item>Block</item>
+        <item>Prospecting</item>
+        <item>Wisdom</item>
+        <item>WP Max</item>
+        <item>Resistence</item>
+        <item>Resistance to 1 random elements</item>
+        <item>Resistance to 2 random elements</item>
+        <item>Resistance to 3 random elements</item>
+        <item>Resistence Water</item>
+        <item>Resistence Fire</item>
+        <item>Resistence Earth</item>
+        <item>Resistence Air</item>
+        <item>Rear Resistence</item>
+        <item>Critical Resistance</item>
+        <item>MP removal Resistence</item>
+        <item>AP removal Resistence</item>
+        <item>WP</item>
+        <item>Stats</item>
+        <item>Health Points (PVP)</item>
+        <item>Kit Skill</item>
+        <item>Lvl. to spells Water</item>
+        <item>Lvl. to spells Fire</item>
+        <item>Lvl. to spells Earth</item>
+        <item>Lvl. to spells Air</item>
+        <item>Lvl. to spells</item>
+        <item>Moving Speed</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

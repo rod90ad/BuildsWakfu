@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/rowLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|left">
+
+    <ImageView
+        android:id="@+id/imTodos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/todosit"
+        android:layout_marginLeft="3dp"/>
+    <TextView
+        android:id="@+id/txTodos"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/todos"/>
+</LinearLayout>

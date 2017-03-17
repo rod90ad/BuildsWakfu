@@ -1,0 +1,305 @@
+<resources>
+    <string name="app_name">Builds Wakfu</string>
+    <string name="propaganda">Su aplicación para crear Builds</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9806703878082584/1615165359</string>
+    <string name="sim">Sí</string>
+    <string name="nao">No</string>
+    <string name="menu1">Buscar</string>
+    <string name="menu2">Builds</string>
+    <string name="menu3">Añadir</string>
+    <string name="menu4">Importar</string>
+    <string name="classe">Clase:</string>
+    <string name="nome">Nombre:</string>
+    <string name="txnivel">Nivel:</string>
+    <string name="elementp">Prioridad Elemental:</string>
+    <string name="resistp">Prioridad Resistiva:</string>
+    <string name="criar">Crear</string>
+    <string name="limpar">Limpio</string>
+    <string name="createbuildsucess">Éxito en crear Build!</string>
+    <string name="errornamesame">Builds no puede tener el mismo nombre.</string>
+    <string name="backmsg">"Toque de nuevo para salir"</string>
+    <string-array name="screens">
+        <item>Search</item>
+        <item>Builds</item>
+        <item>Top Builds</item>
+        <item>Setting</item>
+    </string-array>
+
+    <!-- Import Variables -->
+    <string name="addbuildsucess">¡El éxito en agrega la estructura!</string>
+    <string name="wait">Espere...</string>
+    <string name="adicionando">Añadiendo Itens ...</string>
+    <string name="permsok">¡Permiso concedido!</string>
+    <string name="permsnok">¡Permiso denegado!</string>
+    <string name="imagesaved">¡Imagen guardada!</string>
+    <string name="scan_code">¡Escanee el Código Builds Wakfu!</string>
+    <string name="send_to">Enviar a...</string>
+    <string name="codenotok">Este código no es de Builds Wakfu</string>
+    <string name="sobreconteudo">Creado por Rodrigo Dias\nLibs y API utilizados:\n\nPicasso\nPOI\nZxing</string>
+
+
+    <!-- ViewBuild variaveis -->
+    <string name="maestria">Dominios</string>
+    <string name="batalha">Combate</string>
+    <string name="Secundario">Secundario</string>
+    <string name="pv">PdV</string>
+    <string name="pa">PA</string>
+    <string name="pm">PM</string>
+    <string name="pw">PW</string>
+    <string name="danofinal">Daños Finales</string>
+    <string name="curas">Curas Finales</string>
+    <string name="golpecritico">Golpes Críticos</string>
+    <string name="parada">Anticipación</string>
+    <string name="iniciativa">Iniciativa</string>
+    <string name="alcance">Alcance</string>
+    <string name="esquiva">Esquiva</string>
+    <string name="bloqueio">Placaje</string>
+    <string name="sabedoria">Sabiduría</string>
+    <string name="prospecção">Prospección</string>
+    <string name="controle">Control</string>
+    <string name="arteequipar">Instrucción Militar</string>
+    <string name="danocritico">Dominio Crítico</string>
+    <string name="rescritica">Resistencia Crítica</string>
+    <string name="dominiocostas">Dominio Espalda</string>
+    <string name="rescostas">Resistencia por la Espalda</string>
+    <string name="dominiocac">Dominio Cuerpo a Cuerpo</string>
+    <string name="dominiodistancia">Dominio Distancia</string>
+    <string name="dominioalvounico">Dominio Objetivo Único</string>
+    <string name="dominiozona">Dominio Zona</string>
+    <string name="dominiocura">Dominio Cura</string>
+    <string name="dominiobeserk">Dominio Berserker</string>
+    <string name="view_nivel">Nv. </string>
+    <string name="stats">Estadísticas:</string>
+    <string name="excluir">Borrar</string>
+    <string name="deletemsg">¿Quieres eliminar esta Build?</string>
+    <string name="deletebuildsucess">Build eliminado correctamente!</string>
+
+    <!-- Share Build Screen -->
+    <string name="share_import">Importar</string>
+    <string name="share_date">Fecha:</string>
+
+    <!-- Settings -->
+    <string name="action_settings">Ajustes</string>
+    <string name="idioma">Idioma:</string>
+    <array name="idiomas">
+        <item>Inglés</item>
+        <item>Portugués</item>
+        <item>Francés</item>
+        <item>Español</item>
+    </array>
+    <string name="pvpoption">Ocultar los elementos jcj</string>
+    <string name="sobre">Acerca</string>
+    <string name="fechar">Cerca</string>
+
+    <!-- classes -->
+    <string name="cra">Ocra</string>
+    <string name="eca">Zurcarák</string>
+    <string name="elio">Selotrope</string>
+    <string name="eni">Aniripsa</string>
+    <string name="enu">Anutrof</string>
+    <string name="feca">Feca</string>
+    <string name="hupp">Hipermago</string>
+    <string name="iop">Yopuka</string>
+    <string name="osa">Osamodas</string>
+    <string name="panda">Pandawa</string>
+    <string name="lad">Tymador</string>
+    <string name="sac">Sacrógrito</string>
+    <string name="sad">Sadida</string>
+    <string name="sram">Sram</string>
+    <string name="steamer">Steamer</string>
+    <string name="xelor">Xelor</string>
+    <string name="zob">Zobal</string>
+
+    <!-- raridades -->
+    <string name="todos">Todas</string>
+    <string name="comun">Común</string>
+    <string name="incomum">Inusual</string>
+    <string name="raro">Raro</string>
+    <string name="mitico">Mítico</string>
+    <string name="lend">Legendario</string>
+    <string name="reliq">Reliquia</string>
+    <string name="epic">Epique</string>
+    <string name="pvp">JCJ</string>
+
+    <!-- Tipos -->
+    <string name="amu">Amuleto</string>
+    <string name="cap">Capa</string>
+    <string name="elm">Casco</string>
+    <string name="cint">Cinturón</string>
+    <string name="drag">Hombreras</string>
+    <string name="anel">Anillo</string>
+    <string name="bot">Botas</string>
+    <string name="w1h">Armas de una Mano</string>
+    <string name="w2h">Armas de dos Manos</string>
+    <string name="wsec">Segunda Mano</string>
+    <string name="pet">Mascotas</string>
+    <string name="pei">Coraza</string>
+    <string name="ins">Insignia</string>
+    <string name="montaria">Monturas</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- strings do search -->
+    <string name="trocaitem">Intercambio</string>
+    <string name="tiraitem">Remover el artículo</string>
+    <string name="deletebuild">Excluir Build</string>
+    <string name="nivel">Nivel</string>
+    <string name="noStats">Sin Estadísticas</string>
+    <string name="posWP">PW</string>
+    <string name="posPA">PA</string>
+    <string name="posProsp">Prospección</string>
+    <string name="posRange">Alcance</string>
+    <string name="posblock">Placaje</string>
+    <string name="posstop">% Anticipación</string>
+    <string name="posPM">PM</string>
+    <string name="posPV">Puntos de Vida</string>
+    <string name="posCtrl">Control</string>
+    <string name="posEva">Esquiva</string>
+    <string name="posRes">Resistencia Elemental</string>
+    <string name="posResw">Resistencia Agua</string>
+    <string name="posResf">Resistencia Fuego</string>
+    <string name="posResa">Resistencia Aire</string>
+    <string name="posRest">Resistencia Tierra</string>
+    <string name="posRes3">Resistencia a 3 elementos aleatorios</string>
+    <string name="posRes2">Resistencia a 2 elementos aleatorios</string>
+    <string name="posRes1">Resistencia a 1 elemento aleatorio</string>
+    <string name="posDmg">Dominio Elemental</string>
+    <string name="pos1Dmg">Dominio de 1 elemento aleatorio</string>
+    <string name="pos2Dmg">Dominio de 2 elementos aleatorios</string>
+    <string name="pos3Dmg">Dominio de 3 elementos aleatorios</string>
+    <string name="posbskdmg">Dominio Berserker</string>
+    <string name="posdistdmg">Dominio Distancia</string>
+    <string name="posareadmg">Dominio Zona</string>
+    <string name="posonedmg">Dominio Monobjetivo</string>
+    <string name="poscacdmg">Dominio Cuerpo a cuerpo</string>
+    <string name="posbackdmg">Dominio Espalda</string>
+    <string name="posrescritical">Resistencia a Crítico</string>
+    <string name="posresbackdmg">Resistencia por la Espalda</string>
+    <string name="posCChance">% Golpe Crítico</string>
+    <string name="posSab">% a la Sabiduría</string>
+    <string name="posHeal">Dominio Cura</string>
+    <string name="posDC">Dominio Crítico</string>
+    <string name="posIni">de Iniciativa</string>
+    <string name="posffogo">Niv. de hechizos Fuego</string>
+    <string name="posfagua">Niv. de hechizos Agua</string>
+    <string name="posfar">Niv. de hechizos Aire</string>
+    <string name="posfterra">Niv. de hechizos Tierra</string>
+    <string name="posfgeral">Niv. a hechizos Elementales</string>
+    <string name="posdmgfogo">Dominio Fuego</string>
+    <string name="posdmgagua">Dominio Agua</string>
+    <string name="posdmgar">Dominio Aire</string>
+    <string name="posdmgterra">Dominio Tierra</string>
+    <string name="posartequipar">Instrucción Militar</string>
+    <string name="posminertake">% de cantidad de Recolección de minerales</string>
+    <string name="posmovespeed">% de velocidad de desplazamiento</string>
+
+    <string name="ate">até</string>
+    <string name="errorname">Escribe un nombre para Build.</string>
+    <string name="errorNivel">El Lv . sólo hay un mínimo para Lv . máximo.</string>
+    <string name="buscaNull">La búsqueda termina sin resultados.</string>
+    <string name="encontrados1">La búsqueda encontró </string>
+    <string name="encontrados2">artículo.</string>
+    <string name="errorNivelNull">Preencha os niveis para buscar.</string>
+    <string name="buildnotset">Crear y / o seleccionar una Build para añadir el artículo</string>
+    <string name="elmoadd">Casco añadido el Build</string>
+    <string name="elmotrade">Cambio de casco en Build</string>
+    <string name="amuadd">Amuleto añadido el Build</string>
+    <string name="amutrade">Cambio de Amuleto en Build</string>
+    <string name="w1hadd">Arma de una Mano añadido el Build</string>
+    <string name="w1htrade">Cambio de Arma de una Mano en Build</string>
+    <string name="w2hadd">Arma de dos Manos añadido el Build</string>
+    <string name="w2htrade">Cambio de Arma de dos mano en Build</string>
+    <string name="botaadd">Bota añadido el Build</string>
+    <string name="botatrade">Cambio de Bota en Build</string>
+    <string name="capaadd">Capa añadido el Build</string>
+    <string name="capatrade">Cambio de Capa en Build</string>
+    <string name="peitoraladd">Coraza añadido el Build</string>
+    <string name="peitoraltrade">Cambio de Coraza en Build</string>
+    <string name="dragadd">Hombrera añadido el Build</string>
+    <string name="dragtrade">Cambio de Hombrera en Build</string>
+    <string name="cintadd">Cinturón añadido el Build</string>
+    <string name="cinttrade">Cambio de Cinturón en Build</string>
+    <string name="armsecadd">Segunda Mano añadido el Build</string>
+    <string name="armsectrade">Cambio de Segunda Mano en Build</string>
+    <string name="anel1add">Anillo 1 añadido el Build</string>
+    <string name="anel1trade">Cambio de Anillo 1 en Build</string>
+    <string name="anel2add">Anillo 2 añadido el Build</string>
+    <string name="anel2trade">Cambio de Anillo 2 en Build</string>
+    <string name="petadd">Mascota añadido el Build</string>
+    <string name="pettrade">Cambio de Mascota en Build</string>
+    <string name="insadd">Insignia añadido el Build</string>
+    <string name="instrade">Cambio de Insignia en Build</string>
+    <string name="pretroca">Estás con el artículo: </string>
+    <string name="w2ht">(Segunda Mano)</string>
+    <string name="postroca">¿Quieres cambiar de: </string>
+    <string name="pretrocaanel">Estás con los anillos:</string>
+    <string name="pretrocaanel1">Anillo 1:</string>
+    <string name="pretrocaanel2">Anillo 2: </string>
+    <string name="postrocaanel">Que desea para el comercio de:</string>
+    <string name="pretroca2h">Su arma actual es de una mano (</string>
+    <string name="postroca2h">) usted quiere operar para:</string>
+    <string name="conditiontroca2h">(La segunda arma de mano también se eliminará)</string>
+    <string name="montadd">Montura añadido el Build</string>
+    <string name="monttrade">Cambio de Montura en Build</string>
+    <string name="remover">¿Quieres eliminar el artículo:</string>
+    <string name="itemremove">Artículo eliminó en construcción</string>
+
+    <!-- Status -->
+    <string-array name="stats">
+        <item>Todas</item>
+        <item>PA</item>
+        <item>PM</item>
+        <item>Alcance</item>
+        <item>Control</item>
+        <item>Puntos de Vida</item>
+        <item>Dominio Elemental</item>
+        <item>Curas</item>
+        <item>Anticipación</item>
+        <item>Golpe Critico</item>
+        <item>Dominio Espalda</item>
+        <item>Dominio Distancia</item>
+        <item>Dominio Cuerpo a cuerpo</item>
+        <item>Dominio Zona</item>
+        <item>Dominio Monobjetivo</item>
+        <item>Dominio de 1 elementos aleatorios</item>
+        <item>Dominio de 2 elementos aleatorios</item>
+        <item>Dominio de 3 elementos aleatorios</item>
+        <item>Dominio Agua</item>
+        <item>Dominio Fuego</item>
+        <item>Dominio Tierra</item>
+        <item>Dominio Aire</item>
+        <item>Esquiva</item>
+        <item>Dominio Critico</item>
+        <item>Iniciativa</item>
+        <item>Placaje</item>
+        <item>Prospección</item>
+        <item>Sabiduría</item>
+        <item>PW Maximo</item>
+        <item>Resistencia Elemental</item>
+        <item>Resistencia a 1 elementos aleatorios</item>
+        <item>Resistencia a 2 elementos aleatorios</item>
+        <item>Resistencia a 3 elementos aleatorios</item>
+        <item>Resistencia Agua</item>
+        <item>Resistencia Fuego</item>
+        <item>Resistencia Tierra</item>
+        <item>Resistencia Aire</item>
+        <item>Resistencia por la Espalda</item>
+        <item>Resistencia a Crítico</item>
+        <item>PM Resistencia eliminación</item>
+        <item>PA Resistencia eliminación</item>
+        <item>PW</item>
+        <item>Estadísticas</item>
+        <item>Puntos de Vida (JCJ)</item>
+        <item>Instrucción Militar</item>
+        <item>Niv. de hechizos Agua</item>
+        <item>Niv. de hechizos Fuego</item>
+        <item>Niv. de hechizos Tierra</item>
+        <item>Niv. de hechizos Aire</item>
+        <item>Niv. a hechizos Elementales</item>
+        <item>Velocidad de Desplazamiento</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

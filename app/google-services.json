@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "503029112369",
+    "firebase_url": "https://builds-wakfu-17dbe.firebaseio.com",
+    "project_id": "builds-wakfu-17dbe",
+    "storage_bucket": "builds-wakfu-17dbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503029112369:android:84de698cd2887d40",
+        "android_client_info": {
+          "package_name": "com.buildswakfu.rodrigo.buildswakfu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503029112369-hljcm09fb1rve9oi5ht4as0960rif6rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.buildswakfu.rodrigo.buildswakfu",
+            "certificate_hash": "1096bd000f8f7cd61cc0d9f26e99b5ae1713c3b1"
+          }
+        },
+        {
+          "client_id": "503029112369-biqrmoh50i3u161f5p6mcvtj36hrh4ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrgT2-Zc4yHz1Q5oRvECHiG_Xsb48h_Sg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503029112369-biqrmoh50i3u161f5p6mcvtj36hrh4ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
