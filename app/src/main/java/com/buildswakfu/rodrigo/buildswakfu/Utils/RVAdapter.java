@@ -1,6 +1,7 @@
 package com.buildswakfu.rodrigo.buildswakfu.Utils;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -9,8 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -1378,6 +1382,157 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
         }
     }
 
+    private void showTradeDialog(final Context context, String preTroca, String posTroca, final Item item1, final Item item2, final Item item3, final String toastResp, final String toastResp2){
+        final Dialog d = new Dialog(sscren.getContext());
+        d.setTitle(context.getResources().getString(R.string.trocaitem));
+        d.setContentView(R.layout.item_trade_dialog);
+        TextView txPreTroca = (TextView) d.findViewById(R.id.item_view_pretroca);
+        txPreTroca.setText(preTroca);
+        TextView txPosTroca = (TextView) d.findViewById(R.id.item_view_postroca);
+        txPosTroca.setText(posTroca);
+        Button b1 = (Button) d.findViewById(R.id.item_view_trade);
+        Button b2 = (Button) d.findViewById(R.id.item_view_cancel);
+        ItemComponent lItem1 = (ItemComponent) d.findViewById(R.id.item1);
+        lItem1.setItem(item1);
+        ItemComponent lItem2 = (ItemComponent) d.findViewById(R.id.item2);
+        lItem2.setItem(item2);
+        if(item3!=null){
+            RelativeLayout rland = (RelativeLayout) d.findViewById(R.id.rl_and);
+            LinearLayout.LayoutParams lpand = (LinearLayout.LayoutParams) rland.getLayoutParams();
+            lpand.height = RecyclerView.LayoutParams.WRAP_CONTENT;
+            rland.setLayoutParams(lpand);
+
+            ItemComponent lItem3 = (ItemComponent) d.findViewById(R.id.item3);
+            LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) lItem3.getLayoutParams();
+            lp.height = RecyclerView.LayoutParams.WRAP_CONTENT;
+            lItem3.setLayoutParams(lp);
+            lItem3.setItem(item3);
+
+            if(item1.getTipo().equals("anel")) {
+                Button b3 = (Button) d.findViewById(R.id.item_view_trade2);
+                RelativeLayout.LayoutParams lpButton = (RelativeLayout.LayoutParams) b3.getLayoutParams();
+                lpButton.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
+                lpButton.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
+                b3.setLayoutParams(lpButton);
+
+                b1.setText(context.getResources().getString(R.string.ring1));
+                b3.setText(context.getResources().getString(R.string.ring2));
+                b3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        switch (item2.getTipo()) {
+                            case "elm":
+                                MainActivity.build.setElmo(item2, context);
+                                break;
+                            case "amu":
+                                MainActivity.build.setAmuleto(item2, context);
+                                break;
+                            case "w1h":
+                                MainActivity.build.setArmamain(item2, context);
+                                break;
+                            case "bot":
+                                MainActivity.build.setBota(item2, context);
+                                break;
+                            case "cap":
+                                MainActivity.build.setCapa(item2, context);
+                                break;
+                            case "drag":
+                                MainActivity.build.setDragona(item2, context);
+                                break;
+                            case "pei":
+                                MainActivity.build.setPeitoral(item2, context);
+                                break;
+                            case "pet":
+                                MainActivity.build.setPet(item2, context);
+                                break;
+                            case "mont":
+                                MainActivity.build.setMontaria(item2, context);
+                                break;
+                            case "cint":
+                                MainActivity.build.setCinto(item2, context);
+                                break;
+                            case "anel":
+                                MainActivity.build.setAnel2(item2, context);
+                                break;
+                            case "w2h":
+                                MainActivity.build.setArmamain(item2, context);
+                                break;
+                            case "wsec":
+                                MainActivity.build.setArmasec(item2, context);
+                                break;
+                        }
+                        Toast.makeText(context, toastResp2 + " " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
+                        d.dismiss();
+                    }
+                });
+            }else{
+                TextView txAnd = (TextView) d.findViewById(R.id.tx_and);
+                txAnd.setText(context.getResources().getString(R.string.conditiontroca2h));
+            }
+        }
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (item2.getTipo()) {
+                    case "elm":
+                        MainActivity.build.setElmo(item2, context);
+                        break;
+                    case "amu":
+                        MainActivity.build.setAmuleto(item2, context);
+                        break;
+                    case "w1h":
+                        MainActivity.build.setArmamain(item2, context);
+                        if(item1.getTipo().equals("w2h")){
+                            MainActivity.build.setArmasec(new Item(), context);
+                        }
+                        break;
+                    case "bot":
+                        MainActivity.build.setBota(item2, context);
+                        break;
+                    case "cap":
+                        MainActivity.build.setCapa(item2, context);
+                        break;
+                    case "drag":
+                        MainActivity.build.setDragona(item2, context);
+                        break;
+                    case "pei":
+                        MainActivity.build.setPeitoral(item2, context);
+                        break;
+                    case "pet":
+                        MainActivity.build.setPet(item2, context);
+                        break;
+                    case "mont":
+                        MainActivity.build.setMontaria(item2, context);
+                        break;
+                    case "cint":
+                        MainActivity.build.setCinto(item2, context);
+                        break;
+                    case "anel":
+                        MainActivity.build.setAnel1(item2, context);
+                        break;
+                    case "w2h":
+                        MainActivity.build.setArmamain(item2, context);
+                        break;
+                    case "wsec":
+                        MainActivity.build.setArmasec(item2, context);
+                        if(item1.getTipo().equals("w2h")) {
+                            MainActivity.build.setArmamain(new Item(), context);
+                        }
+                        break;
+                }
+                Toast.makeText(context, toastResp +" " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
+                d.dismiss();
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss(); // dismiss the dialog
+            }
+        });
+        d.show();
+    }
+
     private class onClickHandler implements View.OnClickListener{
         Item it;
         public onClickHandler(Item it){
@@ -1395,20 +1550,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setMontaria(it, v.getContext());
                             Toast.makeText(context, context.getResources().getString(R.string.montadd) + " " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builderelm = new AlertDialog.Builder(context);
-                            builderelm.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca) + " " + MainActivity.build.getMontaria().getNome() + ".\n" + context.getResources().getString(R.string.postroca) + " " + it.getNome() + "?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setMontaria(it, context);
-                                            Toast.makeText(context, context.getResources().getString(R.string.monttrade) +" " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alertelm = builderelm.create();
-                            alertelm.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getMontaria(),it, null,
+                                    context.getResources().getString(R.string.monttrade),null);
                         }
                         break;
                     case "elm":
@@ -1416,20 +1560,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setElmo(it, context);
                             Toast.makeText(context, context.getResources().getString(R.string.elmoadd) + " " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builderelm = new AlertDialog.Builder(context);
-                            builderelm.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca) + " " + MainActivity.build.getElmo().getNome() + ".\n" + context.getResources().getString(R.string.postroca) + " " + it.getNome() + "?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setElmo(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.elmotrade) + " " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alertelm = builderelm.create();
-                            alertelm.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getElmo(), it, null,
+                                    context.getResources().getString(R.string.elmotrade), null);
                         }
                         break;
                     case "amu":
@@ -1437,20 +1570,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setAmuleto(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.amuadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getAmuleto().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setAmuleto(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.amutrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getAmuleto(), it, null,
+                                    context.getResources().getString(R.string.amutrade), null);
                         }
                         break;
                     case "w1h":
@@ -1458,20 +1580,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setArmamain(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.w1hadd) +" " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getArmamain().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setArmamain(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.w1htrade) +" " + MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getArmamain(), it, null,
+                                    context.getResources().getString(R.string.w1htrade), null);
                         }
                         break;
                     case "w2h":
@@ -1479,37 +1590,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setArmamain(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.w2hadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else if(MainActivity.build.getArmamain().getTipo().equals("w1h")){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca2h)+" "+MainActivity.build.getArmamain().getNome()+ context.getResources().getString(R.string.postroca2h)+it.getNome()+"?\n"+context.getResources().getString(R.string.conditiontroca2h))
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setArmamain(it, context.getApplicationContext());
-                                            MainActivity.build.setArmasec(new Item(), context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.w2htrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca2h),context.getResources().getString(R.string.postroca2h),
+                                    MainActivity.build.getArmamain(), it, MainActivity.build.getArmasec(),
+                                    context.getResources().getString(R.string.w2htrade), null);
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getArmamain().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setArmamain(it, context.getApplicationContext());
-                                            MainActivity.build.setArmasec(new Item(), context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.w2htrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getArmamain(), it, null,
+                                    context.getResources().getString(R.string.w2htrade), null);
                         }
                         break;
                     case "bot":
@@ -1517,20 +1604,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setBota(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.botaadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getBota().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setBota(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.botatrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getBota(), it, null,
+                                    context.getResources().getString(R.string.botatrade), null);
                         }
                         break;
                     case "cap":
@@ -1538,21 +1614,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setCapa(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.capaadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getCapa().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setCapa(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.capatrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getCapa(), it, null,
+                                    context.getResources().getString(R.string.capatrade), null);
                         }
                         break;
                     case "pei":
@@ -1560,21 +1624,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setPeitoral(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.peitoraladd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getPeitoral().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setPeitoral(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.peitoraltrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getPeitoral(), it, null,
+                                    context.getResources().getString(R.string.peitoraltrade), null);
                         }
                         break;
                     case "drag":
@@ -1582,21 +1634,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setDragona(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.dragadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getDragona().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setDragona(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.dragtrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getDragona(), it, null,
+                                    context.getResources().getString(R.string.dragtrade), null);
                         }
                         break;
                     case "cint":
@@ -1604,21 +1644,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setCinto(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.cintadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getCinto().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setCinto(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.cinttrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getCinto(), it, null,
+                                    context.getResources().getString(R.string.cinttrade), null);
                         }
                         break;
                     case "wsec":
@@ -1630,39 +1658,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                                 MainActivity.build.setArmasec(it, context.getApplicationContext());
                                 Toast.makeText(context, context.getResources().getString(R.string.armsecadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                             }else{
-                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                                builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                        .setTitle(R.string.trocaitem)
-                                        .setMessage(context.getResources().getString(R.string.pretroca) + " " + MainActivity.build.getArmasec().getNome() + ".\n" + context.getResources().getString(R.string.postroca) + " " + it.getNome() + "?")
-                                        .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                MainActivity.build.setArmasec(it, context.getApplicationContext());
-                                                Toast.makeText(context, context.getResources().getString(R.string.armsectrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                            }
-
-                                        })
-                                        .setNegativeButton(R.string.nao, null);
-                                AlertDialog alert = builder.create();
-                                alert.show();
+                                showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                        MainActivity.build.getArmasec(), it, null,
+                                        context.getResources().getString(R.string.armsectrade), null);
                             }
                         }else if(MainActivity.build.getArmamain().getTipo().equals("w2h")){
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca) + " " + MainActivity.build.getArmamain().getNome() + context.getResources().getString(R.string.w2ht) + ".\n" + context.getResources().getString(R.string.postroca) + " " + it.getNome() + "?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setArmamain(new Item(), context.getApplicationContext());
-                                            MainActivity.build.setArmasec(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.armsectrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getArmamain(), it, null,
+                                    context.getResources().getString(R.string.armsectrade), null);
                         }
                         break;
                     case "anel":
@@ -1673,29 +1676,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setAnel2(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.anel2add) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         } else {
-                            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretrocaanel)+"\n"+ context.getResources().getString(R.string.pretrocaanel1)+MainActivity.build.getAnel1().getNome()+"\n"+ context.getResources().getString(R.string.pretrocaanel2)+
-                                            MainActivity.build.getAnel2().getNome()+"\n"+ context.getResources().getString(R.string.postrocaanel)+it.getNome()+"?")
-                                    .setPositiveButton("2", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setAnel2(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.anel2trade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNeutralButton("1", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setAnel1(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.anel1trade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getAnel1(), it, MainActivity.build.getAnel2(),
+                                    context.getResources().getString(R.string.anel1trade),context.getResources().getString(R.string.anel2trade));
                         }
                         break;
                     case "pet":
@@ -1703,21 +1686,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setPet(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.petadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         } else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getPet().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setPet(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.pettrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getPet(), it, null,
+                                    context.getResources().getString(R.string.pettrade), null);
                         }
                         break;
                     case "ins":
@@ -1725,21 +1696,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
                             MainActivity.build.setInsignia(it, context.getApplicationContext());
                             Toast.makeText(context, context.getResources().getString(R.string.insadd) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
                         } else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                                    .setTitle(R.string.trocaitem)
-                                    .setMessage(context.getResources().getString(R.string.pretroca)+" "+MainActivity.build.getInsignia().getNome()+".\n"+ context.getResources().getString(R.string.postroca)+" "+it.getNome()+"?")
-                                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            MainActivity.build.setInsignia(it, context.getApplicationContext());
-                                            Toast.makeText(context, context.getResources().getString(R.string.instrade) +" "+ MainActivity.build.getNome(), Toast.LENGTH_LONG).show();
-                                        }
-
-                                    })
-                                    .setNegativeButton(R.string.nao, null);
-                            AlertDialog alert = builder.create();
-                            alert.show();
+                            showTradeDialog(context,context.getResources().getString(R.string.pretroca),context.getResources().getString(R.string.postroca),
+                                    MainActivity.build.getInsignia(), it, null,
+                                    context.getResources().getString(R.string.instrade), null);
                         }
                         break;
                 }

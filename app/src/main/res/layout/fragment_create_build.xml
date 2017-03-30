@@ -79,13 +79,15 @@
                 android:text="@string/txnivel"
                 android:id="@+id/txnivel"/>
 
-            <NumberPicker
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/txnivel"
+                android:text="200"
+                android:textAlignment="center"
                 android:id="@+id/Numberpickerlevel">
 
-            </NumberPicker>
+            </TextView>
 
         </RelativeLayout>
 
@@ -154,11 +156,23 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnLimpar"
+                android:id="@+id/btnCancel"
+                android:text="@string/cancelar"
                 android:padding="6dp"
+                android:background="@drawable/circle"
+                android:textColor="@color/blank"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLimpar"
+                android:layout_toRightOf="@id/btnCancel"
+                android:padding="6dp"
+
+                android:layout_marginLeft="15dp"
                 android:textColor="@color/blank"
                 android:text="@string/limpar"
-                android:background="@color/colorPrimary"/>
+                android:background="@drawable/circle"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -168,8 +182,10 @@
                 android:layout_toRightOf="@+id/btnLimpar"
                 android:padding="6dp"
                 android:layout_marginLeft="15dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/circle"
                 android:textColor="@color/blank"/>
+
+
 
         </RelativeLayout>
 

@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv_itens">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ll_itens"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_preMessage">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:id="@+id/item_view_pretroca"
+                    android:text="@string/pretroca"/>
+
+            </RelativeLayout>
+
+            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+                android:id="@+id/item1"
+                android:layout_below="@+id/rl_preMessage"
+                android:padding="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/rl_and"
+                android:layout_below="@+id/item2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:id="@+id/tx_and"
+                    android:text="@string/and"/>
+
+            </RelativeLayout>
+
+            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+                android:layout_below="@id/rl_and"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="3dp"
+                android:id="@+id/item3"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_posMessage"
+                android:layout_below="@+id/item3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:id="@+id/item_view_postroca"
+                    android:text="@string/postroca"/>
+
+            </RelativeLayout>
+
+            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+                android:layout_below="@id/rl_posMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:id="@+id/item2"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true">
+
+                <Button
+                    android:id="@+id/item_view_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle"
+                    android:text="@string/cancelar" />
+
+                <Button
+                    android:id="@+id/item_view_trade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/item_view_cancel"
+                    android:background="@drawable/circle"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/accept"/>
+
+                <Button
+                    android:id="@+id/item_view_trade2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_toRightOf="@+id/item_view_trade"
+                    android:background="@drawable/circle"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/accept"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

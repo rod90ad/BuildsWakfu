@@ -15,6 +15,9 @@
     <string name="resistp">Resistence Priority:</string>
     <string name="criar">Create</string>
     <string name="limpar">Clear</string>
+    <string name="cancelar">Cancel</string>
+    <string name="set">Set</string>
+    <string name="and">and</string>
     <string name="createbuildsucess">Sucess on create Build!</string>
     <string name="errornamesame">Builds can\'t have same name.</string>
     <string name="backmsg">"Tap back again to exit"</string>
@@ -24,6 +27,11 @@
         <item>Builds</item>
         <item>Top Builds</item>
         <item>Setting</item>
+    </string-array>
+    <string-array name="viewscreens">
+        <item>Build</item>
+        <item>Points</item>
+        <item>Skills</item>
     </string-array>
 
     <!-- Import Variables -->
@@ -142,7 +150,8 @@
 
     <!-- strings do search -->
     <string name="trocaitem">Trade of Item</string>
-    <string name="deletebuild">Exclude Build</string>
+    <string name="deletebuild">Delete</string>
+    <string name="sharebuild">Share</string>
     <string name="tiraitem">Remove Item</string>
     <string name="nivel">Level</string>
     <string name="noStats">Without Stats</string>
@@ -233,12 +242,12 @@
     <string name="w2ht">(Two-Handed)</string>
     <string name="postroca">Want change to: </string>
     <string name="pretrocaanel">You are with the Rings:</string>
-    <string name="pretrocaanel1">Ring 1:</string>
-    <string name="pretrocaanel2">Ring 2: </string>
+    <string name="ring1">Ring 1</string>
+    <string name="ring2">Ring 2</string>
     <string name="postrocaanel">Which you want to trade for:</string>
-    <string name="pretroca2h">Your current weapon is One-Handed (</string>
-    <string name="postroca2h">) you want to trade for:</string>
-    <string name="conditiontroca2h">(The Second Hand Weapon will also be removed)</string>
+    <string name="pretroca2h">Your current weapon is One-Handed :</string>
+    <string name="postroca2h">you want to trade for:</string>
+    <string name="conditiontroca2h">(The Second Hand Weapon will also be removed):</string>
     <string name="montadd">Mount added on Build</string>
     <string name="monttrade">Mount change on Build</string>
     <string name="remover">You want remove the item:</string>
@@ -301,4 +310,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_build">ViewBuildActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

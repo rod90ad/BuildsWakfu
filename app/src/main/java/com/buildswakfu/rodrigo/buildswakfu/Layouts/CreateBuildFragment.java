@@ -1,12 +1,15 @@
 package com.buildswakfu.rodrigo.buildswakfu.Layouts;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -51,13 +54,14 @@ public class CreateBuildFragment extends Fragment {
 
     //elementos do layout
     private Spinner spnClass;
-    private NumberPicker numberpickerLevel;
+    private TextView numberpickerLevel;
     private Spinner spnElementp;
     private Spinner spnresp;
     private Button limpar;
+    private Button cancelar;
     private Button criar;
     private EditText txnome;
-    private CreateBuildFragment createBuildFragment;
+    private static BuildsFragment buildsFragment;
     private View rootView;
     private Tracker mTracker;
 
@@ -65,7 +69,7 @@ public class CreateBuildFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     public CreateBuildFragment() {
-        this.createBuildFragment = this;
+
     }
 
     /**
@@ -77,11 +81,11 @@ public class CreateBuildFragment extends Fragment {
      * @return A new instance of fragment CreateBuildFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreateBuildFragment newInstance(String param1, String param2) {
+    public static CreateBuildFragment newInstance(String param1, BuildsFragment param2) {
         CreateBuildFragment fragment = new CreateBuildFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        buildsFragment = param2;
         fragment.setArguments(args);
         return fragment;
     }
@@ -204,12 +208,70 @@ public class CreateBuildFragment extends Fragment {
         }
     }
 
-    public void Limpar(){
+    private void Cancelar(){
+        buildsFragment.setRV();
+        this.onDestroy();
+    }
+
+    private void Limpar(){
         txnome.setText("");
         spnClass.setSelection(0);
-        numberpickerLevel.setValue(1);
+        numberpickerLevel.setText("1");
         spnElementp.setSelection(0);
         spnresp.setSelection(0);
+    }
+
+    private void Criar(View v){
+        //EditText text = (EditText) ma.findViewById(R.id.txNome);
+        if (txnome.getText() == null || txnome.getText().toString().equals("")) {
+            Toast.makeText(v.getContext(), R.string.errorname, Toast.LENGTH_LONG).show();
+        } else {
+            Build build = new Build();
+            build.setClasse(spnClass.getSelectedItemPosition());
+            build.setNivel(Integer.parseInt(numberpickerLevel.getText().toString()));
+            String nome = txnome.getText().toString().trim();
+            build.setNome(nome);
+            build.setElementp(spnElementp.getSelectedItemPosition());
+            build.setResistp(spnresp.getSelectedItemPosition());
+            if (new BD(v.getContext()).verificaBuild(nome)) {
+                MainActivity.bd.salvaBuild(build);
+                Toast.makeText(v.getContext(), R.string.createbuildsucess, Toast.LENGTH_LONG).show();
+                Limpar();
+                buildsFragment.setRV();
+                this.onDestroy();
+            } else {
+                Toast.makeText(v.getContext(), R.string.errornamesame, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+
+
+    private void ShowNumberPicker() {
+        final Dialog d = new Dialog(getContext());
+        d.setTitle("NumberPicker");
+        d.setContentView(R.layout.dialog);
+        Button b1 = (Button) d.findViewById(R.id.button1);
+        Button b2 = (Button) d.findViewById(R.id.button2);
+        final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
+        np.setMaxValue(200); // max value 100
+        np.setMinValue(0);   // min value 0
+        np.setWrapSelectorWheel(true);
+        //np.setOnValueChangedListener(MainActivity.this);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberpickerLevel.setText(String.valueOf(np.getValue())); //set the value to textview
+                d.dismiss();
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.dismiss(); // dismiss the dialog
+            }
+        });
+        d.show();
     }
 
     @Override
@@ -218,9 +280,6 @@ public class CreateBuildFragment extends Fragment {
 
         if(rootView==null) {
             rootView = inflater.inflate(R.layout.fragment_create_build, container, false);
-
-            int screen_width = Resources.getSystem().getDisplayMetrics().widthPixels;
-            int screen_height = Resources.getSystem().getDisplayMetrics().heightPixels;
 
             //spiner de classe
             spnClass = (Spinner) rootView.findViewById(R.id.spinnerclass);
@@ -316,6 +375,14 @@ public class CreateBuildFragment extends Fragment {
             //texto nome
             txnome = (EditText) rootView.findViewById(R.id.txNome);
 
+            cancelar = (Button) rootView.findViewById(R.id.btnCancel);
+            cancelar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Cancelar();
+                }
+            });
+
             //botão limpar
             limpar = (Button) rootView.findViewById(R.id.btnLimpar);
             limpar.setOnClickListener(new View.OnClickListener() {
@@ -325,14 +392,21 @@ public class CreateBuildFragment extends Fragment {
                 }
             });
 
-            numberpickerLevel = (NumberPicker) rootView.findViewById(R.id.Numberpickerlevel);
-            numberpickerLevel.setMinValue(1);
-            numberpickerLevel.setMaxValue(200);
-            numberpickerLevel.setWrapSelectorWheel(true);
-            RelativeLayout.LayoutParams lpright = (RelativeLayout.LayoutParams) numberpickerLevel.getLayoutParams();
-            lpright.height = screen_height / 15;
-            numberpickerLevel.setLayoutParams(lpright);
-            numberpickerLevel.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+            criar = (Button) rootView.findViewById(R.id.btnCriar);
+            criar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Criar(v);
+                }
+            });
+
+            numberpickerLevel = (TextView) rootView.findViewById(R.id.Numberpickerlevel);
+            numberpickerLevel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ShowNumberPicker();
+                }
+            });
         }
         return rootView;
     }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_rl_top"
+            android:background="@color/cz1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:id="@+id/grid_top">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:weightSum="1"
+                    android:id="@+id/item_rl_icon">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/item_view_image"
+                        android:background="@drawable/bg_item"/>
+
+                    <ImageView
+                        android:layout_width="36px"
+                        android:layout_height="36px"
+                        android:id="@+id/item_view_rarity"
+                        android:src="@drawable/lendario"/>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:orientation="vertical"
+                    android:weightSum="1"
+                    android:id="@+id/item_rl_nomes">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:id="@+id/scroll_nome"
+                        android:scrollbars="none">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="6dp">
+
+                            <ImageView
+                                android:layout_width="66px"
+                                android:layout_height="66px"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/item_view_tipo"
+                                android:src="@drawable/mao1"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48px"
+                                android:maxLines="1"
+                                android:id="@+id/item_view_name"
+                                android:layout_toRightOf="@+id/item_view_tipo"
+                                android:layout_centerVertical="true"
+                                android:textSize="18sp"
+                                android:text="Cartas de Presas"/>
+
+                        </RelativeLayout>
+
+                    </HorizontalScrollView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:padding="6dp"
+                        android:layout_below="@+id/scroll_nome">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/item_view_nivel"
+                            android:text="Nivel: 195" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_rl_top"
+            android:columnCount="1"
+            android:rowCount="1"
+            android:id="@+id/grid_view_stats">
+        </GridLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

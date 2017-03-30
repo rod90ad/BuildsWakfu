@@ -1,0 +1,1787 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/frag_view_build"
+    tools:context="layout.ViewBuildFragment"
+    android:background="@drawable/view_items">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_rl_head">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cra_head"
+                        android:id="@+id/view_head"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_nivel"
+                        android:text="Nv. 180"
+                        android:textColor="@color/nivel"
+                        android:textSize="15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_nome"
+                        android:text="Blooddrunk"
+                        android:textSize="18dp"
+                        android:layout_toLeftOf="@+id/view_nivel"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/blank"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/view_rl_itens"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_head">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/itens1"
+                        android:weightSum="7">
+
+                        <ImageButton
+                            android:id="@+id/capa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/capa_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/elmo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/elmo_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/drag"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/drag_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/amu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/amu_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/anel1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/anel1_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/anel2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/anel2_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/cint"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/cinto_empty"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/itens1"
+                        android:layout_marginTop="2dp"
+                        android:weightSum="7">
+
+                        <ImageButton
+                            android:id="@+id/wsec"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/segmao_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/wmain"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/armamain_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/pei"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/peitoral_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/bota"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bota_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/ins"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/insignia_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/pet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/pet_empty"/>
+
+                        <ImageButton
+                            android:id="@+id/mont"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/pet_empty"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_rl_statsprim"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_itens">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_pv">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/view_pv"
+                                android:text="5000"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="6dp"
+                                android:textColor="@color/hp"
+                                android:textStyle="bold"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_pa">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/view_pa"
+                                android:text="12"
+                                android:textColor="@color/pa"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="6dp"
+                                android:textStyle="bold"
+                                android:layout_weight="1"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_pm">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/view_pm"
+                                android:text="6"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="6dp"
+                                android:textColor="@color/pm"
+                                android:textStyle="bold"
+                                android:layout_weight="1"/>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_pw">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/view_pw"
+                                android:text="6"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="6dp"
+                                android:textColor="@color/pw"
+                                android:textStyle="bold"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/view_titulo_damage"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_statsprim"
+                    android:background="@drawable/title_bar">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_titulo1_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/blank"
+                        android:text="@string/maestria"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_rl_dmg"
+                    android:layout_below="@+id/view_titulo_damage"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_dmg1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/water_dmg"
+                                    android:src="@drawable/agua_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/water_dmg_icon"
+                                    android:layout_toRightOf="@+id/water_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_water"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/water_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_water"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_water"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/terra_dmg"
+                                    android:src="@drawable/terra_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/terra_dmg_icon"
+                                    android:layout_toRightOf="@+id/terra_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_terra"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/terra_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_terra"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_terra"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view_dmg1"
+                        android:layout_marginTop="1dp"
+                        android:id="@+id/view_dmg2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/ar_dmg"
+                                    android:src="@drawable/ar_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/ar_dmg_icon"
+                                    android:layout_toRightOf="@+id/ar_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_ar"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/ar_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_ar"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_ar"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/fogo_dmg"
+                                    android:src="@drawable/fogo_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/fogo_dmg_icon"
+                                    android:layout_toRightOf="@+id/fogo_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_fogo"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/fogo_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_fogo"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_fogo"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view_dmg2"
+                        android:layout_marginTop="1dp"
+                        android:id="@+id/view_dmg3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/pa_dmg"
+                                    android:src="@drawable/pa_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/pa_dmg_icon"
+                                    android:layout_toRightOf="@+id/pa_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_pa"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/pa_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_pa"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_pa"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/dmg_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/pm_dmg"
+                                    android:src="@drawable/pm_dmg"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/dmg_icon"
+                                    android:id="@+id/pm_dmg_icon"
+                                    android:layout_toRightOf="@+id/pm_dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_dmg_pm"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/pm_dmg_icon"
+                                    android:text="570"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dmg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_res_pm"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="8dp"
+                                    android:text="400"
+                                    android:textColor="@color/dmg"
+                                    android:textStyle="bold"/>
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toLeftOf="@+id/view_res_pm"
+                                    android:src="@drawable/escudo_icon"
+                                    android:layout_marginRight="5dp"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/view_titulo_batalha"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_dmg"
+                    android:background="@drawable/title_bar">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_titulo2_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/blank"
+                        android:text="@string/batalha"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_titulo_batalha"
+                    android:id="@+id/view_rl_batalha"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/danoscausados"
+                                    android:src="@drawable/danoscausados_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/danoscausados"
+                                    android:maxLines="1"
+                                    android:text="@string/danofinal"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_danofinal"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/curasrealizadas"
+                                    android:src="@drawable/curasrealizadas_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/curasrealizadas"
+                                    android:maxLines="1"
+                                    android:text="@string/curas"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_curas"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha2"
+                        android:layout_below="@+id/view_rl_batalha1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/golpescriticos"
+                                    android:src="@drawable/golpecritico_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/golpescriticos"
+                                    android:maxLines="1"
+                                    android:text="@string/golpecritico"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_golpecritico"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/parada"
+                                    android:src="@drawable/parada_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/parada"
+                                    android:maxLines="1"
+                                    android:text="@string/parada"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_parada"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha3"
+                        android:layout_below="@+id/view_rl_batalha2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/iniciativa"
+                                    android:src="@drawable/iniciativa_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/iniciativa"
+                                    android:maxLines="1"
+                                    android:text="@string/iniciativa"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_iniciativa"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/alcance"
+                                    android:src="@drawable/alcance_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/alcance"
+                                    android:maxLines="1"
+                                    android:text="@string/alcance"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_alcance"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha4"
+                        android:layout_below="@+id/view_rl_batalha3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/esquiva"
+                                    android:src="@drawable/esquiva_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/esquiva"
+                                    android:maxLines="1"
+                                    android:text="@string/esquiva"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_esquiva"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/bloqueio"
+                                    android:src="@drawable/bloqueio_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/bloqueio"
+                                    android:maxLines="1"
+                                    android:text="@string/bloqueio"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_bloqueio"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha5"
+                        android:layout_below="@+id/view_rl_batalha4">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/sabedoria"
+                                    android:src="@drawable/sabedoria_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/sabedoria"
+                                    android:maxLines="1"
+                                    android:text="@string/sabedoria"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_sabedoria"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/prospecção"
+                                    android:src="@drawable/prospeccao_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/prospecção"
+                                    android:maxLines="1"
+                                    android:text="@string/prospecção"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_prospecção"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_batalha6"
+                        android:layout_below="@+id/view_rl_batalha5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/controle"
+                                    android:src="@drawable/controle_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/controle"
+                                    android:maxLines="1"
+                                    android:text="@string/controle"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_controle"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/arteequipar"
+                                    android:src="@drawable/arteequipar_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/arteequipar"
+                                    android:maxLines="1"
+                                    android:text="@string/arteequipar"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_arteequipar"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/view_titulo_secundario"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_batalha"
+                    android:background="@drawable/title_bar">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_titulo3_text"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/blank"
+                        android:text="@string/Secundario"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_titulo_secundario"
+                    android:id="@+id/view_rl_secundario"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_rl_secundario1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/dominiocritico"
+                                    android:layout_marginLeft="4dp"
+                                    android:src="@drawable/dominiocritico_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/dominiocritico"
+                                    android:maxLines="1"
+                                    android:text="@string/danocritico"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_danocritico"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/batalha_bg">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/resistenciacritica"
+                                    android:layout_marginLeft="4dp"
+                                    android:src="@drawable/resistenciacritica_bg"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/resistenciacritica"
+                                    android:maxLines="1"
+                                    android:text="@string/rescritica"
+                                    android:textSize="10dp"
+                                    android:textColor="@color/text"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/view_rescritico"
+                                    android:textColor="@color/dmg"
+                                    android:maxLines="1"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="10dp"
+                                    android:text="10%"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/view_rl_secundario2"
+                            android:layout_below="@+id/view_rl_secundario1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiocostas"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiocostas_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiocostas"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiocostas"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiocostas"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/rescostas"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/resistenciacostas_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/rescostas"
+                                        android:maxLines="1"
+                                        android:text="@string/rescostas"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_rescostas"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/view_rl_secundario3"
+                            android:layout_below="@+id/view_rl_secundario2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiocac"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiocac_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiocac"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiocac"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiocac"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiodistancia"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiodistancia_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiodistancia"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiodistancia"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiodistancia"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/view_rl_secundario4"
+                            android:layout_below="@+id/view_rl_secundario3">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiounico"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiounico_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiounico"
+                                        android:maxLines="1"
+                                        android:text="@string/dominioalvounico"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiounico"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiozona"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiozona_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiozona"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiozona"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiozona"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/view_rl_secundario5"
+                            android:layout_below="@+id/view_rl_secundario4">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="1">
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominiocura"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominiocura_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominiocura"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiocura"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominiocura"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:background="@drawable/batalha_bg">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/dominioberserk"
+                                        android:layout_marginLeft="4dp"
+                                        android:src="@drawable/dominioberserk_bg"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_toRightOf="@+id/dominioberserk"
+                                        android:maxLines="1"
+                                        android:text="@string/dominiobeserk"
+                                        android:textSize="10dp"
+                                        android:textColor="@color/text"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/view_dominioberserk"
+                                        android:textColor="@color/dmg"
+                                        android:maxLines="1"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="10dp"
+                                        android:text="10%"/>
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view_rl_buttons"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_below="@+id/view_rl_secundario">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/deletebutton"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/circle"
+                        android:text="@string/deletebuild"
+                        android:layout_marginBottom="10dp"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/view_share"
+                        android:layout_centerVertical="true"
+                        android:text="@string/sharebuild"
+                        android:background="@drawable/circle"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_rl_buttons"
+                    android:background="@drawable/end_bg">
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>
