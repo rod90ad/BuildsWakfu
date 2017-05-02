@@ -64,7 +64,7 @@ public class Item{
     private int nvfgeral;
     private int movespeed;
     private int respm;
-    private int respa;
+    private int respa; //51
 
     public Item(){
         //for firebase

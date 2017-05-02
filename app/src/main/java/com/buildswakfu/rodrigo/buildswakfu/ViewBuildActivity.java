@@ -20,9 +20,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.BuildsFragment;
+import com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks.DeckActivesFragment;
+import com.buildswakfu.rodrigo.buildswakfu.Layouts.DecksFragment;
+import com.buildswakfu.rodrigo.buildswakfu.Layouts.PointsBuildFragment;
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.SearchScreenFragment;
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.SettingsFragment;
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.ViewBuildFragment;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.Build;
 
 
@@ -44,6 +48,7 @@ public class ViewBuildActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     public static Build build;
+    private static ViewBuildActivity viewBuildActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +68,12 @@ public class ViewBuildActivity extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
 
         Bundle b = getIntent().getExtras();
-        this.build = MainActivity.bd.getBuild(b.getInt("codigo"));
+        this.build = new BD(getApplicationContext()).getBuild(b.getInt("codigo"));
+        viewBuildActivity = this;
+    }
+
+    public static void dispose(){
+        viewBuildActivity.finish();
     }
 
 
@@ -114,6 +124,8 @@ public class ViewBuildActivity extends AppCompatActivity {
             return fragment;
         }
 
+
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -131,7 +143,9 @@ public class ViewBuildActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         private String[] tittles;
-        private ViewBuildFragment viewBuildFragment;
+        public ViewBuildFragment viewBuildFragment;
+        private PointsBuildFragment pointsBuildFragment;
+        private DecksFragment decksFragment;
 
         public SectionsPagerAdapter(FragmentManager fm, String[] tittles) {
             super(fm);
@@ -144,9 +158,9 @@ public class ViewBuildActivity extends AppCompatActivity {
                 case 0:
                     return viewBuildFragment==null ? viewBuildFragment= ViewBuildFragment.newInstance("A","B") : viewBuildFragment;
                 case 1:
-                    return MainActivity.PlaceholderFragment.newInstance(1);
-                case 3:
-                    return MainActivity.PlaceholderFragment.newInstance(1);
+                    return pointsBuildFragment==null ? pointsBuildFragment= PointsBuildFragment.newInstance(viewBuildFragment,"B") : pointsBuildFragment;
+                case 2:
+                    return decksFragment==null ? decksFragment = DecksFragment.newInstance(viewBuildFragment, "B") : decksFragment;
                 default:
                     return MainActivity.PlaceholderFragment.newInstance(1);
             }

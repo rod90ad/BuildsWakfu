@@ -150,47 +150,45 @@ public class BDConn extends SQLiteOpenHelper {
                 "montaria int," +       //      63
                 "classe int," +         //      64
                 "elementp int,"+        //elemento prioritari       65
-                "resistp int);");       //classe do jogo para escolhar da imagem        66
-        bd.execSQL("create table point(" +
-                "_id integer primary key autoincrement," +
-                "intpoints int," +
-                "apinlifepercent int," +
-                "apinresele int," +
-                "apinbarreira int," +
-                "apinhealget int," +
-                "apinlifearmor int," +
-                "forcepoints int," +
-                "apingeral int," +
-                "apinalvounico int," +
-                "apinzona int," +
-                "apincac int," +
-                "apindistance int," +
-                "apinlife int," +
-                "agipoints int," +
-                "apinblock int," +
-                "apinesquiva int," +
-                "apinini int," +
-                "apinblockandesquiva int," +
-                "apinremovepaepm int," +
-                "apinrespaepm int," +
-                "luckpoints int," +
-                "apingolpecritico int," +
-                "apinparada int," +
-                "apindanocritico int," +
-                "apinbackdmg int," +
-                "apinbeserkdmg int," +
-                "apinheal int," +
-                "apinresbackdmg int," +
-                "apincriticalres int," +
-                "especialpoints int," +
-                "apinactionpoint int," +
-                "apinmovepoint int," +
-                "apinrangeanddmg int," +
-                "apinwakfupoint int," +
-                "apincontrolanddmg int," +
-                "apinarteequipar int," +
-                "apinfinaldmg int," +
-                "apinreselemental int);");
+                "resistp int,"+       //classe do jogo para escolhar da imagem        66
+                "intpoints int," +  //67
+                "apinlifepercent int," +    //68
+                "apinresele int," +         //69
+                "apinbarreira int," +       //70
+                "apinhealget int," +        //71
+                "apinlifearmor int," +      //72
+                "forcepoints int," +        //73
+                "apingeral int," +      //74
+                "apinalvounico int," +      //75
+                "apinzona int," +       //76
+                "apincac int," +        //77
+                "apindistance int," +   //78
+                "apinlife int," +       //79
+                "agipoints int," +      //80
+                "apinblock int," +      //81
+                "apinesquiva int," +    //82
+                "apinini int," +        //83
+                "apinblockandesquiva int," +    //84
+                "apinremovepaepm int," +    //85
+                "apinrespaepm int," +       //86
+                "luckpoints int," +     //87
+                "apingolpecritico int," +   //88
+                "apinparada int," +     //89
+                "apindanocritico int," +    //90
+                "apinbackdmg int," +        //91
+                "apinbeserkdmg int," +      //92
+                "apinheal int," +       //93
+                "apinresbackdmg int," +     //94
+                "apincriticalres int," +    //95
+                "especialpoints int," +     //96
+                "apinactionpoint int," +    //97
+                "apinmovepoint int," +      //98
+                "apinrangeanddmg int," +    //99
+                "apinwakfupoint int," +     //100
+                "apincontrolanddmg int," +  //101
+                "apinarteequipar int," +    //102
+                "apinfinaldmg int," +       //103
+                "apinreselemental int);");  //104
     }
 
     public void onCreateItem(SQLiteDatabase bd) {

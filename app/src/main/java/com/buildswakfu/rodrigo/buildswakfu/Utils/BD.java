@@ -113,6 +113,75 @@ public class BD {
             valores.put("dragona", build.getDragona().getCodigo());
             valores.put("montaria", build.getMontaria().getCodigo());
             valores.put("classe", build.getClasse());
+            if(build.getNivel()>=175){
+                valores.put("especialpoints", 4);
+            }else if(build.getNivel()>=125){
+                valores.put("especialpoints", 3);
+            }else if(build.getNivel()>=75){
+                valores.put("especialpoints", 2);
+            }else if(build.getNivel()>=25){
+                valores.put("especialpoints", 1);
+            }else{
+                valores.put("especialpoints", 0);
+            }
+            if(build.getNivel()%4==0.25){
+                valores.put("intpoints", build.getNivel()/4);
+                valores.put("forcepoints", build.getNivel()/4);
+                valores.put("agipoints", build.getNivel()/4);
+                valores.put("luckpoints", build.getNivel()/4);
+            }else if(build.getNivel()%4==0){
+                valores.put("intpoints", (build.getNivel()/4));
+                valores.put("forcepoints", (build.getNivel()/4));
+                valores.put("agipoints", (build.getNivel()/4));
+                if(build.getNivel()==200) {
+                    valores.put("luckpoints", (build.getNivel() / 4));
+                }else{
+                    valores.put("luckpoints", (build.getNivel() / 4)-1);
+                }
+            }else if(build.getNivel()%4==0.75){
+                valores.put("intpoints", (build.getNivel()/4)+1);
+                valores.put("forcepoints", (build.getNivel()/4)+1);
+                valores.put("agipoints", (build.getNivel()/4));
+                valores.put("luckpoints", (build.getNivel()/4));
+            }else if(build.getNivel()%4==0.5){
+                valores.put("intpoints", (build.getNivel()/4)+1);
+                valores.put("forcepoints", (build.getNivel()/4));
+                valores.put("agipoints", (build.getNivel()/4));
+                valores.put("luckpoints", (build.getNivel()/4));
+            }
+            valores.put("apinlifepercent", build.getApinlifepercent());
+            valores.put("apinresele", build.getApinresele());
+            valores.put("apinbarreira", build.getApinbarreira());
+            valores.put("apinhealget", build.getApinhealrecived());
+            valores.put("apinlifearmor", build.getApinlifearmor());
+            valores.put("apingeral", build.getApingeral());
+            valores.put("apinalvounico", build.getApinalvounico());
+            valores.put("apinzona", build.getApinzona());
+            valores.put("apincac", build.getApinCaC());
+            valores.put("apindistance", build.getApindistance());
+            valores.put("apinlife", build.getApinlife());
+            valores.put("apinblock", build.getApinblock());
+            valores.put("apinesquiva", build.getApinesquiva());
+            valores.put("apinini", build.getApininiciativa());
+            valores.put("apinblockandesquiva", build.getApinblockandesquiva());
+            valores.put("apinremovepaepm", build.getApinremovepaandpm());
+            valores.put("apinrespaepm", build.getApinrespmepm());
+            valores.put("apingolpecritico", build.getApingolpecritico());
+            valores.put("apinparada", build.getApinparada());
+            valores.put("apindanocritico", build.getApindanocritico());
+            valores.put("apinbackdmg", build.getApinbackdmg());
+            valores.put("apinbeserkdmg", build.getApinbeserkdmg());
+            valores.put("apinheal", build.getApinheal());
+            valores.put("apinresbackdmg", build.getApinresbackdmg());
+            valores.put("apincriticalres", build.getApincritialres());
+            valores.put("apinactionpoint", build.getApinactionpoint());
+            valores.put("apinmovepoint", build.getApinmovepoint());
+            valores.put("apinrangeanddmg", build.getApinrangeanddmg());
+            valores.put("apinwakfupoint", build.getApinwakfupoint());
+            valores.put("apincontrolanddmg", build.getApincontrolanddmg());
+            valores.put("apinarteequipar", build.getApinarteequipar());
+            valores.put("apinfinaldmg", build.getApinfinalDamage());
+            valores.put("apinreselemental", build.getApinreselemental());
             bd.insert("build", null, valores);
         }catch (Exception e) {
             System.out.println("Erro ao gravar a build: "+ e.getMessage());
@@ -122,38 +191,11 @@ public class BD {
     public void salvapontos(Build build) {
         ContentValues point = new ContentValues();
         try{
-            if(build.getNivel()>=175){
-                point.put("especialpoints", 4);
-            }else if(build.getNivel()>=125){
-                point.put("especialpoints", 3);
-            }else if(build.getNivel()>=75){
-                point.put("especialpoints", 2);
-            }else if(build.getNivel()>=25){
-                point.put("especialpoints", 1);
-            }else{
-                point.put("especialpoints", 0);
-            }
-            if(build.getNivel()%4==0.25){
-                point.put("intpoints", build.getNivel()/4);
-                point.put("forcepoints", build.getNivel()/4);
-                point.put("agipoints", build.getNivel()/4);
-                point.put("luckpoints", build.getNivel()/4);
-            }else if(build.getNivel()%4==0){
-                point.put("intpoints", (build.getNivel()/4));
-                point.put("forcepoints", (build.getNivel()/4));
-                point.put("agipoints", (build.getNivel()/4));
-                point.put("luckpoints", (build.getNivel()/4)-1);
-            }else if(build.getNivel()%4==0.75){
-                point.put("intpoints", (build.getNivel()/4)+1);
-                point.put("forcepoints", (build.getNivel()/4)+1);
-                point.put("agipoints", (build.getNivel()/4));
-                point.put("luckpoints", (build.getNivel()/4));
-            }else if(build.getNivel()%4==0.5){
-                point.put("intpoints", (build.getNivel()/4)+1);
-                point.put("forcepoints", (build.getNivel()/4));
-                point.put("agipoints", (build.getNivel()/4));
-                point.put("luckpoints", (build.getNivel()/4));
-            }
+            point.put("especialpoints", build.getEspecialPoints());
+            point.put("intpoints", build.getIntPoints());
+            point.put("forcepoints", build.getForcePoints());
+            point.put("agipoints", build.getAgiPoints());
+            point.put("luckpoints", build.getLuckPoints());
             point.put("apinlifepercent", build.getApinlifepercent());
             point.put("apinresele", build.getApinresele());
             point.put("apinbarreira", build.getApinbarreira());
@@ -187,7 +229,7 @@ public class BD {
             point.put("apinarteequipar", build.getApinarteequipar());
             point.put("apinfinaldmg", build.getApinfinalDamage());
             point.put("apinreselemental", build.getApinreselemental());
-            bd.insert("point",null, point);
+            bd.update("build",point, "_id="+build.getCodigo(), null);
         } catch (Exception e) {
             System.out.println("Erro ao gravar pontos: "+e.getMessage());
         }
@@ -195,7 +237,6 @@ public class BD {
 
     public void salvaBuild(Build build){
         salvabuilds(build);
-        salvapontos(build);
         bd.close();
     }
 
@@ -386,6 +427,44 @@ public class BD {
             build.setClasse(cursor.getInt(64));
             build.setElementp(cursor.getInt(65));
             build.setResistp(cursor.getInt(66));
+            build.setIntPoints(cursor.getInt(67));
+            build.setApinlifepercent(cursor.getInt(68));
+            build.setApinresele(cursor.getInt(69));
+            build.setApinbarreira(cursor.getInt(70));
+            build.setApinhealrecived(cursor.getInt(71));
+            build.setApinlifearmor(cursor.getInt(72));
+            build.setForcePoints(cursor.getInt(73));
+            build.setApingeral(cursor.getInt(74));
+            build.setApinalvounico(cursor.getInt(75));
+            build.setApinzona(cursor.getInt(76));
+            build.setApinCaC(cursor.getInt(77));
+            build.setApindistance(cursor.getInt(78));
+            build.setApinlife(cursor.getInt(79));
+            build.setAgiPoints(cursor.getInt(80));
+            build.setApinblock(cursor.getInt(81));
+            build.setApinesquiva(cursor.getInt(82));
+            build.setApininiciativa(cursor.getInt(83));
+            build.setApinblockandesquiva(cursor.getInt(84));
+            build.setApinremovepaandpm(cursor.getInt(85));
+            build.setApinrespmepm(cursor.getInt(86));
+            build.setLuckPoints(cursor.getInt(87));
+            build.setApingolpecritico(cursor.getInt(88));
+            build.setApinparada(cursor.getInt(89));
+            build.setApindanocritico(cursor.getInt(90));
+            build.setApinbackdmg(cursor.getInt(91));
+            build.setApinbeserkdmg(cursor.getInt(92));
+            build.setApinheal(cursor.getInt(93));
+            build.setApinresbackdmg(cursor.getInt(94));
+            build.setApincritialres(cursor.getInt(95));
+            build.setEspecialPoints(cursor.getInt(96));
+            build.setApinactionpoint(cursor.getInt(97));
+            build.setApinmovepoint(cursor.getInt(98));
+            build.setApinrangeanddmg(cursor.getInt(99));
+            build.setApinwakfupoint(cursor.getInt(100));
+            build.setApincontrolanddmg(cursor.getInt(101));
+            build.setApinarteequipar(cursor.getInt(102));
+            build.setApinfinalDamage(cursor.getInt(103));
+            build.setApinreselemental(cursor.getInt(104));
         }
         return build;
     }
@@ -831,7 +910,7 @@ public class BD {
                     valores.put("heal", items.get(i).getHeal());
                     valores.put("block", items.get(i).getBlock());
                     valores.put("beserkdmg", items.get(i).getBeserkdmg());
-                    valores.put("criticalchance", items.get(i).getCriticaldmg());
+                    valores.put("criticalchance", items.get(i).getCriticalchance());
                     valores.put("backdmg", items.get(i).getBackdmg());
                     valores.put("distancedmg", items.get(i).getDistancedmg());
                     valores.put("closecombatdmg", items.get(i).getClosecombatdmg());

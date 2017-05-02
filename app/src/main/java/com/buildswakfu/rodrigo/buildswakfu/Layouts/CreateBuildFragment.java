@@ -234,7 +234,7 @@ public class CreateBuildFragment extends Fragment {
             build.setElementp(spnElementp.getSelectedItemPosition());
             build.setResistp(spnresp.getSelectedItemPosition());
             if (new BD(v.getContext()).verificaBuild(nome)) {
-                MainActivity.bd.salvaBuild(build);
+                new BD(getContext()).salvaBuild(build);
                 Toast.makeText(v.getContext(), R.string.createbuildsucess, Toast.LENGTH_LONG).show();
                 Limpar();
                 buildsFragment.setRV();

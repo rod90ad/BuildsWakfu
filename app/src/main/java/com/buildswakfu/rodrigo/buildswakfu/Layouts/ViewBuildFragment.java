@@ -2,6 +2,7 @@ package com.buildswakfu.rodrigo.buildswakfu.Layouts;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ import com.buildswakfu.rodrigo.buildswakfu.MainActivity;
 import com.buildswakfu.rodrigo.buildswakfu.R;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.Item;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent;
 import com.buildswakfu.rodrigo.buildswakfu.ViewBuildActivity;
 import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
@@ -166,7 +169,10 @@ public class ViewBuildFragment extends Fragment {
         //Get a Tracker (should auto-report)
         ((AnalyticsApplication) this.getActivity().getApplication()).getTracker(AnalyticsApplication.TrackerName.APP_TRACKER);
         mTracker = ((AnalyticsApplication) this.getActivity().getApplication()).getTracker(AnalyticsApplication.TrackerName.APP_TRACKER);
-        this.build = ViewBuildActivity.build;
+    }
+
+    public void Refresh(){
+        getFragmentManager().beginTransaction().detach(this).attach(this).commit();
     }
 
     public boolean EpicRelicControl(Item item){
@@ -251,71 +257,77 @@ public class ViewBuildFragment extends Fragment {
 
         @Override
         public void onClick(final View v) {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-            builder.setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle(R.string.tiraitem)
-                    .setMessage(getResources().getString(R.string.remover) + " " + item.getNome()+ "?")
-                    .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            switch (item.getTipo()) {
-                                case "amu":
-                                    build.setAmuleto(new Item(), v.getContext());
-                                    break;
-                                case "anel":
-                                    if (build.getAnel1().getLink() == item.getLink()) {
-                                        build.setAnel1(new Item(), v.getContext());
-                                    } else {
-                                        build.setAnel2(new Item(), v.getContext());
-                                    }
-                                    break;
-                                case "w1h":
-                                    build.setArmamain(new Item(), v.getContext());
-                                    break;
-                                case "w2h":
-                                    build.setArmamain(new Item(), v.getContext());
-                                    break;
-                                case "wsec":
-                                    build.setArmasec(new Item(), v.getContext());
-                                    break;
-                                case "cap":
-                                    build.setCapa(new Item(), v.getContext());
-                                    break;
-                                case "cint":
-                                    build.setCinto(new Item(), v.getContext());
-                                    break;
-                                case "elm":
-                                    build.setElmo(new Item(), v.getContext());
-                                    break;
-                                case "drag":
-                                    build.setDragona(new Item(), v.getContext());
-                                    break;
-                                case "pet":
-                                    build.setPet(new Item(), v.getContext());
-                                    break;
-                                case "pei":
-                                    build.setPeitoral(new Item(), v.getContext());
-                                    break;
-                                case "bot":
-                                    build.setBota(new Item(), v.getContext());
-                                    break;
-                                case "ins":
-                                    build.setInsignia(new Item(), v.getContext());
-                                    break;
-                                case "mont":
-                                    build.setMontaria(new Item(), v.getContext());
-                                    break;
+            final Dialog d = new Dialog(getContext());
+            d.setTitle(getResources().getString(R.string.tiraitem));
+            d.setContentView(R.layout.dialog_item_remove);
+            ItemComponent item1 = (ItemComponent) d.findViewById(R.id.item_remove1);
+            item1.setItem(item);
+            Button delete = (Button) d.findViewById(R.id.item_remove_delete);
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    switch (item.getTipo()) {
+                        case "amu":
+                            build.setAmuleto(new Item(), v.getContext());
+                            break;
+                        case "anel":
+                            if (build.getAnel1().getLink() == item.getLink()) {
+                                build.setAnel1(new Item(), v.getContext());
+                            } else {
+                                build.setAnel2(new Item(), v.getContext());
                             }
-                            Toast.makeText(v.getContext(), getResources().getString(R.string.itemremove) + " " + build.getNome(), Toast.LENGTH_LONG).show();
-                            build = (new BD(v.getContext()).getBuild(build.getCodigo()));
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.detach(viewBuildFragment).attach(viewBuildFragment).commit();
-                        }
-
-                    })
-                    .setNegativeButton(R.string.nao, null);
-            AlertDialog alert = builder.create();
-            alert.show();
+                            break;
+                        case "w1h":
+                            build.setArmamain(new Item(), v.getContext());
+                            break;
+                        case "w2h":
+                            build.setArmamain(new Item(), v.getContext());
+                            break;
+                        case "wsec":
+                            build.setArmasec(new Item(), v.getContext());
+                            break;
+                        case "cap":
+                            build.setCapa(new Item(), v.getContext());
+                            break;
+                        case "cint":
+                            build.setCinto(new Item(), v.getContext());
+                            break;
+                        case "elm":
+                            build.setElmo(new Item(), v.getContext());
+                            break;
+                        case "drag":
+                            build.setDragona(new Item(), v.getContext());
+                            break;
+                        case "pet":
+                            build.setPet(new Item(), v.getContext());
+                            break;
+                        case "pei":
+                            build.setPeitoral(new Item(), v.getContext());
+                            break;
+                        case "bot":
+                            build.setBota(new Item(), v.getContext());
+                            break;
+                        case "ins":
+                            build.setInsignia(new Item(), v.getContext());
+                            break;
+                        case "mont":
+                            build.setMontaria(new Item(), v.getContext());
+                            break;
+                    }
+                    Toast.makeText(v.getContext(), getResources().getString(R.string.itemremove) + " " + build.getNome(), Toast.LENGTH_LONG).show();
+                    build = (new BD(v.getContext()).getBuild(build.getCodigo()));
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.detach(viewBuildFragment).attach(viewBuildFragment).commit();
+                }
+            });
+            Button cancel = (Button) d.findViewById(R.id.item_remove_cancel);
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                }
+            });
+            d.show();
         }
     }
 
@@ -467,39 +479,6 @@ public class ViewBuildFragment extends Fragment {
         }
     }
 
-    public void showQR(){
-        qrview = new View(getContext());
-        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-        builder.setCancelable(true);
-        builder.setView(qrview);
-        builder.setTitle("QRCode");
-        builder.setInverseBackgroundForced(true);
-        builder.setPositiveButton("Accept",new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
-        builder.setNegativeButton("Reject",new DialogInterface.OnClickListener()
-        {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog alert=builder.create();
-        alert.show();
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public void updateQR(BitmapDrawable bmp){
-        qrview.setBackground(bmp);
-    }
-
     private int getDano(int tipo){
         int aux=0;
         int ele = build.getElementp();
@@ -604,138 +583,173 @@ public class ViewBuildFragment extends Fragment {
         return aux;
     }
 
+    public void showQR(){
+        qrview = new View(getContext());
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        builder.setCancelable(true);
+        builder.setView(qrview);
+        builder.setTitle("QRCode");
+        builder.setInverseBackgroundForced(true);
+        builder.setPositiveButton("Accept",new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Reject",new DialogInterface.OnClickListener()
+        {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert=builder.create();
+        alert.show();
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    public void updateQR(BitmapDrawable bmp){
+        qrview.setBackground(bmp);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        if(rootView==null) {
-            rootView = inflater.inflate(R.layout.fragment_view_build, container, false);
-            final Context context = rootView.getContext();
-            RelativeLayout.LayoutParams lpText = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lpText.addRule(RelativeLayout.ALIGN_LEFT);
+        this.build = ViewBuildActivity.build;
+        rootView=null;
+        this.build.resetStatus();
+        rootView = inflater.inflate(R.layout.fragment_view_build, container, false);
+        final Context context = rootView.getContext();
+        RelativeLayout.LayoutParams lpText = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lpText.addRule(RelativeLayout.ALIGN_LEFT);
 
-            this.build = ViewBuildActivity.build;
+        this.build = ViewBuildActivity.build;
 
-            reliquia = 0;
-            epico = 0;
+        reliquia = 0;
+        epico = 0;
 
-            nome = (TextView) rootView.findViewById(R.id.view_nome);
-            nome.setText(build.getNome());
-            nome.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
+        nome = (TextView) rootView.findViewById(R.id.view_nome);
+        nome.setText(build.getNome());
+        nome.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
 
-            nivel = (TextView) rootView.findViewById(R.id.view_nivel);
-            nivel.setText(getResources().getString(R.string.view_nivel) + build.getNivel());
-            nivel.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
+        nivel = (TextView) rootView.findViewById(R.id.view_nivel);
+        nivel.setText(getResources().getString(R.string.view_nivel) + build.getNivel());
+        nivel.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
 
-            maestria = (TextView) rootView.findViewById(R.id.view_titulo1_text);
-            maestria.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
+        maestria = (TextView) rootView.findViewById(R.id.view_titulo1_text);
+        maestria.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
 
-            batalha = (TextView) rootView.findViewById(R.id.view_titulo2_text);
-            batalha.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
+        batalha = (TextView) rootView.findViewById(R.id.view_titulo2_text);
+        batalha.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
 
-            secundario = (TextView) rootView.findViewById(R.id.view_titulo3_text);
-            secundario.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
+        secundario = (TextView) rootView.findViewById(R.id.view_titulo3_text);
+        secundario.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/namefont.ttf"));
 
-            head = (ImageView) rootView.findViewById(R.id.view_head);
-            switch (build.getClasse()) {
-                case 0:
-                    head.setBackground(getResources().getDrawable(R.drawable.cra_head));
-                    break;
-                case 1:
-                    head.setBackground(getResources().getDrawable(R.drawable.eca_head));
-                    break;
-                case 2:
-                    head.setBackground(getResources().getDrawable(R.drawable.elio_head));
-                    break;
-                case 3:
-                    head.setBackground(getResources().getDrawable(R.drawable.eni_head));
-                    break;
-                case 4:
-                    head.setBackground(getResources().getDrawable(R.drawable.enu_head));
-                    break;
-                case 5:
-                    head.setBackground(getResources().getDrawable(R.drawable.feca_head));
-                    break;
-                case 6:
-                    head.setBackground(getResources().getDrawable(R.drawable.hupp_head));
-                    break;
-                case 7:
-                    head.setBackground(getResources().getDrawable(R.drawable.iop_head));
-                    break;
-                case 8:
-                    head.setBackground(getResources().getDrawable(R.drawable.osa_head));
-                    break;
-                case 9:
-                    head.setBackground(getResources().getDrawable(R.drawable.panda_head));
-                    break;
-                case 10:
-                    head.setBackground(getResources().getDrawable(R.drawable.lad_head));
-                    break;
-                case 11:
-                    head.setBackground(getResources().getDrawable(R.drawable.sac_head));
-                    break;
-                case 12:
-                    head.setBackground(getResources().getDrawable(R.drawable.sad_head));
-                    break;
-                case 13:
-                    head.setBackground(getResources().getDrawable(R.drawable.sram_head));
-                    break;
-                case 14:
-                    head.setBackground(getResources().getDrawable(R.drawable.steam_head));
-                    break;
-                case 15:
-                    head.setBackground(getResources().getDrawable(R.drawable.xelor_head));
-                    break;
-                case 16:
-                    head.setBackground(getResources().getDrawable(R.drawable.zob_head));
-                    break;
-            }
+        head = (ImageView) rootView.findViewById(R.id.view_head);
+        switch (build.getClasse()) {
+            case 0:
+                head.setBackground(getResources().getDrawable(R.drawable.cra_head));
+                break;
+            case 1:
+                head.setBackground(getResources().getDrawable(R.drawable.eca_head));
+                break;
+            case 2:
+                head.setBackground(getResources().getDrawable(R.drawable.elio_head));
+                break;
+            case 3:
+                head.setBackground(getResources().getDrawable(R.drawable.eni_head));
+                break;
+            case 4:
+                head.setBackground(getResources().getDrawable(R.drawable.enu_head));
+                break;
+            case 5:
+                head.setBackground(getResources().getDrawable(R.drawable.feca_head));
+                break;
+            case 6:
+                head.setBackground(getResources().getDrawable(R.drawable.hupp_head));
+                break;
+            case 7:
+                head.setBackground(getResources().getDrawable(R.drawable.iop_head));
+                break;
+            case 8:
+                head.setBackground(getResources().getDrawable(R.drawable.osa_head));
+                break;
+            case 9:
+                head.setBackground(getResources().getDrawable(R.drawable.panda_head));
+                break;
+            case 10:
+                head.setBackground(getResources().getDrawable(R.drawable.lad_head));
+                break;
+            case 11:
+                head.setBackground(getResources().getDrawable(R.drawable.sac_head));
+                break;
+            case 12:
+                head.setBackground(getResources().getDrawable(R.drawable.sad_head));
+                break;
+            case 13:
+                head.setBackground(getResources().getDrawable(R.drawable.sram_head));
+                break;
+            case 14:
+                head.setBackground(getResources().getDrawable(R.drawable.steam_head));
+                break;
+            case 15:
+                head.setBackground(getResources().getDrawable(R.drawable.xelor_head));
+                break;
+            case 16:
+                head.setBackground(getResources().getDrawable(R.drawable.zob_head));
+                break;
+        }
 
-            //cuida da capa
-            capa = (ImageButton) rootView.findViewById(R.id.capa);
-            imageDone(capa);
+        //cuida da capa
+        capa = (ImageButton) rootView.findViewById(R.id.capa);
+        imageDone(capa);
 
-            //cuida do elmo
-            elmo = (ImageButton) rootView.findViewById(R.id.elmo);
-            imageDone(elmo);
+        //cuida do elmo
+        elmo = (ImageButton) rootView.findViewById(R.id.elmo);
+        imageDone(elmo);
 
-            drag = (ImageButton) rootView.findViewById(R.id.drag);
-            imageDone(drag);
+        drag = (ImageButton) rootView.findViewById(R.id.drag);
+        imageDone(drag);
 
-            amu = (ImageButton) rootView.findViewById(R.id.amu);
-            imageDone(amu);
+        amu = (ImageButton) rootView.findViewById(R.id.amu);
+        imageDone(amu);
 
-            anel1 = (ImageButton) rootView.findViewById(R.id.anel1);
-            imageDone(anel1);
+        anel1 = (ImageButton) rootView.findViewById(R.id.anel1);
+        imageDone(anel1);
 
-            anel2 = (ImageButton) rootView.findViewById(R.id.anel2);
-            imageDone(anel2);
+        anel2 = (ImageButton) rootView.findViewById(R.id.anel2);
+        imageDone(anel2);
 
-            cint = (ImageButton) rootView.findViewById(R.id.cint);
-            imageDone(cint);
+        cint = (ImageButton) rootView.findViewById(R.id.cint);
+        imageDone(cint);
 
-            msec = (ImageButton) rootView.findViewById(R.id.wsec);
-            imageDone(msec);
+        msec = (ImageButton) rootView.findViewById(R.id.wsec);
+        imageDone(msec);
 
-            mmain = (ImageButton) rootView.findViewById(R.id.wmain);
-            imageDone(mmain);
+        mmain = (ImageButton) rootView.findViewById(R.id.wmain);
+        imageDone(mmain);
 
-            pei = (ImageButton) rootView.findViewById(R.id.pei);
-            imageDone(pei);
+        pei = (ImageButton) rootView.findViewById(R.id.pei);
+        imageDone(pei);
 
-            bot = (ImageButton) rootView.findViewById(R.id.bota);
-            imageDone(bot);
+        bot = (ImageButton) rootView.findViewById(R.id.bota);
+        imageDone(bot);
 
-            ins = (ImageButton) rootView.findViewById(R.id.ins);
-            imageDone(ins);
+        ins = (ImageButton) rootView.findViewById(R.id.ins);
+        imageDone(ins);
 
-            pet = (ImageButton) rootView.findViewById(R.id.pet);
-            imageDone(pet);
+        pet = (ImageButton) rootView.findViewById(R.id.pet);
+        imageDone(pet);
 
-            mont = (ImageButton) rootView.findViewById(R.id.mont);
-            imageDone(mont);
+        mont = (ImageButton) rootView.findViewById(R.id.mont);
+        imageDone(mont);
 
-            delete = (Button) rootView.findViewById(R.id.deletebutton);
-        /*delete.setOnClickListener(new View.OnClickListener() {
+        delete = (Button) rootView.findViewById(R.id.deletebutton);
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 AlertDialog.Builder builderelm = new AlertDialog.Builder(v.getContext());
@@ -745,18 +759,19 @@ public class ViewBuildFragment extends Fragment {
                         .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                MainActivity.removerBuild(ft);
+                                new BD(getContext()).deleteBuild(ViewBuildActivity.build.getCodigo());
+                                BuildsFragment.setRV();
                                 Toast.makeText(v.getContext(), getResources().getString(R.string.deletebuildsucess), Toast.LENGTH_LONG).show();
+                                ViewBuildActivity.dispose();
                             }
                         })
                         .setNegativeButton(R.string.nao, null);
                 AlertDialog alertelm = builderelm.create();
                 alertelm.show();
             }
-        });*/
+        });
 
-            share = (Button) rootView.findViewById(R.id.view_share);
+        share = (Button) rootView.findViewById(R.id.view_share);
         /*share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -765,129 +780,127 @@ public class ViewBuildFragment extends Fragment {
             }
         });*/
 
-            //coloca os status
+        //coloca os status
 
-            pv = (TextView) rootView.findViewById(R.id.view_pv);
-            int vidasemporcentagem = (build.getVitalpoint() + (build.getApinlife() * 20));
-            double porcentagem = 1.0 + ((build.getApinlifepercent() * 4.0) / 100);
-            double vida = vidasemporcentagem * porcentagem;
-            pv.setText(String.format("%.0f", vida));
+        pv = (TextView) rootView.findViewById(R.id.view_pv);
+        int vidasemporcentagem = (build.getVitalpoint() + (build.getApinlife() * 20) + ((build.getNivel()/20) * 100));
+        double porcentagem = 1.0 + ((build.getApinlifepercent() * 4.0) / 100);
+        double vida = vidasemporcentagem * porcentagem;
+        pv.setText(String.format("%.0f", vida));
 
-            pa = (TextView) rootView.findViewById(R.id.view_pa);
-            pa.setText("" + (6 + build.getActionpoint() + build.getApinactionpoint()));
+        pa = (TextView) rootView.findViewById(R.id.view_pa);
+        pa.setText("" + (6 + build.getActionpoint() + build.getApinactionpoint()));
 
-            pm = (TextView) rootView.findViewById(R.id.view_pm);
-            pm.setText("" + (3 + build.getMovepoint() + build.getApinmovepoint()));
+        pm = (TextView) rootView.findViewById(R.id.view_pm);
+        pm.setText("" + (3 + build.getMovepoint() + build.getApinmovepoint()));
 
-            pw = (TextView) rootView.findViewById(R.id.view_pw);
-            pw.setText("" + (6 + build.getWakfupoint() + (build.getApinwakfupoint() * 2)));
+        pw = (TextView) rootView.findViewById(R.id.view_pw);
+        pw.setText("" + (6 + build.getWakfupoint() + (build.getApinwakfupoint() * 2)));
 
-            //aplica os danos
-            dmgagua = (TextView) rootView.findViewById(R.id.view_dmg_water);
-            //dano + dmg geral                  +   dmg agua                    +           20 do pm                      +         40 do alcance                       +           40 do controle
-            dmgagua.setText((getDano(1) + build.getDmg() + build.getDmgwater() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + "");
+        //aplica os danos
+        dmgagua = (TextView) rootView.findViewById(R.id.view_dmg_water);
+        //dano + dmg geral                  +   dmg agua                    +           20 do pm                      +         40 do alcance                       +           40 do controle
+        dmgagua.setText((getDano(1) + build.getDmg() + build.getDmgwater() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + (build.getApingeral() * 5) + "");
 
-            dmgterra = (TextView) rootView.findViewById(R.id.view_dmg_terra);
-            dmgterra.setText((getDano(2) + build.getDmg() + build.getDmgearth() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + "");
+        dmgterra = (TextView) rootView.findViewById(R.id.view_dmg_terra);
+        dmgterra.setText((getDano(2) + build.getDmg() + build.getDmgearth() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + (build.getApingeral() * 5) + "");
 
-            dmgar = (TextView) rootView.findViewById(R.id.view_dmg_ar);
-            dmgar.setText((getDano(3) + build.getDmg() + build.getDmgair() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + "");
+        dmgar = (TextView) rootView.findViewById(R.id.view_dmg_ar);
+        dmgar.setText((getDano(3) + build.getDmg() + build.getDmgair() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + (build.getApingeral() * 5) + "");
 
-            dmgfogo = (TextView) rootView.findViewById(R.id.view_dmg_fogo);
-            dmgfogo.setText((getDano(4) + build.getDmg() + build.getDmgfire() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + "");
+        dmgfogo = (TextView) rootView.findViewById(R.id.view_dmg_fogo);
+        dmgfogo.setText((getDano(4) + build.getDmg() + build.getDmgfire() + (build.getApinmovepoint() * 20) + (build.getApinrangeanddmg() * 40) + (build.getApincontrolanddmg() * 40)) + (build.getApingeral() * 5) + "");
 
-            //aplica as resistencias
-            resagua = (TextView) rootView.findViewById(R.id.view_res_water);
-            resagua.setText((getResist(1) + build.getResist() + build.getReswater()) + (build.getApinreselemental() == 1 ? 50 : 0) + "");
+        //aplica as resistencias
+        resagua = (TextView) rootView.findViewById(R.id.view_res_water);
+        resagua.setText((getResist(1) + build.getResist() + build.getReswater()) + (build.getApinreselemental() == 1 ? 50 : 0) + (build.getApinresele() * 10) + "");
 
-            resterra = (TextView) rootView.findViewById(R.id.view_res_terra);
-            resterra.setText((getResist(2) + build.getResist() + build.getResearth()) + (build.getApinreselemental() == 1 ? 50 : 0) + "");
+        resterra = (TextView) rootView.findViewById(R.id.view_res_terra);
+        resterra.setText((getResist(2) + build.getResist() + build.getResearth()) + (build.getApinreselemental() == 1 ? 50 : 0) + (build.getApinresele() * 10) + "");
 
-            resar = (TextView) rootView.findViewById(R.id.view_res_ar);
-            resar.setText((getResist(3) + build.getResist() + build.getResair()) + (build.getApinreselemental() == 1 ? 50 : 0) + "");
+        resar = (TextView) rootView.findViewById(R.id.view_res_ar);
+        resar.setText((getResist(3) + build.getResist() + build.getResair()) + (build.getApinreselemental() == 1 ? 50 : 0) + (build.getApinresele() * 10) + "");
 
-            resfogo = (TextView) rootView.findViewById(R.id.view_res_fogo);
-            resfogo.setText((getResist(4) + build.getResist() + build.getResfire()) + (build.getApinreselemental() == 1 ? 50 : 0) + "");
+        resfogo = (TextView) rootView.findViewById(R.id.view_res_fogo);
+        resfogo.setText((getResist(4) + build.getResist() + build.getResfire()) + (build.getApinreselemental() == 1 ? 50 : 0) + (build.getApinresele() * 10) + "");
 
-            dmgpa = (TextView) rootView.findViewById(R.id.view_dmg_pa);
-            dmgpa.setText((build.getApinremovepaandpm() > 0 ? build.getApinremovepaandpm() * 2 : 0) + "%");
+        dmgpa = (TextView) rootView.findViewById(R.id.view_dmg_pa);
+        dmgpa.setText((build.getApinremovepaandpm() > 0 ? build.getApinremovepaandpm() * 2 : 0) + "%");
 
-            dmgpm = (TextView) rootView.findViewById(R.id.view_dmg_pm);
-            dmgpm.setText((build.getApinremovepaandpm() > 0 ? build.getApinremovepaandpm() * 2 : 0) + "%");
+        dmgpm = (TextView) rootView.findViewById(R.id.view_dmg_pm);
+        dmgpm.setText((build.getApinremovepaandpm() > 0 ? build.getApinremovepaandpm() * 2 : 0) + "%");
 
-            respa = (TextView) rootView.findViewById(R.id.view_res_pa);
-            respa.setText(build.getRespa() + (build.getApinrespmepm() > 0 ? build.getApinrespmepm() * 2 : 0) + "%");
+        respa = (TextView) rootView.findViewById(R.id.view_res_pa);
+        respa.setText(build.getRespa() + (build.getApinrespmepm() > 0 ? build.getApinrespmepm() * 2 : 0) + "%");
 
-            respm = (TextView) rootView.findViewById(R.id.view_res_pm);
-            respm.setText(build.getRespm() + (build.getApinrespmepm() > 0 ? build.getApinrespmepm() * 2 : 0) + "%");
+        respm = (TextView) rootView.findViewById(R.id.view_res_pm);
+        respm.setText(build.getRespm() + (build.getApinrespmepm() > 0 ? build.getApinrespmepm() * 2 : 0) + "%");
 
-            danofinal = (TextView) rootView.findViewById(R.id.view_danofinal);
-            danofinal.setText(build.getApinfinalDamage() + "%");
+        danofinal = (TextView) rootView.findViewById(R.id.view_danofinal);
+        danofinal.setText(build.getApinfinalDamage() + "%");
 
-            curasrealizadas = (TextView) rootView.findViewById(R.id.view_curas);
-            curasrealizadas.setText("0%");
+        curasrealizadas = (TextView) rootView.findViewById(R.id.view_curas);
+        curasrealizadas.setText((build.getApinheal()*6)+"%");
 
-            golpescriticos = (TextView) rootView.findViewById(R.id.view_golpecritico);
-            golpescriticos.setText((build.getCriticalchance() + (build.getApingolpecritico() * 1)) + "%");
+        golpescriticos = (TextView) rootView.findViewById(R.id.view_golpecritico);
+        golpescriticos.setText((build.getCriticalchance() + (build.getApingolpecritico() * 1)) + "%");
 
-            parada = (TextView) rootView.findViewById(R.id.view_parada);
-            parada.setText((build.getStop() + (build.getApinparada() * 1)) + "%");
+        parada = (TextView) rootView.findViewById(R.id.view_parada);
+        parada.setText((build.getStop() + (build.getApinparada() * 1)) + "%");
 
-            iniciativa = (TextView) rootView.findViewById(R.id.view_iniciativa);
-            iniciativa.setText((build.getIniciative() + (build.getApininiciativa() * 4)) + "");
+        iniciativa = (TextView) rootView.findViewById(R.id.view_iniciativa);
+        iniciativa.setText((build.getIniciative() + (build.getApininiciativa() * 4)) + "");
 
-            alcance = (TextView) rootView.findViewById(R.id.view_alcance);
-            alcance.setText((build.getRange() + (build.getApinrangeanddmg() * 1)) + "");
+        alcance = (TextView) rootView.findViewById(R.id.view_alcance);
+        alcance.setText((build.getRange() + (build.getApinrangeanddmg() * 1)) + "");
 
-            esquiva = (TextView) rootView.findViewById(R.id.view_esquiva);
-            esquiva.setText((build.getEvasion() + (build.getApinesquiva() * 6) + (build.getApinblockandesquiva() * 4)) + "");
+        esquiva = (TextView) rootView.findViewById(R.id.view_esquiva);
+        esquiva.setText((build.getEvasion() + (build.getApinesquiva() * 6) + (build.getApinblockandesquiva() * 4)) + "");
 
-            bloqueio = (TextView) rootView.findViewById(R.id.view_bloqueio);
-            bloqueio.setText((build.getBlock() + (build.getApinblock() * 6) + (build.getApinblockandesquiva() * 4)) + "");
+        bloqueio = (TextView) rootView.findViewById(R.id.view_bloqueio);
+        bloqueio.setText((build.getBlock() + (build.getApinblock() * 6) + (build.getApinblockandesquiva() * 4)) + "");
 
-            sabedoria = (TextView) rootView.findViewById(R.id.view_sabedoria);
-            sabedoria.setText(build.getSabedoria() + "");
+        sabedoria = (TextView) rootView.findViewById(R.id.view_sabedoria);
+        sabedoria.setText(build.getSabedoria() + "");
 
-            prospecção = (TextView) rootView.findViewById(R.id.view_prospecção);
-            prospecção.setText(build.getProsp() + "");
+        prospecção = (TextView) rootView.findViewById(R.id.view_prospecção);
+        prospecção.setText(build.getProsp() + "");
 
-            controle = (TextView) rootView.findViewById(R.id.view_controle);
-            controle.setText((build.getControl() + (build.getApincontrolanddmg() * 2)) + "");
+        controle = (TextView) rootView.findViewById(R.id.view_controle);
+        controle.setText((build.getControl() + (build.getApincontrolanddmg() * 2)) + "");
 
-            arteequipar = (TextView) rootView.findViewById(R.id.view_arteequipar);
-            arteequipar.setText(build.getArteequipar() + "");
+        arteequipar = (TextView) rootView.findViewById(R.id.view_arteequipar);
+        arteequipar.setText(build.getArteequipar() + "");
 
-            dominiocritico = (TextView) rootView.findViewById(R.id.view_danocritico);
-            dominiocritico.setText((build.getCriticaldmg() + (build.getApindanocritico() * 4)) + "");
+        dominiocritico = (TextView) rootView.findViewById(R.id.view_danocritico);
+        dominiocritico.setText((build.getCriticaldmg() + (build.getApindanocritico() * 4)) + "");
 
-            rescritico = (TextView) rootView.findViewById(R.id.view_rescritico);
-            rescritico.setText((build.getRescriticaldmg() + (build.getApincritialres() * 4)) + "");
+        rescritico = (TextView) rootView.findViewById(R.id.view_rescritico);
+        rescritico.setText((build.getRescriticaldmg() + (build.getApincritialres() * 4)) + "");
 
-            dominiocostas = (TextView) rootView.findViewById(R.id.view_dominiocostas);
-            dominiocostas.setText((build.getBackdmg() + (build.getApinbackdmg() * 6)) + "");
+        dominiocostas = (TextView) rootView.findViewById(R.id.view_dominiocostas);
+        dominiocostas.setText((build.getBackdmg() + (build.getApinbackdmg() * 6)) + "");
 
-            rescostas = (TextView) rootView.findViewById(R.id.view_rescostas);
-            rescostas.setText((build.getResblackdmg() + (build.getApinresbackdmg() * 4)) + "");
+        rescostas = (TextView) rootView.findViewById(R.id.view_rescostas);
+        rescostas.setText((build.getResblackdmg() + (build.getApinresbackdmg() * 4)) + "");
 
-            dominiocac = (TextView) rootView.findViewById(R.id.view_dominiocac);
-            dominiocac.setText((build.getClosecombatdmg() + (build.getApinCaC() * 8)) + "");
+        dominiocac = (TextView) rootView.findViewById(R.id.view_dominiocac);
+        dominiocac.setText((build.getClosecombatdmg() + (build.getApinCaC() * 8)) + "");
 
-            dominiodistancia = (TextView) rootView.findViewById(R.id.view_dominiodistancia);
-            dominiodistancia.setText((build.getDistancedmg() + (build.getApindistance() * 8)) + "");
+        dominiodistancia = (TextView) rootView.findViewById(R.id.view_dominiodistancia);
+        dominiodistancia.setText((build.getDistancedmg() + (build.getApindistance() * 8)) + "");
 
-            dominiounico = (TextView) rootView.findViewById(R.id.view_dominiounico);
-            dominiounico.setText((build.getOnetargetdmg() + (build.getApinalvounico() * 8)) + "");
+        dominiounico = (TextView) rootView.findViewById(R.id.view_dominiounico);
+        dominiounico.setText((build.getOnetargetdmg() + (build.getApinalvounico() * 8)) + "");
 
-            dominiozona = (TextView) rootView.findViewById(R.id.view_dominiozona);
-            dominiozona.setText((build.getAreadmg() + (build.getApinzona() * 8)) + "");
+        dominiozona = (TextView) rootView.findViewById(R.id.view_dominiozona);
+        dominiozona.setText((build.getAreadmg() + (build.getApinzona() * 8)) + "");
 
-            dominiocura = (TextView) rootView.findViewById(R.id.view_dominiocura);
-            dominiocura.setText((build.getHeal() + (build.getApinheal() * 6)) + "");
+        dominiocura = (TextView) rootView.findViewById(R.id.view_dominiocura);
+        dominiocura.setText((build.getHeal() + (build.getApinheal() * 6)) + "");
 
-            dominioberserk = (TextView) rootView.findViewById(R.id.view_dominioberserk);
-            dominioberserk.setText((build.getBeserkdmg() + (build.getApinbeserkdmg() * 8)) + "");
-
-        }
+        dominioberserk = (TextView) rootView.findViewById(R.id.view_dominioberserk);
+        dominioberserk.setText((build.getBeserkdmg() + (build.getApinbeserkdmg() * 8)) + "");
         return rootView;
     }
 

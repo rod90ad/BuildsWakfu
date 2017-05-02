@@ -22,6 +22,13 @@
     <string name="errornamesame">Builds can\'t have same name.</string>
     <string name="backmsg">"Tap back again to exit"</string>
     <string name="select_lang">Select Language</string>
+    <string-array name="viewpoints">
+        <item>Int</item>
+        <item>Str</item>
+        <item>Agi</item>
+        <item>Luck</item>
+        <item>Mjr</item>
+    </string-array>
     <string-array name="screens">
         <item>Search</item>
         <item>Builds</item>
@@ -31,8 +38,58 @@
     <string-array name="viewscreens">
         <item>Build</item>
         <item>Points</item>
-        <item>Skills</item>
+        <item>Decks</item>
     </string-array>
+    <string-array name="deckscreens">
+        <item>Actives</item>
+        <item>Passives</item>
+    </string-array>
+    <string name="deck_actives">Actives</string>
+    <string name="deck_passives">Passives</string>
+    <string name="elemental_spells">Elemental Spells</string>
+    <string name="active_spells">Active Spells</string>
+
+    <!-- Points Variable -->
+    <string name="pontossalvos">points saved successfully</string>
+    <string name="save">Save</string>
+    <string name="major">Major</string>
+    <string name="chance">Chance</string>
+    <string name="agility">Agility</string>
+    <string name="strength">Strength</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="option_health_percent">% Health Points</string>
+    <string name="option_eleres">Elemental Resistance</string>
+    <string name="option_barrier">Barrier</string>
+    <string name="option_heal_receive">% Heals received</string>
+    <string name="option_armorperlife">% Armor Health Points</string>
+    <string name="option_lock">Lock</string>
+    <string name="option_dodge">Dodge</string>
+    <string name="option_ele_mastery">Elemental Mastery</string>
+    <string name="option_single_mastery">Single Target Mastery</string>
+    <string name="option_area_mastery">Area Mastery</string>
+    <string name="option_cac_mastery">Close Combat Mastery</string>
+    <string name="option_distance_mastery">Distance Mastery</string>
+    <string name="option_health_points">Health Points</string>
+    <string name="option_iniciative">Iniciative</string>
+    <string name="option_lockanddodge">Lock and Dodge</string>
+    <string name="option_apandmpremoval">% AP and MP removal</string>
+    <string name="option_apandmpresist">% AP and MP resistance</string>
+    <string name="option_criticalchance">% Critical Hit</string>
+    <string name="option_block">% Block</string>
+    <string name="option_criticaldmg">Critical Mastery</string>
+    <string name="option_rear">Rear Mastery</string>
+    <string name="option_berserk">Berserk Mastery (HP &#60;50%)</string>
+    <string name="option_healingmastery">Healing Mastery</string>
+    <string name="option_rearres">Rear Resistance</string>
+    <string name="option_criticalres">Critical Resistance</string>
+    <string name="option_ap">Action Point</string>
+    <string name="option_mp">Movement Point and Damage</string>
+    <string name="option_rangeanddmg">Range and Damage</string>
+    <string name="option_wakfu">Wakfu Point</string>
+    <string name="option_controlanddmg">Control and Damage</string>
+    <string name="option_finaldmg">% Damage inflicted</string>
+    <string name="option_resmjr">Elemental Resist</string>
+    <string name="points_to_dist">Points to distribute:</string>
 
     <!-- Import Variables -->
     <string name="addbuildsucess">Sucess on add Build!</string>

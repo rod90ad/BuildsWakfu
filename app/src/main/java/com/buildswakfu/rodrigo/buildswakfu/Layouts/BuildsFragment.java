@@ -61,11 +61,12 @@ public class BuildsFragment extends Fragment {
 
     private TextView add;
     private TextView importar;
-    private RecyclerView rv;
+    private static RecyclerView rv;
     private View rootView;
-    private ViewGroup container;
+    private static Context context;
+    private static BuildsFragment buildsFragment;
     private LayoutInflater inflater;
-    private LinearLayout llChanger;
+    private static LinearLayout llChanger;
     private Tracker mTracker;
 
     public BuildsFragment() {
@@ -87,6 +88,7 @@ public class BuildsFragment extends Fragment {
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+        buildsFragment = fragment;
         return fragment;
     }
 
@@ -102,9 +104,9 @@ public class BuildsFragment extends Fragment {
         mTracker = ((AnalyticsApplication) this.getActivity().getApplication()).getTracker(AnalyticsApplication.TrackerName.APP_TRACKER);
     }
 
-    public void setRV(){
-        RVAdapterBuilds adapterBuilds = new RVAdapterBuilds(new BD(getContext()).getBuilds(),getContext(), this);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+    public static void setRV(){
+        RVAdapterBuilds adapterBuilds = new RVAdapterBuilds(new BD(context).getBuilds(),context, buildsFragment);
+        LinearLayoutManager llm = new LinearLayoutManager(context);
         rv.setLayoutManager(llm);
         rv.removeAllViews();
         rv.setAdapter(adapterBuilds);
@@ -153,6 +155,7 @@ public class BuildsFragment extends Fragment {
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_builds, container, false);
         llChanger = (LinearLayout) rootView.findViewById(R.id.builds_llChanger);
+        context = getContext();
         rv = (RecyclerView) rootView.findViewById(R.id.rv_Builds);
         setRV();
         add = (TextView) rootView.findViewById(R.id.build_add);

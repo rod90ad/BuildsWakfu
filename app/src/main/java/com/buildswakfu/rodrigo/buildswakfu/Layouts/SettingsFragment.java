@@ -115,59 +115,61 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_settings, container, false);
+        if(rootView==null) {
+            // Inflate the layout for this fragment
+            rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        userPhoto = (ImageView) rootView.findViewById(R.id.user_img);
-        userName = (TextView) rootView.findViewById(R.id.user_name);
-        userLogout = (ImageButton) rootView.findViewById(R.id.user_logout);
-        userLang = (ImageView) rootView.findViewById(R.id.user_lang);
-        userLangChange = (TextView) rootView.findViewById(R.id.user_langChange);
-        userLangChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                VerificaLang();
-            }
-        });
-        userLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(MainActivity.user!=null){
-                    signOut();
-                    userPhoto.setImageDrawable(getResources().getDrawable(R.drawable.wakfustatus_icon));
-                    userName.setText("Username");
-                    userLogout.setImageDrawable(getResources().getDrawable(R.drawable.login));
-                    MainActivity.user=null;
-                }else{
-                    Intent i = getActivity().getIntent();
-                    getActivity().finish();
-                    startActivity(i);
+            userPhoto = (ImageView) rootView.findViewById(R.id.user_img);
+            userName = (TextView) rootView.findViewById(R.id.user_name);
+            userLogout = (ImageButton) rootView.findViewById(R.id.user_logout);
+            userLang = (ImageView) rootView.findViewById(R.id.user_lang);
+            userLangChange = (TextView) rootView.findViewById(R.id.user_langChange);
+            userLangChange.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    VerificaLang();
                 }
-            }
-        });
+            });
+            userLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (MainActivity.user != null) {
+                        signOut();
+                        userPhoto.setImageDrawable(getResources().getDrawable(R.drawable.wakfustatus_icon));
+                        userName.setText("Username");
+                        userLogout.setImageDrawable(getResources().getDrawable(R.drawable.login));
+                        MainActivity.user = null;
+                    } else {
+                        Intent i = getActivity().getIntent();
+                        getActivity().finish();
+                        startActivity(i);
+                    }
+                }
+            });
 
-        if(MainActivity.user!=null) {
-            Picasso.with(rootView.getContext()).load(MainActivity.user.getPhotoUrl()).into(userPhoto);
-            userName.setText(MainActivity.user.getName());
-            switch (MainActivity.user.getLang()){
-                case "pt":
-                    userLang.setImageDrawable(getResources().getDrawable(R.drawable.br));
-                    break;
-                case "en":
-                    userLang.setImageDrawable(getResources().getDrawable(R.drawable.us));
-                    break;
-                case "fr":
-                    userLang.setImageDrawable(getResources().getDrawable(R.drawable.fr));
-                    break;
-                case "es":
-                    userLang.setImageDrawable(getResources().getDrawable(R.drawable.es));
-                    break;
-                default:
-                    userLang.setImageDrawable(getResources().getDrawable(R.drawable.us));
-            }
+            if (MainActivity.user != null) {
+                Picasso.with(rootView.getContext()).load(MainActivity.user.getPhotoUrl()).into(userPhoto);
+                userName.setText(MainActivity.user.getName());
+                switch (MainActivity.user.getLang()) {
+                    case "pt":
+                        userLang.setImageDrawable(getResources().getDrawable(R.drawable.br));
+                        break;
+                    case "en":
+                        userLang.setImageDrawable(getResources().getDrawable(R.drawable.us));
+                        break;
+                    case "fr":
+                        userLang.setImageDrawable(getResources().getDrawable(R.drawable.fr));
+                        break;
+                    case "es":
+                        userLang.setImageDrawable(getResources().getDrawable(R.drawable.es));
+                        break;
+                    default:
+                        userLang.setImageDrawable(getResources().getDrawable(R.drawable.us));
+                }
 
+            }
+            //continuar aqui
         }
-
         return rootView;
     }
 

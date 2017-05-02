@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     public static Build build;
     public static final int MY_PERMISSIONS_REQUEST_CAMERA=2;
     public static SharedPreferences prefs;
-    public static BD bd;
     public static ProgressDialog load;
     private static final int TIME_INTERVAL = 2000;
     private long mBackPressed;
@@ -183,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         //MainActivity.load.setMessage(getResources().getString(R.string.adicionando));
         //MainActivity.load.setCancelable(false);
         BDConn bdConn = new BDConn(MainActivity.this);
-        bd = new BD(this);
         //bd.popularBDFirebase(getResources().openRawResource(R.raw.itens_pt));
         //bd.popularBDFirebase(getResources().openRawResource(R.raw.itens_en));
         //bd.popularBDFirebase(getResources().openRawResource(R.raw.itens_fr));
@@ -193,12 +191,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     public void onBackPressed(){
-        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()){
-            super.onBackPressed();
-            return;
-        }else{
-            Toast.makeText(getBaseContext(), getResources().getString(R.string.backmsg), Toast.LENGTH_SHORT).show();
-            mBackPressed = System.currentTimeMillis();
+        if(mViewPager.getCurrentItem()!=0) {
+            mViewPager.setCurrentItem(0);
+        }else {
+            if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+                super.onBackPressed();
+                return;
+            } else {
+                Toast.makeText(getBaseContext(), getResources().getString(R.string.backmsg), Toast.LENGTH_SHORT).show();
+                mBackPressed = System.currentTimeMillis();
+            }
         }
     }
 
@@ -333,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                             mDatabase.child("bdVersion").addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                                    if(dataSnapshot.getValue(Integer.class)!=user.getLastSync() || bd.getItem("1")==null){
+                                                    if(dataSnapshot.getValue(Integer.class)!=user.getLastSync() || new BD(getApplicationContext()).getItem("1")==null){
                                                         MainActivity.load = new ProgressDialog(MainActivity.this);
                                                         MainActivity.load.setTitle(getResources().getString(R.string.wait));
                                                         MainActivity.load.setMessage(getResources().getString(R.string.adicionando));
@@ -350,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                                                             Item item = itemSnap.getValue(Item.class);
                                                                             items.add(item);
                                                                         }
-                                                                        bd.popularBD(items);
+                                                                        new BD(getApplicationContext()).popularBD(items);
                                                                     }
 
                                                                     @Override
@@ -368,7 +370,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                                                             Item item = itemSnap.getValue(Item.class);
                                                                             items.add(item);
                                                                         }
-                                                                        bd.popularBD(items);
+                                                                        new BD(getApplicationContext()).popularBD(items);
                                                                     }
 
                                                                     @Override
@@ -386,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                                                             Item item = itemSnap.getValue(Item.class);
                                                                             items.add(item);
                                                                         }
-                                                                        bd.popularBD(items);
+                                                                        new BD(getApplicationContext()).popularBD(items);
                                                                     }
 
                                                                     @Override
@@ -404,7 +406,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                                                             Item item = itemSnap.getValue(Item.class);
                                                                             items.add(item);
                                                                         }
-                                                                        bd.popularBD(items);
+                                                                        new BD(getApplicationContext()).popularBD(items);
                                                                     }
 
                                                                     @Override
@@ -520,6 +522,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         private SearchScreenFragment searchScreenFragment;
         private SettingsFragment settingsFragment;
         public BuildsFragment buildsFragment;
+        private int currentPage=0;
+        public int getCurrentPage(){ return currentPage; }
 
         public SectionsPagerAdapter(FragmentManager fm, String[] tittles) {
             super(fm);
@@ -527,11 +531,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             searchScreenFragment = new SearchScreenFragment();
             settingsFragment = new SettingsFragment();
             buildsFragment = new BuildsFragment();
-
         }
 
         @Override
         public Fragment getItem(int position) {
+            currentPage=position;
             switch (position){
                 case 0:
                     return searchScreenFragment==null ? searchScreenFragment=SearchScreenFragment.newInstance("A","B") : searchScreenFragment;

@@ -1,0 +1,27 @@
+<resources>
+
+    <integer-array name="cra_spells">
+        <item>@drawable/deck_empty_skill</item>
+        <item>@drawable/cra_ele1_1</item>
+        <item>@drawable/cra_ele1_2</item>
+        <item>@drawable/cra_ele1_3</item>
+        <item>@drawable/cra_ele1_4</item>
+        <item>@drawable/cra_ele1_5</item>
+        <item>@drawable/cra_ele2_1</item>
+        <item>@drawable/cra_ele2_2</item>
+        <item>@drawable/cra_ele2_3</item>
+        <item>@drawable/cra_ele2_4</item>
+        <item>@drawable/cra_ele2_5</item>
+        <item>@drawable/cra_ele3_1</item>
+        <item>@drawable/cra_ele3_2</item>
+        <item>@drawable/cra_ele3_3</item>
+        <item>@drawable/cra_ele3_4</item>
+        <item>@drawable/cra_ele3_5</item>
+        <item>@drawable/cra_active1</item>
+        <item>@drawable/cra_active2</item>
+        <item>@drawable/cra_active3</item>
+        <item>@drawable/cra_active4</item>
+        <item>@drawable/cra_active5</item>
+    </integer-array>
+
+</resources>
