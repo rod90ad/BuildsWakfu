@@ -318,6 +318,7 @@ public class ViewBuildFragment extends Fragment {
                     build = (new BD(v.getContext()).getBuild(build.getCodigo()));
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     ft.detach(viewBuildFragment).attach(viewBuildFragment).commit();
+                    d.dismiss();
                 }
             });
             Button cancel = (Button) d.findViewById(R.id.item_remove_cancel);

@@ -2,8 +2,10 @@ package com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +23,8 @@ import android.widget.TextView;
 
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.ViewBuildFragment;
 import com.buildswakfu.rodrigo.buildswakfu.R;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Build;
 import com.buildswakfu.rodrigo.buildswakfu.ViewBuildActivity;
 
 import java.lang.reflect.Array;
@@ -67,21 +71,26 @@ public class DeckActivesFragment extends Fragment {
     private ImageView ele1_3;
     private ImageView ele1_4;
     private ImageView ele1_5;
-    private ImageView ele1_6;
 
     private ImageView ele2_1;
     private ImageView ele2_2;
     private ImageView ele2_3;
     private ImageView ele2_4;
     private ImageView ele2_5;
-    private ImageView ele2_6;
 
     private ImageView ele3_1;
     private ImageView ele3_2;
     private ImageView ele3_3;
     private ImageView ele3_4;
     private ImageView ele3_5;
-    private ImageView ele3_6;
+
+    // if huppermage
+    private LinearLayout hupper_ll;
+    private ImageView ele4_1;
+    private ImageView ele4_2;
+    private ImageView ele4_3;
+    private ImageView ele4_4;
+    private ImageView ele4_5;
 
     //actives spells
     private ImageView active1;
@@ -94,7 +103,8 @@ public class DeckActivesFragment extends Fragment {
     private ImageView active8;
 
     private View rootView;
-
+    private int[] elemental;
+    private TypedArray spells;
 
     private static ViewBuildFragment viewBuildFragment;
 
@@ -144,11 +154,11 @@ public class DeckActivesFragment extends Fragment {
             case 3:
                 head.setBackground(getResources().getDrawable(R.drawable.eni_head));
             case 4:
-                head.setBackground(getResources().getDrawable(R.drawable.enu_head));
+                head.setBackground(getResources().getDrawable(R.drawable.enu_head));*/
             case 5:
-                head.setBackground(getResources().getDrawable(R.drawable.feca_head));
+                return getResources().obtainTypedArray(R.array.feca_spells);
             case 6:
-                head.setBackground(getResources().getDrawable(R.drawable.hupp_head));
+                return getResources().obtainTypedArray(R.array.hupp_spells);/*
             case 7:
                 head.setBackground(getResources().getDrawable(R.drawable.iop_head));
             case 8:
@@ -160,15 +170,15 @@ public class DeckActivesFragment extends Fragment {
             case 11:
                 head.setBackground(getResources().getDrawable(R.drawable.sac_head));
             case 12:
-                head.setBackground(getResources().getDrawable(R.drawable.sad_head));
+                head.setBackground(getResources().getDrawable(R.drawable.sad_head));*/
             case 13:
-                head.setBackground(getResources().getDrawable(R.drawable.sram_head));
+                return getResources().obtainTypedArray(R.array.sram_spells);
             case 14:
-                head.setBackground(getResources().getDrawable(R.drawable.steam_head));
+                return getResources().obtainTypedArray(R.array.steam_spells);
             case 15:
-                head.setBackground(getResources().getDrawable(R.drawable.xelor_head));
+                return getResources().obtainTypedArray(R.array.xelor_spells);
             case 16:
-                head.setBackground(getResources().getDrawable(R.drawable.zob_head));*/
+                return getResources().obtainTypedArray(R.array.zob_spells);
             default:
                 return getResources().obtainTypedArray(R.array.cra_spells);
         }
@@ -213,6 +223,7 @@ public class DeckActivesFragment extends Fragment {
                     OnlySpellControl(view.getDrawable());
                     container.setImageDrawable(view.getDrawable());
                     view.setVisibility(View.VISIBLE);
+                    SaveSpells();
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     //v.setVisibility(View.VISIBLE);
@@ -223,42 +234,96 @@ public class DeckActivesFragment extends Fragment {
         }
     }
 
+    private void SaveSpells(){
+        for(int i=1;i<elemental.length;i++){
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill1.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell1(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill2.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell2(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill3.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell3(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill4.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell4(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill5.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell5(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill6.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell6(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill7.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell7(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill8.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell8(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill9.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell9(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill10.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell10(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill11.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell11(i);
+            }
+            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill12.getDrawable()).getBitmap())){
+                ViewBuildActivity.build.setSpell12(i);
+            }
+        }
+        new BD(getContext()).salvaSpells(ViewBuildActivity.build);
+    }
+
     private void OnlySpellControl(Drawable drawable){
-        if(drawable.equals(skill1.getDrawable())){
-            skill1.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill1.getDrawable()).getBitmap())){
+            skill1.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell1(0);
         }
-        if(drawable.equals(skill2.getDrawable())){
-            skill2.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill2.getDrawable()).getBitmap())){
+            skill2.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell2(0);
         }
-        if(drawable.equals(skill3.getDrawable())){
-            skill3.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill3.getDrawable()).getBitmap())){
+            skill3.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell3(0);
         }
-        if(drawable.equals(skill4.getDrawable())){
-            skill4.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill4.getDrawable()).getBitmap())){
+            skill4.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell4(0);
         }
-        if(drawable.equals(skill5.getDrawable())){
-            skill5.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill5.getDrawable()).getBitmap())){
+            skill5.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell5(0);
         }
-        if(drawable.equals(skill6.getDrawable())){
-            skill6.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill6.getDrawable()).getBitmap())){
+            skill6.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell6(0);
         }
-        if(drawable.equals(skill7.getDrawable())){
-            skill7.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill7.getDrawable()).getBitmap())){
+            skill7.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell7(0);
         }
-        if(drawable.equals(skill8.getDrawable())){
-            skill8.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill8.getDrawable()).getBitmap())){
+            skill8.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell8(0);
         }
-        if(drawable.equals(skill9.getDrawable())){
-            skill9.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill9.getDrawable()).getBitmap())){
+            skill9.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell9(0);
         }
-        if(drawable.equals(skill10.getDrawable())){
-            skill10.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill10.getDrawable()).getBitmap())){
+            skill10.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell10(0);
         }
-        if(drawable.equals(skill11.getDrawable())){
-            skill11.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill11.getDrawable()).getBitmap())){
+            skill11.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell11(0);
         }
-        if(drawable.equals(skill12.getDrawable())){
-            skill12.setImageResource(R.drawable.deck_empty_skill);
+        if(((BitmapDrawable)drawable).getBitmap().equals(((BitmapDrawable)skill12.getDrawable()).getBitmap())){
+            skill12.setImageResource(R.drawable.spell_empty);
+            ViewBuildActivity.build.setSpell12(0);
         }
     }
 
@@ -277,48 +342,108 @@ public class DeckActivesFragment extends Fragment {
             elemental_spells = (TextView) rootView.findViewById(R.id.deck_actives_elemental_spells);
             elemental_spells.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/namefont.ttf"));
 
-            TypedArray spells = getSkills(ViewBuildActivity.build.getClasse());
-            int[] elemental= new int[spells.length()];
+            spells = getSkills(ViewBuildActivity.build.getClasse());
+            elemental= new int[spells.length()];
             for (int i=1;i<spells.length();i++){
                 elemental[i]=i;
             }
 
             skill1 = (ImageView) rootView.findViewById(R.id.active_skill1);
-            skill1.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell1(), R.drawable.deck_empty_skill));
+            skill1.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell1(), R.drawable.spell_empty));
             skill1.setOnDragListener(new MyDragListener());
             skill2 = (ImageView) rootView.findViewById(R.id.active_skill2);
-            skill2.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell2(), R.drawable.deck_empty_skill));
+            skill2.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell2(), R.drawable.spell_empty));
             skill2.setOnDragListener(new MyDragListener());
             skill3 = (ImageView) rootView.findViewById(R.id.active_skill3);
-            skill3.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell3(), R.drawable.deck_empty_skill));
+            skill3.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell3(), R.drawable.spell_empty));
             skill3.setOnDragListener(new MyDragListener());
             skill4 = (ImageView) rootView.findViewById(R.id.active_skill4);
-            skill4.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell4(), R.drawable.deck_empty_skill));
+            skill4.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell4(), R.drawable.spell_empty));
             skill4.setOnDragListener(new MyDragListener());
             skill5 = (ImageView) rootView.findViewById(R.id.active_skill5);
-            skill5.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell5(), R.drawable.deck_empty_skill));
+            skill5.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell5(), R.drawable.spell_empty));
             skill5.setOnDragListener(new MyDragListener());
             skill6 = (ImageView) rootView.findViewById(R.id.active_skill6);
-            skill6.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell6(), R.drawable.deck_empty_skill));
+            skill6.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell6(), R.drawable.spell_empty));
             skill6.setOnDragListener(new MyDragListener());
-            skill7 = (ImageView) rootView.findViewById(R.id.active_skill7);
-            skill7.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell7(), R.drawable.deck_empty_skill));
-            skill7.setOnDragListener(new MyDragListener());
-            skill8 = (ImageView) rootView.findViewById(R.id.active_skill8);
-            skill8.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell8(), R.drawable.deck_empty_skill));
-            skill8.setOnDragListener(new MyDragListener());
-            skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
-            skill9.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell9(), R.drawable.deck_empty_skill));
-            skill9.setOnDragListener(new MyDragListener());
-            skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
-            skill10.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell10(), R.drawable.deck_empty_skill));
-            skill10.setOnDragListener(new MyDragListener());
-            skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
-            skill11.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell11(), R.drawable.deck_empty_skill));
-            skill11.setOnDragListener(new MyDragListener());
-            skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
-            skill12.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell12(), R.drawable.deck_empty_skill));
-            skill12.setOnDragListener(new MyDragListener());
+            if(ViewBuildActivity.build.getNivel()>=10) {
+                skill7 = (ImageView) rootView.findViewById(R.id.active_skill7);
+                skill7.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell7(), R.drawable.spell_empty));
+                skill7.setOnDragListener(new MyDragListener());
+                if(ViewBuildActivity.build.getNivel()>=20) {
+                    skill8 = (ImageView) rootView.findViewById(R.id.active_skill8);
+                    skill8.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell8(), R.drawable.spell_empty));
+                    skill8.setOnDragListener(new MyDragListener());
+                    if(ViewBuildActivity.build.getNivel()>=30) {
+                        skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
+                        skill9.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell9(), R.drawable.spell_empty));
+                        skill9.setOnDragListener(new MyDragListener());
+                        if(ViewBuildActivity.build.getNivel()>=40) {
+                            skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
+                            skill10.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell10(), R.drawable.spell_empty));
+                            skill10.setOnDragListener(new MyDragListener());
+                            if(ViewBuildActivity.build.getNivel()>=60) {
+                                skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                                skill11.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell11(), R.drawable.spell_empty));
+                                skill11.setOnDragListener(new MyDragListener());
+                                if(ViewBuildActivity.build.getNivel()>=80) {
+                                    skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                                    skill12.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell12(), R.drawable.spell_empty));
+                                    skill12.setOnDragListener(new MyDragListener());
+                                }else{
+                                    skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                                    skill12.setImageResource(R.drawable.spell_block80);
+                                }
+                            }else{
+                                skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                                skill11.setImageResource(R.drawable.spell_block60);
+                                skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                                skill12.setImageResource(R.drawable.spell_block80);
+                            }
+                        }else{
+                            skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
+                            skill10.setImageResource(R.drawable.spell_block40);
+                            skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                            skill11.setImageResource(R.drawable.spell_block60);
+                            skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                            skill12.setImageResource(R.drawable.spell_block80);
+                        }
+                    }else{
+                        skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
+                        skill9.setImageResource(R.drawable.spell_block30);
+                        skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
+                        skill10.setImageResource(R.drawable.spell_block40);
+                        skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                        skill11.setImageResource(R.drawable.spell_block60);
+                        skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                        skill12.setImageResource(R.drawable.spell_block80);
+                    }
+                }else{
+                    skill8 = (ImageView) rootView.findViewById(R.id.active_skill8);
+                    skill8.setImageResource(R.drawable.spell_block20);
+                    skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
+                    skill9.setImageResource(R.drawable.spell_block30);
+                    skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
+                    skill10.setImageResource(R.drawable.spell_block40);
+                    skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                    skill11.setImageResource(R.drawable.spell_block60);
+                    skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                    skill12.setImageResource(R.drawable.spell_block80);
+                }
+            }else{
+                skill7 = (ImageView) rootView.findViewById(R.id.active_skill7);
+                skill7.setImageResource(R.drawable.spell_block10);
+                skill8 = (ImageView) rootView.findViewById(R.id.active_skill8);
+                skill8.setImageResource(R.drawable.spell_block20);
+                skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
+                skill9.setImageResource(R.drawable.spell_block30);
+                skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
+                skill10.setImageResource(R.drawable.spell_block40);
+                skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
+                skill11.setImageResource(R.drawable.spell_block60);
+                skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
+                skill12.setImageResource(R.drawable.spell_block80);
+            }
 
             ele1_1 = (ImageView) rootView.findViewById(R.id.active_ele1_1);
             ele1_1.setImageResource(spells.getResourceId(elemental[1], 1));
@@ -368,6 +493,31 @@ public class DeckActivesFragment extends Fragment {
             ele3_5.setImageResource(spells.getResourceId(elemental[15], 15));
             ele3_5.setOnTouchListener(new MyTouchListener());
 
+            if(ViewBuildActivity.build.getClasse()==6){
+                //ativa o layout
+                hupper_ll = (LinearLayout) rootView.findViewById(R.id.active_huppermage);
+                LinearLayout.LayoutParams llp = (LinearLayout.LayoutParams) hupper_ll.getLayoutParams();
+                llp.weight = (float) 0.12;
+                hupper_ll.setLayoutParams(llp);
+
+                //adiciona as skills
+                ele4_1 = (ImageView) rootView.findViewById(R.id.active_ele4_1);
+                ele4_1.setImageResource(spells.getResourceId(elemental[23], 23));
+                ele4_1.setOnTouchListener(new MyTouchListener());
+                ele4_2 = (ImageView) rootView.findViewById(R.id.active_ele4_2);
+                ele4_2.setImageResource(spells.getResourceId(elemental[24], 24));
+                ele4_2.setOnTouchListener(new MyTouchListener());
+                ele4_3 = (ImageView) rootView.findViewById(R.id.active_ele4_3);
+                ele4_3.setImageResource(spells.getResourceId(elemental[25], 25));
+                ele4_3.setOnTouchListener(new MyTouchListener());
+                ele4_4 = (ImageView) rootView.findViewById(R.id.active_ele4_4);
+                ele4_4.setImageResource(spells.getResourceId(elemental[26], 26));
+                ele4_4.setOnTouchListener(new MyTouchListener());
+                ele4_5 = (ImageView) rootView.findViewById(R.id.active_ele4_5);
+                ele4_5.setImageResource(spells.getResourceId(elemental[27], 27));
+                ele4_5.setOnTouchListener(new MyTouchListener());
+            }
+
             active1 = (ImageView) rootView.findViewById(R.id.active_active1);
             active1.setImageResource(spells.getResourceId(elemental[16], 16));
             active1.setOnTouchListener(new MyTouchListener());
@@ -383,13 +533,22 @@ public class DeckActivesFragment extends Fragment {
             active5 = (ImageView) rootView.findViewById(R.id.active_active5);
             active5.setImageResource(spells.getResourceId(elemental[20], 20));
             active5.setOnTouchListener(new MyTouchListener());
-            /*
             active6 = (ImageView) rootView.findViewById(R.id.active_active6);
-            active6.setImageResource(spells.getIndex(21));
+            active6.setImageResource(spells.getResourceId(elemental[21], R.drawable.spell_empty));
+            active6.setOnTouchListener(new MyTouchListener());
             active7 = (ImageView) rootView.findViewById(R.id.active_active7);
-            active7.setImageResource(spells.getIndex(22));
-            active8 = (ImageView) rootView.findViewById(R.id.active_active8);
-            active8.setImageResource(spells.getIndex(23));*/
+            active7.setImageResource(spells.getResourceId(elemental[22], R.drawable.spell_empty));
+            active7.setOnTouchListener(new MyTouchListener());
+            //caso seja                         feca                                       iop                                          steamer
+            if(ViewBuildActivity.build.getClasse()==5 || ViewBuildActivity.build.getClasse()==7 || ViewBuildActivity.build.getClasse()==14 ||
+                    //                                  osa                                     ladino                                      sacrier
+                    ViewBuildActivity.build.getClasse()==8 || ViewBuildActivity.build.getClasse()==10 || ViewBuildActivity.build.getClasse()==11 ||
+                    //                             sadida                                       Sram                                        Xelor
+                   ViewBuildActivity.build.getClasse()==12 || ViewBuildActivity.build.getClasse()==13 || ViewBuildActivity.build.getClasse()==15) {
+                active8 = (ImageView) rootView.findViewById(R.id.active_active8);
+                active8.setImageResource(spells.getResourceId(elemental[23], R.drawable.spell_empty));
+                active8.setOnTouchListener(new MyTouchListener());
+            }
         }
         return rootView;
     }

@@ -53,7 +53,7 @@
                         android:id="@+id/active_skill1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -67,7 +67,7 @@
                         android:id="@+id/active_skill2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -81,7 +81,7 @@
                         android:id="@+id/active_skill3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -95,7 +95,7 @@
                         android:id="@+id/active_skill4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -109,7 +109,7 @@
                         android:id="@+id/active_skill5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -123,7 +123,7 @@
                         android:id="@+id/active_skill6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -148,7 +148,7 @@
                         android:id="@+id/active_skill7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -162,7 +162,7 @@
                         android:id="@+id/active_skill8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -176,7 +176,7 @@
                         android:id="@+id/active_skill9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -190,7 +190,7 @@
                         android:id="@+id/active_skill10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -204,7 +204,7 @@
                         android:id="@+id/active_skill11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -218,7 +218,7 @@
                         android:id="@+id/active_skill12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -267,7 +267,7 @@
                         android:id="@+id/active_ele1_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -281,7 +281,7 @@
                         android:id="@+id/active_ele1_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -295,7 +295,7 @@
                         android:id="@+id/active_ele1_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -309,7 +309,7 @@
                         android:id="@+id/active_ele1_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -323,7 +323,7 @@
                         android:id="@+id/active_ele1_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -347,7 +347,7 @@
                         android:id="@+id/active_ele2_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -361,7 +361,7 @@
                         android:id="@+id/active_ele2_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -375,7 +375,7 @@
                         android:id="@+id/active_ele2_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -389,7 +389,7 @@
                         android:id="@+id/active_ele2_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -403,7 +403,7 @@
                         android:id="@+id/active_ele2_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -427,7 +427,7 @@
                         android:id="@+id/active_ele3_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -441,7 +441,7 @@
                         android:id="@+id/active_ele3_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -455,7 +455,7 @@
                         android:id="@+id/active_ele3_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -469,7 +469,7 @@
                         android:id="@+id/active_ele3_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -483,7 +483,88 @@
                         android:id="@+id/active_ele3_5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/active_huppermage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:weightSum="5.5"
+                android:padding="1dp"
+                android:layout_weight="0">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    android:layout_weight="1.1">
+
+                    <ImageView
+                        android:id="@+id/active_ele4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/spell_empty"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    android:layout_weight="1.1">
+
+                    <ImageView
+                        android:id="@+id/active_ele4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/spell_empty"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    android:layout_weight="1.1">
+
+                    <ImageView
+                        android:id="@+id/active_ele4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/spell_empty"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    android:layout_weight="1.1">
+
+                    <ImageView
+                        android:id="@+id/active_ele4_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/spell_empty"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:padding="1dp"
+                    android:layout_weight="1.1">
+
+                    <ImageView
+                        android:id="@+id/active_ele4_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -526,7 +607,7 @@
                         android:id="@+id/active_active1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -540,7 +621,7 @@
                         android:id="@+id/active_active2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -554,7 +635,7 @@
                         android:id="@+id/active_active3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -568,7 +649,7 @@
                         android:id="@+id/active_active4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -582,7 +663,7 @@
                         android:id="@+id/active_active5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -596,7 +677,7 @@
                         android:id="@+id/active_active6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -621,7 +702,7 @@
                         android:id="@+id/active_active7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 
@@ -635,7 +716,7 @@
                         android:id="@+id/active_active8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/deck_empty_skill"/>
+                        android:src="@drawable/spell_empty"/>
 
                 </LinearLayout>
 

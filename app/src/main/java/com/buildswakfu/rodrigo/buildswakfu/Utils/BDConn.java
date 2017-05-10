@@ -188,7 +188,25 @@ public class BDConn extends SQLiteOpenHelper {
                 "apincontrolanddmg int," +  //101
                 "apinarteequipar int," +    //102
                 "apinfinaldmg int," +       //103
-                "apinreselemental int);");  //104
+                "apinreselemental int," +   //104
+                "active1 int," +            //105
+                "active2 int," +            //106
+                "active3 int," +            //107
+                "active4 int," +            //108
+                "active5 int," +            //109
+                "active6 int," +            //110
+                "active7 int," +            //111
+                "active8 int," +            //112
+                "active9 int," +            //113
+                "active10 int," +           //114
+                "active11 int," +           //115
+                "active12 int," +           //116
+                "passive1 int," +           //117
+                "passive2 int," +           //118
+                "passive3 int," +           //119
+                "passive4 int," +           //120
+                "passive5 int," +           //121
+                "passive6 int);");          //122
     }
 
     public void onCreateItem(SQLiteDatabase bd) {

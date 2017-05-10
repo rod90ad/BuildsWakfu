@@ -48,6 +48,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.RuntimeExecutionException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -141,15 +142,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mViewPager);
 
-
         //Get a Tracker (should auto-report)
         ((AnalyticsApplication) getApplication()).getTracker(AnalyticsApplication.TrackerName.APP_TRACKER);
         mTracker = ((AnalyticsApplication) getApplication()).getTracker(AnalyticsApplication.TrackerName.APP_TRACKER);
 
         //google Sign In
         // Configure Google Sign In
+        // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("503029112369-biqrmoh50i3u161f5p6mcvtj36hrh4ik.apps.googleusercontent.com")
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         // Build a GoogleApiClient with access to the Google Sign-In API and the
@@ -249,17 +250,18 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        Log.e("AUTH","vai verificar login");
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
+                Log.e("AUTH","logou no google, vai tentar no firebase");
                 GoogleSignInAccount account = result.getSignInAccount();
                 Toast.makeText(MainActivity.this, "Welcome "+account.getDisplayName(),Toast.LENGTH_LONG).show();
                 firebaseAuthWithGoogle(account);
             } else {
-                Toast.makeText(MainActivity.this, "Login Fail",Toast.LENGTH_LONG);
+                Toast.makeText(MainActivity.this, "Login Fail",Toast.LENGTH_LONG).show();
             }
         }
         if(requestCode == 3 && resultCode == RESULT_OK){
@@ -301,7 +303,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void firebaseAuthWithGoogle(final GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

@@ -48,6 +48,7 @@
     <string name="deck_passives">Passives</string>
     <string name="elemental_spells">Elemental Spells</string>
     <string name="active_spells">Active Spells</string>
+    <string name="passive_spells">Passive Spells</string>
 
     <!-- Points Variable -->
     <string name="pontossalvos">points saved successfully</string>

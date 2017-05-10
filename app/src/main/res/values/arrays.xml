@@ -1,7 +1,7 @@
 <resources>
 
     <integer-array name="cra_spells">
-        <item>@drawable/deck_empty_skill</item>
+        <item>@drawable/spell_empty</item>
         <item>@drawable/cra_ele1_1</item>
         <item>@drawable/cra_ele1_2</item>
         <item>@drawable/cra_ele1_3</item>
@@ -22,6 +22,312 @@
         <item>@drawable/cra_active3</item>
         <item>@drawable/cra_active4</item>
         <item>@drawable/cra_active5</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="cra_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/cra_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/cra_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/cra_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/cra_passive4</item>
+        <item>@drawable/cra_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/cra_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/cra_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/cra_passive8</item>
+        <item>@drawable/passive_fluctulation</item>
+        <item>@drawable/cra_passive9</item>
+    </integer-array>
+
+    <integer-array name="sram_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/sram_ele1_1</item>
+        <item>@drawable/sram_ele1_2</item>
+        <item>@drawable/sram_ele1_3</item>
+        <item>@drawable/sram_ele1_4</item>
+        <item>@drawable/sram_ele1_5</item>
+        <item>@drawable/sram_ele2_1</item>
+        <item>@drawable/sram_ele2_2</item>
+        <item>@drawable/sram_ele2_3</item>
+        <item>@drawable/sram_ele2_4</item>
+        <item>@drawable/sram_ele2_5</item>
+        <item>@drawable/sram_ele3_1</item>
+        <item>@drawable/sram_ele3_2</item>
+        <item>@drawable/sram_ele3_3</item>
+        <item>@drawable/sram_ele3_4</item>
+        <item>@drawable/sram_ele3_5</item>
+        <item>@drawable/sram_active1</item>
+        <item>@drawable/sram_active2</item>
+        <item>@drawable/sram_active3</item>
+        <item>@drawable/sram_active4</item>
+        <item>@drawable/sram_active5</item>
+        <item>@drawable/sram_active6</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="sram_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/sram_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/sram_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/sram_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/sram_passive4</item>
+        <item>@drawable/sram_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/sram_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/sram_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/sram_passive8</item>
+        <item>@drawable/passive_fluctulation</item>
+        <item>@drawable/sram_passive9</item>
+        <item>@drawable/sram_passive10</item>
+    </integer-array>
+
+    <integer-array name="zob_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/zob_ele1_1</item>
+        <item>@drawable/zob_ele1_2</item>
+        <item>@drawable/zob_ele1_3</item>
+        <item>@drawable/zob_ele1_4</item>
+        <item>@drawable/zob_ele1_5</item>
+        <item>@drawable/zob_ele2_1</item>
+        <item>@drawable/zob_ele2_2</item>
+        <item>@drawable/zob_ele2_3</item>
+        <item>@drawable/zob_ele2_4</item>
+        <item>@drawable/zob_ele2_5</item>
+        <item>@drawable/zob_ele3_1</item>
+        <item>@drawable/zob_ele3_2</item>
+        <item>@drawable/zob_ele3_3</item>
+        <item>@drawable/zob_ele3_4</item>
+        <item>@drawable/zob_ele3_5</item>
+        <item>@drawable/zob_active1</item>
+        <item>@drawable/zob_active2</item>
+        <item>@drawable/zob_active3</item>
+        <item>@drawable/zob_active4</item>
+        <item>@drawable/zob_active5</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="zob_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/zob_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/zob_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/zob_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/zob_passive4</item>
+        <item>@drawable/zob_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/zob_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/zob_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/zob_passive8</item>
+        <item>@drawable/passive_fluctulation</item>
+    </integer-array>
+
+    <integer-array name="feca_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/feca_ele1_1</item>
+        <item>@drawable/feca_ele1_2</item>
+        <item>@drawable/feca_ele1_3</item>
+        <item>@drawable/feca_ele1_4</item>
+        <item>@drawable/feca_ele1_5</item>
+        <item>@drawable/feca_ele2_1</item>
+        <item>@drawable/feca_ele2_2</item>
+        <item>@drawable/feca_ele2_3</item>
+        <item>@drawable/feca_ele2_4</item>
+        <item>@drawable/feca_ele2_5</item>
+        <item>@drawable/feca_ele3_1</item>
+        <item>@drawable/feca_ele3_2</item>
+        <item>@drawable/feca_ele3_3</item>
+        <item>@drawable/feca_ele3_4</item>
+        <item>@drawable/feca_ele3_5</item>
+        <item>@drawable/feca_active1</item>
+        <item>@drawable/feca_active2</item>
+        <item>@drawable/feca_active3</item>
+        <item>@drawable/feca_active4</item>
+        <item>@drawable/feca_active5</item>
+        <item>@drawable/feca_active6</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="feca_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/feca_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/feca_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/feca_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/feca_passive4</item>
+        <item>@drawable/feca_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/feca_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/feca_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/feca_passive8</item>
+        <item>@drawable/passive_fluctulation</item>
+        <item>@drawable/feca_passive9</item>
+    </integer-array>
+
+    <integer-array name="steam_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/steam_ele1_1</item>
+        <item>@drawable/steam_ele1_2</item>
+        <item>@drawable/steam_ele1_3</item>
+        <item>@drawable/steam_ele1_4</item>
+        <item>@drawable/steam_ele1_5</item>
+        <item>@drawable/steam_ele2_1</item>
+        <item>@drawable/steam_ele2_2</item>
+        <item>@drawable/steam_ele2_3</item>
+        <item>@drawable/steam_ele2_4</item>
+        <item>@drawable/steam_ele2_5</item>
+        <item>@drawable/steam_ele3_1</item>
+        <item>@drawable/steam_ele3_2</item>
+        <item>@drawable/steam_ele3_3</item>
+        <item>@drawable/steam_ele3_4</item>
+        <item>@drawable/steam_ele3_5</item>
+        <item>@drawable/steam_active1</item>
+        <item>@drawable/steam_active2</item>
+        <item>@drawable/steam_active3</item>
+        <item>@drawable/steam_active4</item>
+        <item>@drawable/steam_active5</item>
+        <item>@drawable/steam_active6</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="steam_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/steam_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/steam_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/steam_passive3</item>
+        <item>@drawable/steam_passive4</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/steam_passive5</item>
+        <item>@drawable/steam_passive6</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/steam_passive7</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/steam_passive8</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/passive_fluctulation</item>
+    </integer-array>
+
+    <integer-array name="xelor_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/xelor_ele1_1</item>
+        <item>@drawable/xelor_ele1_2</item>
+        <item>@drawable/xelor_ele1_3</item>
+        <item>@drawable/xelor_ele1_4</item>
+        <item>@drawable/xelor_ele1_5</item>
+        <item>@drawable/xelor_ele2_1</item>
+        <item>@drawable/xelor_ele2_2</item>
+        <item>@drawable/xelor_ele2_3</item>
+        <item>@drawable/xelor_ele2_4</item>
+        <item>@drawable/xelor_ele2_5</item>
+        <item>@drawable/xelor_ele3_1</item>
+        <item>@drawable/xelor_ele3_2</item>
+        <item>@drawable/xelor_ele3_3</item>
+        <item>@drawable/xelor_ele3_4</item>
+        <item>@drawable/xelor_ele3_5</item>
+        <item>@drawable/xelor_active1</item>
+        <item>@drawable/xelor_active2</item>
+        <item>@drawable/xelor_active3</item>
+        <item>@drawable/xelor_active4</item>
+        <item>@drawable/xelor_active5</item>
+        <item>@drawable/xelor_active6</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+    </integer-array>
+    <integer-array name="xelor_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/xelor_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/xelor_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/xelor_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/xelor_passive4</item>
+        <item>@drawable/xelor_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/xelor_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/xelor_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/xelor_passive8</item>
+        <item>@drawable/passive_fluctulation</item>
+    </integer-array>
+
+    <integer-array name="hupp_spells">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/hupp_ele1_1</item>
+        <item>@drawable/hupp_ele1_2</item>
+        <item>@drawable/hupp_ele1_3</item>
+        <item>@drawable/hupp_ele1_4</item>
+        <item>@drawable/hupp_ele1_5</item>
+        <item>@drawable/hupp_ele2_1</item>
+        <item>@drawable/hupp_ele2_2</item>
+        <item>@drawable/hupp_ele2_3</item>
+        <item>@drawable/hupp_ele2_4</item>
+        <item>@drawable/hupp_ele2_5</item>
+        <item>@drawable/hupp_ele3_1</item>
+        <item>@drawable/hupp_ele3_2</item>
+        <item>@drawable/hupp_ele3_3</item>
+        <item>@drawable/hupp_ele3_4</item>
+        <item>@drawable/hupp_ele3_5</item>
+        <item>@drawable/hupp_active1</item>
+        <item>@drawable/hupp_active2</item>
+        <item>@drawable/hupp_active3</item>
+        <item>@drawable/hupp_active4</item>
+        <item>@drawable/hupp_active5</item>
+        <item>@drawable/spell_mastery_weapon</item>
+        <item>@drawable/spell_mass_charm</item>
+        <item>@drawable/hupp_ele4_1</item>
+        <item>@drawable/hupp_ele4_2</item>
+        <item>@drawable/hupp_ele4_3</item>
+        <item>@drawable/hupp_ele4_4</item>
+        <item>@drawable/hupp_ele4_5</item>
+    </integer-array>
+    <integer-array name="hupp_passives">
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_evasion</item>
+        <item>@drawable/hupp_passive1</item>
+        <item>@drawable/passive_interception</item>
+        <item>@drawable/hupp_passive2</item>
+        <item>@drawable/passive_inhalation</item>
+        <item>@drawable/hupp_passive3</item>
+        <item>@drawable/passive_motivation</item>
+        <item>@drawable/hupp_passive4</item>
+        <item>@drawable/hupp_passive5</item>
+        <item>@drawable/passive_medicine</item>
+        <item>@drawable/hupp_passive6</item>
+        <item>@drawable/passive_rock</item>
+        <item>@drawable/hupp_passive7</item>
+        <item>@drawable/passive_carnage</item>
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/passive_fluctulation</item>
+        <item>@drawable/spell_empty</item>
+        <item>@drawable/hupp_passive10</item>
     </integer-array>
 
 </resources>

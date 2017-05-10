@@ -149,6 +149,14 @@ public class Build {
     private int spell11=0;
     private int spell12=0;
 
+    //passives
+    private int pSpell1=0;
+    private int pSpell2=0;
+    private int pSpell3=0;
+    private int pSpell4=0;
+    private int pSpell5=0;
+    private int pSpell6=0;
+
     public Build (){}
 
     public Build(int codigo, String nome, int elementp, int resistp, int classe, int nivel, int heal, int range, int beserkdmg, int block, int control, int dmg, int criticalchance, int backdmg, int distancedmg, int closecombatdmg, int element1dmg, int element2dmg, int element3dmg, int areadmg, int onetargetdmg, int evasion, int criticaldmg, int iniciative, int stop, int prosp, int pwmax, int resist, int sabedoria, int reswater, int resfire, int resair, int researth, int resblackdmg, int rescriticaldmg, int res1elerandom, int res2elerandom, int res3elerandom, int actionpoint, int movepoint, int vitalpoint, int wakfupoint, ArrayList<String> status, int statusind, int pvphp, int arteequipar, int nvfagua, int nvffogo, int nvfar, int nvfterra, int nvfgeral, int movespeed, int respm, int respa, int dmgfire, int dmgwater, int dmgearth, int dmgair, int minertake, int intPoints, int apinlifepercent, int apinresele, int apinbarreira, int apinhealrecived, int apinlifearmor, int forcePoints, int apingeral, int apinalvounico, int apinzona, int apinCaC, int apindistance, int apinlife, int agiPoints, int apinblock, int apinesquiva, int apininiciativa, int apinblockandesquiva, int apinremovepaandpm, int apinrespmepm, int luckPoints, int apingolpecritico, int apinparada, int apindanocritico, int apinbackdmg, int apinbeserkdmg, int apinheal, int apinresbackdmg, int apincritialres, int especialPoints, int apinactionpoint, int apinmovepoint, int apinrangeanddmg, int apinwakfupoint, int apincontrolanddmg, int apinarteequipar, int apinfinalDamage, int apinreselemental, Item elmo, Item capa, Item peitoral, Item bota, Item pet, Item anel1, Item anel2, Item amuleto, Item insignia, Item armamain, Item armasec, Item cinto, Item dragona, Item montaria) {
@@ -508,9 +516,15 @@ public class Build {
     public int getSpell7(){ return spell7; }
     public int getSpell8(){ return spell8; }
     public int getSpell9(){ return spell9; }
-    public int getSpell10(){ return spell11; }
+    public int getSpell10(){ return spell10; }
     public int getSpell11(){ return spell11; }
     public int getSpell12(){ return spell12; }
+    public int getPSpell1(){ return pSpell1; }
+    public int getPSpell2(){ return pSpell2; }
+    public int getPSpell3(){ return pSpell3; }
+    public int getPSpell4(){ return pSpell4; }
+    public int getPSpell5(){ return pSpell5; }
+    public int getPSpell6(){ return pSpell6; }
     public int getDmgfire(){ return dmgfire; }
     public int getDmgwater(){ return dmgwater; }
     public int getDmgearth(){ return dmgearth; }
@@ -596,6 +610,12 @@ public class Build {
     public void setSpell10(int spell10){ this.spell10=spell10; }
     public void setSpell11(int spell11){ this.spell11=spell11; }
     public void setSpell12(int spell12){ this.spell12=spell12; }
+    public void setPSpell1(int pSpell1){ this.pSpell1=pSpell1; }
+    public void setPSpell2(int pSpell2){ this.pSpell2=pSpell2; }
+    public void setPSpell3(int pSpell3){ this.pSpell3=pSpell3; }
+    public void setPSpell4(int pSpell4){ this.pSpell4=pSpell4; }
+    public void setPSpell5(int pSpell5){ this.pSpell5=pSpell5; }
+    public void setPSpell6(int pSpell6){ this.pSpell6=pSpell6; }
     public void setDmgfire(int dmgfire){ this.dmgfire=dmgfire; }
     public void setDmgwater(int dmgwater){ this.dmgwater=dmgwater; }
     public void setDmgearth(int dmgearth){ this.dmgearth=dmgearth; }

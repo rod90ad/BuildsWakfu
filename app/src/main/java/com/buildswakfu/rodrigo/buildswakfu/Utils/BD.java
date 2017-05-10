@@ -229,10 +229,56 @@ public class BD {
             point.put("apinarteequipar", build.getApinarteequipar());
             point.put("apinfinaldmg", build.getApinfinalDamage());
             point.put("apinreselemental", build.getApinreselemental());
+            point.put("active1", build.getSpell1());
+            point.put("active2", build.getSpell2());
+            point.put("active3", build.getSpell3());
+            point.put("active4", build.getSpell4());
+            point.put("active5", build.getSpell5());
+            point.put("active6", build.getSpell6());
+            point.put("active7", build.getSpell7());
+            point.put("active8", build.getSpell8());
+            point.put("active9", build.getSpell9());
+            point.put("active10", build.getSpell10());
+            point.put("active11", build.getSpell11());
+            point.put("active12", build.getSpell12());
+            point.put("passive1", build.getPSpell1());
+            point.put("passive2", build.getPSpell2());
+            point.put("passive3", build.getPSpell3());
+            point.put("passive4", build.getPSpell4());
+            point.put("passive5", build.getPSpell5());
+            point.put("passive6", build.getPSpell6());
             bd.update("build",point, "_id="+build.getCodigo(), null);
         } catch (Exception e) {
             System.out.println("Erro ao gravar pontos: "+e.getMessage());
         }
+    }
+
+    public void salvaSpells(Build build) {
+        ContentValues point = new ContentValues();
+        try{
+            point.put("active1", build.getSpell1());
+            point.put("active2", build.getSpell2());
+            point.put("active3", build.getSpell3());
+            point.put("active4", build.getSpell4());
+            point.put("active5", build.getSpell5());
+            point.put("active6", build.getSpell6());
+            point.put("active7", build.getSpell7());
+            point.put("active8", build.getSpell8());
+            point.put("active9", build.getSpell9());
+            point.put("active10", build.getSpell10());
+            point.put("active11", build.getSpell11());
+            point.put("active12", build.getSpell12());
+            point.put("passive1", build.getPSpell1());
+            point.put("passive2", build.getPSpell2());
+            point.put("passive3", build.getPSpell3());
+            point.put("passive4", build.getPSpell4());
+            point.put("passive5", build.getPSpell5());
+            point.put("passive6", build.getPSpell6());
+            bd.update("build",point, "_id="+build.getCodigo(), null);
+        } catch (Exception e) {
+            System.out.println("Erro ao gravar pontos: "+e.getMessage());
+        }
+        Log.e("BD","Pontos Salvos com Sucesso!!");
     }
 
     public void salvaBuild(Build build){
@@ -465,6 +511,24 @@ public class BD {
             build.setApinarteequipar(cursor.getInt(102));
             build.setApinfinalDamage(cursor.getInt(103));
             build.setApinreselemental(cursor.getInt(104));
+            build.setSpell1(cursor.getInt(105));
+            build.setSpell2(cursor.getInt(106));
+            build.setSpell3(cursor.getInt(107));
+            build.setSpell4(cursor.getInt(108));
+            build.setSpell5(cursor.getInt(109));
+            build.setSpell6(cursor.getInt(110));
+            build.setSpell7(cursor.getInt(111));
+            build.setSpell8(cursor.getInt(112));
+            build.setSpell9(cursor.getInt(113));
+            build.setSpell10(cursor.getInt(114));
+            build.setSpell11(cursor.getInt(115));
+            build.setSpell12(cursor.getInt(116));
+            build.setPSpell1(cursor.getInt(117));
+            build.setPSpell2(cursor.getInt(118));
+            build.setPSpell3(cursor.getInt(119));
+            build.setPSpell4(cursor.getInt(120));
+            build.setPSpell5(cursor.getInt(121));
+            build.setPSpell6(cursor.getInt(122));
         }
         return build;
     }
