@@ -6,6 +6,8 @@
     <color name="textColorPrimary">#000000</color>
     <color name="windowBackground">#20B2AA</color>
     <color name="navigationBarColor">#000000</color>
+    <color name="stats1">#59706b</color>
+    <color name="stats2">#728482</color>
     <color name="cz1">#CDCDCD</color>
     <color name="cz2">#C0C0C0</color>
     <color name="blank">#ffffff</color>

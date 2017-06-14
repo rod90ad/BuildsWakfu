@@ -38,6 +38,7 @@ import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.BDConn;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.Build;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.Item;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Spell;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.User;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -343,82 +344,39 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                                                         MainActivity.load.setCancelable(false);
                                                         MainActivity.load.show();
                                                         final ArrayList<Item> items = new ArrayList<Item>();
-                                                        switch (user.getLang()) {
-                                                            case "pt":
-                                                                MainActivity.mDatabase.child("Items-pt").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                    @Override
-                                                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                                                        items.clear();
-                                                                        for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
-                                                                            Item item = itemSnap.getValue(Item.class);
-                                                                            items.add(item);
-                                                                        }
-                                                                        new BD(getApplicationContext()).popularBD(items);
-                                                                    }
+                                                        final ArrayList<Spell> spells = new ArrayList<Spell>();
+                                                        String language = user.getLang();
+                                                        MainActivity.mDatabase.child("Items-"+language).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                items.clear();
+                                                                for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
+                                                                    Item item = itemSnap.getValue(Item.class);
+                                                                    items.add(item);
+                                                                }
+                                                                new BD(getApplicationContext()).popularBD(items);
+                                                            }
 
-                                                                    @Override
-                                                                    public void onCancelled(DatabaseError databaseError) {
+                                                            @Override
+                                                            public void onCancelled(DatabaseError databaseError) {
+                                                            }
+                                                        });
+                                                        MainActivity.mDatabase.child("Spells-"+language).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                spells.clear();
+                                                                for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
+                                                                    Spell spell = itemSnap.getValue(Spell.class);
+                                                                    spells.add(spell);
+                                                                }
+                                                                new BD(getApplicationContext()).popularBDSpells(spells);
+                                                            }
 
-                                                                    }
-                                                                });
-                                                                break;
-                                                            case "en":
-                                                                MainActivity.mDatabase.child("Items-en").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                    @Override
-                                                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                                                        items.clear();
-                                                                        for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
-                                                                            Item item = itemSnap.getValue(Item.class);
-                                                                            items.add(item);
-                                                                        }
-                                                                        new BD(getApplicationContext()).popularBD(items);
-                                                                    }
-
-                                                                    @Override
-                                                                    public void onCancelled(DatabaseError databaseError) {
-
-                                                                    }
-                                                                });
-                                                                break;
-                                                            case "fr":
-                                                                MainActivity.mDatabase.child("Items-fr").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                    @Override
-                                                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                                                        items.clear();
-                                                                        for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
-                                                                            Item item = itemSnap.getValue(Item.class);
-                                                                            items.add(item);
-                                                                        }
-                                                                        new BD(getApplicationContext()).popularBD(items);
-                                                                    }
-
-                                                                    @Override
-                                                                    public void onCancelled(DatabaseError databaseError) {
-
-                                                                    }
-                                                                });
-                                                                break;
-                                                            case "es":
-                                                                MainActivity.mDatabase.child("Items-es").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                    @Override
-                                                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                                                        items.clear();
-                                                                        for(DataSnapshot itemSnap : dataSnapshot.getChildren()) {
-                                                                            Item item = itemSnap.getValue(Item.class);
-                                                                            items.add(item);
-                                                                        }
-                                                                        new BD(getApplicationContext()).popularBD(items);
-                                                                    }
-
-                                                                    @Override
-                                                                    public void onCancelled(DatabaseError databaseError) {
-
-                                                                    }
-                                                                });
-                                                                break;
-                                                        }
+                                                            @Override
+                                                            public void onCancelled(DatabaseError databaseError) {
+                                                            }
+                                                        });
                                                         user.setLastSync(dataSnapshot.getValue(Integer.class));
-                                                        mDatabase.child("users/"+user.getUserID()).setValue(user);
                                                     }
                                                 }
 

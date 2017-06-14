@@ -2,6 +2,7 @@ package com.buildswakfu.rodrigo.buildswakfu.Utils;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -35,8 +36,8 @@ import java.util.Iterator;
 public class BD {
     private SQLiteDatabase bd;
     private Context context;
-    public int max=884;
-    public int atual=0;
+    public boolean itens=false;
+    public boolean spell=false;
 
     public BD(Context ctx){
         context=ctx;
@@ -183,6 +184,7 @@ public class BD {
             valores.put("apinfinaldmg", build.getApinfinalDamage());
             valores.put("apinreselemental", build.getApinreselemental());
             bd.insert("build", null, valores);
+            salvapontos(build);
         }catch (Exception e) {
             System.out.println("Erro ao gravar a build: "+ e.getMessage());
         }
@@ -636,6 +638,60 @@ public class BD {
         bd.close();
     }
 
+    public ArrayList<Spell> getSpells(String classe,boolean type){
+        ArrayList<Spell> spells = new ArrayList<Spell>();
+        Spell spl = new Spell();
+        spl.setImage("spell_empty");
+        spells.add(spl);
+        Cursor cursor;
+        String[] colunas = {"*"};
+        String[] where = {classe , type==true ? "1" : "0"};
+        cursor = bd.query("spell", colunas, "classe=? and active=?" , where, null, null, null);
+        while (cursor.moveToNext()) {
+            Spell spell = new Spell();
+            spell.setClasse(cursor.getString(1));
+            spell.setActive(cursor.getInt(2) > 0);
+            spell.setArea(cursor.getInt(3) > 0);
+            spell.setBasedmg(cursor.getInt(4));
+            ArrayList<String> cond = new ArrayList<>();
+            for (int i = 5; i <= 14; i++) {
+                if (!cursor.isNull(i)) {
+                    cond.add(cursor.getString(i));
+                } else {
+                    spell.setConditions(cond);
+                    i = 15;
+                }
+            }
+            spell.setDescription(cursor.getString(15));
+            spell.setDiagonal(cursor.getInt(16) > 0);
+            spell.setImage(cursor.getString(17));
+            Log.e("SPELL NAME:",cursor.getString(17));
+            spell.setLevel(cursor.getInt(18));
+            spell.setLinear(cursor.getInt(19) > 0);
+            ArrayList<String> line = new ArrayList<>();
+            for (int j = 20; j <= 34; j++) {
+                if (!cursor.isNull(j)) {
+                    line.add(cursor.getString(j));
+                } else {
+                    spell.setLines(line);
+                    j = 35;
+                }
+            }
+            spell.setLinhadevisao(cursor.getInt(35) > 0);
+            spell.setName(cursor.getString(36));
+            spell.setPa_used(cursor.getInt(37));
+            spell.setPm_used(cursor.getInt(38));
+            spell.setWakfu_used(cursor.getInt(39));
+            spell.setRange_ini(cursor.getInt(40));
+            spell.setRange_end(cursor.getInt(41));
+            spell.setRange_mod(cursor.getInt(42) > 0);
+            spell.setScale(cursor.getDouble(43));
+            spells.add(spell);
+        }
+        bd.close();
+        return spells;
+    }
+
     public ArrayList<Item> getItens(String[] tipo, Boolean pvp){
         ArrayList<Item> li = new ArrayList<Item>();
         Cursor cursor;
@@ -884,7 +940,7 @@ public class BD {
         return li;
     }
 
-    private class PopularBDAsync extends AsyncTask<ArrayList<Item>,Void,Boolean> {
+    private class PopularBDAsync extends AsyncTask<ArrayList,Void,Boolean> {
 
         private ArrayList<Item> items = new ArrayList<Item>();
 
@@ -955,8 +1011,8 @@ public class BD {
                     "minertake int);");                         // coleta de mineiro
         }
 
-        protected Boolean doInBackground(ArrayList<Item>... itens){
-            ArrayList<Item> items = itens[0];
+        protected Boolean doInBackground(ArrayList... list){
+            items = list[0];
             ContentValues valores = new ContentValues();
             try {
                 for(int i=0; i<items.size();i++) {
@@ -1031,6 +1087,7 @@ public class BD {
         @Override
         protected void onPostExecute(Boolean imageView) {
             if(imageView==true) {
+                MainActivity.mDatabase.child("users/"+MainActivity.user.getUserID()).setValue(MainActivity.user);
             }else{
                 Log.i("AsyncTask", "Erro ao baixar a imagem " + Thread.currentThread().getName());
             }
@@ -1039,8 +1096,119 @@ public class BD {
         }
     }
 
-    public void popularBD(ArrayList<Item> items){
-       new PopularBDAsync().execute(items);
+    private class PopularBDSpellsAsync extends AsyncTask<ArrayList,Void,Boolean> {
+
+        private ArrayList<Spell> spells = new ArrayList<Spell>();
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            MainActivity.load.show();
+            bd.execSQL("drop table spell");
+            bd.execSQL("create table spell(" +
+                    "_id integer primary key autoincrement," +  //id 0
+                    "classe varchar(10) not null," +            //1
+                    "active boolean not null," +                //2
+                    "area boolean," +                           //3
+                    "basedmg int," +                            //4
+                    "condition1 varchar (200)," +               //5
+                    "condition2 varchar (200)," +               //6
+                    "condition3 varchar (200)," +               //7
+                    "condition4 varchar (200)," +               //8
+                    "condition5 varchar (200)," +               //9
+                    "condition6 varchar (200)," +               //10
+                    "condition7 varchar (200)," +               //11
+                    "condition8 varchar (200)," +               //12
+                    "condition9 varchar (200)," +               //13
+                    "condition10 varchar (200)," +              //14
+                    "description varchar (500)," +              //15
+                    "diagonal boolean," +                       //16
+                    "image varchar (50)," +                     //17
+                    "level int," +                              //18
+                    "linear boolean," +                         //19
+                    "line1 varchar (200)," +                    //20
+                    "line2 varchar (200)," +                    //21
+                    "line3 varchar (200)," +                    //22
+                    "line4 varchar (200)," +                    //23
+                    "line5 varchar (200)," +                    //24
+                    "line6 varchar (200)," +                //25
+                    "line7 varchar (200)," +                //26
+                    "line8 varchar (200)," +                //27
+                    "line9 varchar (200)," +                //28
+                    "line10 varchar (200)," +               //29
+                    "line11 varchar (200)," +               //30
+                    "line12 varchar (200)," +               //31
+                    "line13 varchar (200)," +               //32
+                    "line14 varchar (200)," +               //33
+                    "line15 varchar (200)," +               //34
+                    "linhadevisao boolean," +               //35
+                    "name varchar (100)," +                 //36
+                    "paused int," +                         //37
+                    "pmused int," +                         //38
+                    "pwused int," +                         //39
+                    "rangeini int," +                       //40
+                    "rangeend int," +                       //41
+                    "rangemod boolean," +                   //42
+                    "scale double);");                       //43
+        }
+
+        protected Boolean doInBackground(ArrayList... list){
+            spells = list[0];
+            try{
+                for(int g=0; g<spells.size();g++){
+                    ContentValues valores = new ContentValues();
+                    valores.put("name", spells.get(g).getName());
+                    valores.put("basedmg", spells.get(g).getBasedmg());
+                    valores.put("area", spells.get(g).isArea());
+                    valores.put("classe", spells.get(g).getClasse());
+                    valores.put("active", spells.get(g).isActive());
+                    valores.put("linhadevisao", spells.get(g).isLinhadevisao());
+                    valores.put("linear", spells.get(g).isLinear());
+                    valores.put("level", spells.get(g).getLevel());
+                    valores.put("paused", spells.get(g).getPa_used());
+                    valores.put("pmused", spells.get(g).getPm_used());
+                    valores.put("pwused", spells.get(g).getWakfu_used());
+                    valores.put("rangeini", spells.get(g).getRange_ini());
+                    valores.put("rangeend", spells.get(g).getRange_end());
+                    valores.put("scale", spells.get(g).getScale());
+                    valores.put("rangemod", spells.get(g).isRange_mod());
+                    valores.put("description", spells.get(g).getDescription());
+                    valores.put("image", spells.get(g).getImage());
+                    valores.put("diagonal", spells.get(g).isDiagonal());
+                    for(int h=0;h<spells.get(g).getConditions().size();h++){
+                        valores.put("condition"+(h+1), spells.get(g).getConditions().get(h));
+                    }
+                    for(int j=0;j<spells.get(g).getLines().size();j++){
+                        valores.put("line"+(j+1), spells.get(g).getLines().get(j));
+                    }
+                    bd.insert("spell", null, valores);
+                }
+            }catch (Exception e){
+                Log.e("BD Spells", e.getMessage());
+                return false;
+            }
+            bd.close();
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean imageView) {
+            if(imageView==true) {
+                MainActivity.mDatabase.child("users/"+MainActivity.user.getUserID()).setValue(MainActivity.user);
+            }else{
+                Log.i("AsyncTask", "Erro ao baixar a imagem " + Thread.currentThread().getName());
+            }
+            Log.i("AsyncTask", "Tirando ProgressDialog da tela Thread: " + Thread.currentThread().getName());
+            MainActivity.load.dismiss();
+        }
+    }
+
+    public void popularBD(ArrayList list){
+       new PopularBDAsync().execute(list);
+    }
+
+    public void popularBDSpells(ArrayList list){
+        new PopularBDSpellsAsync().execute(list);
     }
 
     private class PopularBDAsyncFirebase extends AsyncTask<InputStream,Integer,Boolean> {

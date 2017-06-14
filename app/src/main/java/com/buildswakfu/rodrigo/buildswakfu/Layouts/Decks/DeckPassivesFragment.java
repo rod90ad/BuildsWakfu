@@ -1,5 +1,6 @@
 package com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,18 +10,29 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.ViewBuildFragment;
 import com.buildswakfu.rodrigo.buildswakfu.R;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Item;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Spell;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.SpellComponent;
 import com.buildswakfu.rodrigo.buildswakfu.ViewBuildActivity;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,8 +85,7 @@ public class DeckPassivesFragment extends Fragment {
     private ImageView passive18;
 
     private View rootView;
-    private int[] passives;
-    private TypedArray spells;
+    private ArrayList<Spell> spells;
 
     private static ViewBuildFragment viewBuildFragment;
 
@@ -112,50 +123,34 @@ public class DeckPassivesFragment extends Fragment {
         }
     }
 
-    private TypedArray getPassiveSkills(int classe){
-        switch (classe){
-            case 0:
-                return getResources().obtainTypedArray(R.array.cra_passives);
-            case 1:
-                return getResources().obtainTypedArray(R.array.cra_passives);
-            /*
-            case 2:
-                head.setBackground(getResources().getDrawable(R.drawable.elio_head));
-            case 3:
-                head.setBackground(getResources().getDrawable(R.drawable.eni_head));
-            case 4:
-                head.setBackground(getResources().getDrawable(R.drawable.enu_head));*/
-            case 5:
-                return getResources().obtainTypedArray(R.array.feca_passives);
-            case 6:
-                return getResources().obtainTypedArray(R.array.hupp_passives);/*
-            case 7:
-                head.setBackground(getResources().getDrawable(R.drawable.iop_head));
-            case 8:
-                head.setBackground(getResources().getDrawable(R.drawable.osa_head));
-            case 9:
-                head.setBackground(getResources().getDrawable(R.drawable.panda_head));
-            case 10:
-                head.setBackground(getResources().getDrawable(R.drawable.lad_head));
-            case 11:
-                head.setBackground(getResources().getDrawable(R.drawable.sac_head));
-            case 12:
-                head.setBackground(getResources().getDrawable(R.drawable.sad_head));*/
-            case 13:
-                return getResources().obtainTypedArray(R.array.sram_passives);
-            case 14:
-                return getResources().obtainTypedArray(R.array.steam_passives);
-            case 15:
-                return getResources().obtainTypedArray(R.array.xelor_passives);
-            case 16:
-                return getResources().obtainTypedArray(R.array.zob_passives);
-            default:
-                return getResources().obtainTypedArray(R.array.cra_passives);
+    private class MyOnClickSpell implements View.OnClickListener {
+
+        Spell spell;
+
+        public MyOnClickSpell(Spell spell){
+            this.spell =spell;
+        }
+
+        @Override
+        public void onClick(View v) {
+            final Dialog d = new Dialog(getContext());
+            d.setTitle(getResources().getString(R.string.tiraitem));
+            d.setContentView(R.layout.spell_description);
+            SpellComponent spellComponent = (SpellComponent) d.findViewById(R.id.spell);
+            Log.e("SPELL", spell.getClasse()+" "+spell.getImage());
+            spellComponent.setSpell(d.getContext(), spell);
+            spellComponent.cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                }
+            });
+            d.show();
         }
     }
 
     // This defines your touch listener
-    private final class MyTouchListener implements View.OnTouchListener {
+    private final class MyTouchListener implements View.OnLongClickListener {
 
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
@@ -168,6 +163,30 @@ public class DeckPassivesFragment extends Fragment {
             }else{
                 return false;
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+
+            v.startDrag(data, shadowBuilder, v, 0);
+            v.setVisibility(View.VISIBLE);
+            return true;
+        }
+    }
+
+    private final class MyLongClickListener implements View.OnLongClickListener{
+
+
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+
+            v.startDrag(data, shadowBuilder, v, 0);
+            v.setVisibility(View.VISIBLE);
+            return false;
         }
     }
 
@@ -204,24 +223,28 @@ public class DeckPassivesFragment extends Fragment {
         }
     }
 
+    private Drawable GetImage(Context c, String ImageName) {
+        return c.getResources().getDrawable(c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName()));
+    }
+
     private void SaveSpells(){
-        for(int i=0;i<passives.length;i++){
-            if(((BitmapDrawable)passive_skill1.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+        for(int i=0;i<spells.size();i++){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill1.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell1(i);
             }
-            if(((BitmapDrawable)passive_skill2.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill2.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell2(i);
             }
-            if(((BitmapDrawable)passive_skill3.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill3.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell3(i);
             }
-            if(((BitmapDrawable)passive_skill4.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill4.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell4(i);
             }
-            if(((BitmapDrawable)passive_skill5.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill5.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell5(i);
             }
-            if(((BitmapDrawable)passive_skill6.getDrawable()).getBitmap().equals(((BitmapDrawable)spells.getDrawable(passives[i])).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)passive_skill6.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setPSpell6(i);
             }
         }
@@ -255,6 +278,48 @@ public class DeckPassivesFragment extends Fragment {
         }
     }
 
+    private ArrayList<Spell> getSkills(int classe){
+        boolean active=false;
+        switch (classe){
+            case 0:
+                return new BD(getContext()).getSpells("cra",active); //cra
+            case 1:
+                return new BD(getContext()).getSpells("eca",active); //ecaflip
+            case 2:
+                return new BD(getContext()).getSpells("elio",active);    //elio
+            case 3:
+                return new BD(getContext()).getSpells("eni",active);     //eniripsa
+            case 4:
+                return new BD(getContext()).getSpells("enu",active);     //enutrof
+            case 5:
+                return new BD(getContext()).getSpells("feca",active);     //feca
+            case 6:
+                return new BD(getContext()).getSpells("hupp",active);     //huppermage
+            case 7:
+                return new BD(getContext()).getSpells("iop",active);     //iop
+            case 8:
+                return new BD(getContext()).getSpells("osa", active);    //osamodas
+            case 9:
+                return new BD(getContext()).getSpells("panda",active);     //panda
+            case 10:
+                return new BD(getContext()).getSpells("lad",active);     //ladino
+            case 11:
+                return new BD(getContext()).getSpells("sac",active);     //sacrier
+            case 12:
+                return new BD(getContext()).getSpells("sad",active);     //sadida
+            case 13:
+                return new BD(getContext()).getSpells("sram",active);    //sram
+            case 14:
+                return new BD(getContext()).getSpells("steam",active);     //steamer
+            case 15:
+                return new BD(getContext()).getSpells("xelor",active);     //xelor
+            case 16:
+                return new BD(getContext()).getSpells("zob",active);     //zobal
+            default:
+                return new BD(getContext()).getSpells("cra", active);    //default cra
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -267,35 +332,31 @@ public class DeckPassivesFragment extends Fragment {
             passive_spells = (TextView) rootView.findViewById(R.id.deck_passives_spells);
             passive_spells.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/namefont.ttf"));
 
-            spells = getPassiveSkills(ViewBuildActivity.build.getClasse());
-            passives= new int[spells.length()];
-            for (int i=1;i<spells.length();i++){
-                passives[i]=i;
-            }
+            spells = getSkills(ViewBuildActivity.build.getClasse());
 
             if(ViewBuildActivity.build.getNivel()>=10) {
                 passive_skill1 = (ImageView) rootView.findViewById(R.id.passive_skill1);
-                passive_skill1.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell1(), R.drawable.spell_empty));
+                passive_skill1.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell1()).getImage()));
                 passive_skill1.setOnDragListener(new MyDragListener());
                 if(ViewBuildActivity.build.getNivel()>=30) {
                     passive_skill2 = (ImageView) rootView.findViewById(R.id.passive_skill2);
-                    passive_skill2.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell2(), R.drawable.spell_empty));
+                    passive_skill2.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell2()).getImage()));
                     passive_skill2.setOnDragListener(new MyDragListener());
                     if(ViewBuildActivity.build.getNivel()>=50) {
                         passive_skill3 = (ImageView) rootView.findViewById(R.id.passive_skill3);
-                        passive_skill3.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell3(), R.drawable.spell_empty));
+                        passive_skill3.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell3()).getImage()));
                         passive_skill3.setOnDragListener(new MyDragListener());
                         if(ViewBuildActivity.build.getNivel()>=100) {
                             passive_skill4 = (ImageView) rootView.findViewById(R.id.passive_skill4);
-                            passive_skill4.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell4(), R.drawable.spell_empty));
+                            passive_skill4.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell4()).getImage()));
                             passive_skill4.setOnDragListener(new MyDragListener());
                             if(ViewBuildActivity.build.getNivel()>=150) {
                                 passive_skill5 = (ImageView) rootView.findViewById(R.id.passive_skill5);
-                                passive_skill5.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell5(), R.drawable.spell_empty));
+                                passive_skill5.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell5()).getImage()));
                                 passive_skill5.setOnDragListener(new MyDragListener());
                                 if (ViewBuildActivity.build.getNivel() >= 200){
                                     passive_skill6 = (ImageView) rootView.findViewById(R.id.passive_skill6);
-                                    passive_skill6.setImageResource(spells.getResourceId(ViewBuildActivity.build.getPSpell6(), R.drawable.spell_empty));
+                                    passive_skill6.setImageDrawable(GetImage(getContext(),spells.get(ViewBuildActivity.build.getPSpell6()).getImage()));
                                     passive_skill6.setOnDragListener(new MyDragListener());
                                 }else{
                                     passive_skill6 = (ImageView) rootView.findViewById(R.id.passive_skill6);
@@ -352,63 +413,95 @@ public class DeckPassivesFragment extends Fragment {
                 passive_skill6.setImageResource(R.drawable.spell_block200);
             }
 
+
             passive1 = (ImageView) rootView.findViewById(R.id.passive1);
-            passive1.setImageResource(spells.getResourceId(passives[1], 1));
-            passive1.setOnTouchListener(new MyTouchListener());
+            passive1.setImageDrawable(GetImage(getContext(), spells.get(1).getImage()));
+            passive1.setOnClickListener(new MyOnClickSpell(spells.get(1)));
+            passive1.setOnLongClickListener(new MyLongClickListener());
+
             passive2 = (ImageView) rootView.findViewById(R.id.passive2);
-            passive2.setImageResource(spells.getResourceId(passives[2], 2));
-            passive2.setOnTouchListener(new MyTouchListener());
+            passive2.setImageDrawable(GetImage(getContext(), spells.get(2).getImage()));
+            passive2.setOnClickListener(new MyOnClickSpell(spells.get(2)));
+            passive2.setOnLongClickListener(new MyTouchListener());
+
             passive3 = (ImageView) rootView.findViewById(R.id.passive3);
-            passive3.setImageResource(spells.getResourceId(passives[3], 3));
-            passive3.setOnTouchListener(new MyTouchListener());
+            passive3.setImageDrawable(GetImage(getContext(), spells.get(3).getImage()));
+            passive3.setOnClickListener(new MyOnClickSpell(spells.get(3)));
+            passive3.setOnLongClickListener(new MyTouchListener());
+
             passive4 = (ImageView) rootView.findViewById(R.id.passive4);
-            passive4.setImageResource(spells.getResourceId(passives[4], 4));
-            passive4.setOnTouchListener(new MyTouchListener());
+            passive4.setImageDrawable(GetImage(getContext(), spells.get(4).getImage()));
+            passive4.setOnClickListener(new MyOnClickSpell(spells.get(4)));
+            passive4.setOnLongClickListener(new MyTouchListener());
+
             passive5 = (ImageView) rootView.findViewById(R.id.passive5);
-            passive5.setImageResource(spells.getResourceId(passives[5], 5));
-            passive5.setOnTouchListener(new MyTouchListener());
+            passive5.setImageDrawable(GetImage(getContext(), spells.get(5).getImage()));
+            passive5.setOnClickListener(new MyOnClickSpell(spells.get(5)));
+            passive5.setOnLongClickListener(new MyTouchListener());
+
             passive6 = (ImageView) rootView.findViewById(R.id.passive6);
-            passive6.setImageResource(spells.getResourceId(passives[6], 6));
-            passive6.setOnTouchListener(new MyTouchListener());
+            passive6.setImageDrawable(GetImage(getContext(), spells.get(6).getImage()));
+            passive6.setOnClickListener(new MyOnClickSpell(spells.get(6)));
+            passive6.setOnLongClickListener(new MyTouchListener());
+
             passive7 = (ImageView) rootView.findViewById(R.id.passive7);
-            passive7.setImageResource(spells.getResourceId(passives[7], 7));
-            passive7.setOnTouchListener(new MyTouchListener());
+            passive7.setImageDrawable(GetImage(getContext(), spells.get(7).getImage()));
+            passive7.setOnClickListener(new MyOnClickSpell(spells.get(7)));
+            passive7.setOnLongClickListener(new MyTouchListener());
+
             passive8 = (ImageView) rootView.findViewById(R.id.passive8);
-            passive8.setImageResource(spells.getResourceId(passives[8], 8));
-            passive8.setOnTouchListener(new MyTouchListener());
+            passive8.setImageDrawable(GetImage(getContext(), spells.get(8).getImage()));
+            passive8.setOnClickListener(new MyOnClickSpell(spells.get(8)));
+            passive8.setOnLongClickListener(new MyTouchListener());
+
             passive9 = (ImageView) rootView.findViewById(R.id.passive9);
-            passive9.setImageResource(spells.getResourceId(passives[9], 9));
-            passive9.setOnTouchListener(new MyTouchListener());
+            passive9.setImageDrawable(GetImage(getContext(), spells.get(9).getImage()));
+            passive9.setOnClickListener(new MyOnClickSpell(spells.get(9)));
+            passive9.setOnLongClickListener(new MyTouchListener());
+
             passive10 = (ImageView) rootView.findViewById(R.id.passive10);
-            passive10.setImageResource(spells.getResourceId(passives[10], 10));
-            passive10.setOnTouchListener(new MyTouchListener());
+            passive10.setImageDrawable(GetImage(getContext(), spells.get(10).getImage()));
+            passive10.setOnClickListener(new MyOnClickSpell(spells.get(10)));
+            passive10.setOnLongClickListener(new MyTouchListener());
+
             passive11 = (ImageView) rootView.findViewById(R.id.passive11);
-            passive11.setImageResource(spells.getResourceId(passives[11], 11));
-            passive11.setOnTouchListener(new MyTouchListener());
+            passive11.setImageDrawable(GetImage(getContext(), spells.get(11).getImage()));
+            passive11.setOnClickListener(new MyOnClickSpell(spells.get(11)));
+            passive11.setOnLongClickListener(new MyTouchListener());
+
             passive12 = (ImageView) rootView.findViewById(R.id.passive12);
-            passive12.setImageResource(spells.getResourceId(passives[12], 12));
-            passive12.setOnTouchListener(new MyTouchListener());
+            passive12.setImageDrawable(GetImage(getContext(), spells.get(12).getImage()));
+            passive12.setOnClickListener(new MyOnClickSpell(spells.get(12)));
+            passive12.setOnLongClickListener(new MyTouchListener());
+
             passive13 = (ImageView) rootView.findViewById(R.id.passive13);
-            passive13.setImageResource(spells.getResourceId(passives[13], 13));
-            passive13.setOnTouchListener(new MyTouchListener());
+            passive13.setImageDrawable(GetImage(getContext(), spells.get(13).getImage()));
+            passive13.setOnClickListener(new MyOnClickSpell(spells.get(13)));
+            passive13.setOnLongClickListener(new MyTouchListener());
+
             passive14 = (ImageView) rootView.findViewById(R.id.passive14);
-            passive14.setImageResource(spells.getResourceId(passives[14], 14));
-            passive14.setOnTouchListener(new MyTouchListener());
+            passive14.setImageDrawable(GetImage(getContext(), spells.get(14).getImage()));
+            passive14.setOnClickListener(new MyOnClickSpell(spells.get(14)));
+            passive14.setOnLongClickListener(new MyTouchListener());
+
             passive15 = (ImageView) rootView.findViewById(R.id.passive15);
-            passive15.setImageResource(spells.getResourceId(passives[15], 15));
-            passive15.setOnTouchListener(new MyTouchListener());
+            passive15.setImageDrawable(GetImage(getContext(), spells.get(15).getImage()));
+            passive15.setOnClickListener(new MyOnClickSpell(spells.get(15)));
+            passive15.setOnLongClickListener(new MyTouchListener());
             //classes que so tem 15 passivas
             //                              osamodas
             if(ViewBuildActivity.build.getClasse()!=8) {
                 passive16 = (ImageView) rootView.findViewById(R.id.passive16);
-                passive16.setImageResource(spells.getResourceId(passives[16], 16));
-                passive16.setOnTouchListener(new MyTouchListener());
+                passive16.setImageDrawable(GetImage(getContext(), spells.get(16).getImage()));
+                passive16.setOnClickListener(new MyOnClickSpell(spells.get(16)));
+                passive16.setOnLongClickListener(new MyTouchListener());
                 //classes que só tem 16
                 //                              steamer                                         zobal                                       xelor
                 if(ViewBuildActivity.build.getClasse()!=14 && ViewBuildActivity.build.getClasse()!=16 && ViewBuildActivity.build.getClasse()!=15) {
                     passive17 = (ImageView) rootView.findViewById(R.id.passive17);
-                    passive17.setImageResource(spells.getResourceId(passives[17], 17));
-                    passive17.setOnTouchListener(new MyTouchListener());
+                    passive17.setImageDrawable(GetImage(getContext(), spells.get(17).getImage()));
+                    passive17.setOnClickListener(new MyOnClickSpell(spells.get(17)));
+                    passive17.setOnLongClickListener(new MyTouchListener());
                     //classes que tem 17
                     //                                  cra                                         eca                                      elio
                     if(ViewBuildActivity.build.getClasse()!=0 && ViewBuildActivity.build.getClasse()!=1 && ViewBuildActivity.build.getClasse()!=2 &&
@@ -417,8 +510,9 @@ public class DeckPassivesFragment extends Fragment {
                             //                              panda                                       ladino                                      sadida
                             ViewBuildActivity.build.getClasse()!=9 && ViewBuildActivity.build.getClasse()!=10 && ViewBuildActivity.build.getClasse()!=12) {
                         passive18 = (ImageView) rootView.findViewById(R.id.passive18);
-                        passive18.setImageResource(spells.getResourceId(passives[18], 18));
-                        passive18.setOnTouchListener(new MyTouchListener());
+                        passive18.setImageDrawable(GetImage(getContext(), spells.get(18).getImage()));
+                        passive18.setOnClickListener(new MyOnClickSpell(spells.get(18)));
+                        passive18.setOnLongClickListener(new MyTouchListener());
                     }
                 }
             }

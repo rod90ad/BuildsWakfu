@@ -1,5 +1,6 @@
 package com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.res.Resources;
@@ -19,15 +20,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.buildswakfu.rodrigo.buildswakfu.Layouts.PointsFragments.MajorFragment;
 import com.buildswakfu.rodrigo.buildswakfu.Layouts.ViewBuildFragment;
+import com.buildswakfu.rodrigo.buildswakfu.MainActivity;
 import com.buildswakfu.rodrigo.buildswakfu.R;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.BD;
 import com.buildswakfu.rodrigo.buildswakfu.Utils.Build;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Item;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.Spell;
+import com.buildswakfu.rodrigo.buildswakfu.Utils.SpellComponent;
 import com.buildswakfu.rodrigo.buildswakfu.ViewBuildActivity;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -103,8 +112,7 @@ public class DeckActivesFragment extends Fragment {
     private ImageView active8;
 
     private View rootView;
-    private int[] elemental;
-    private TypedArray spells;
+    private ArrayList<Spell> spells;
 
     private static ViewBuildFragment viewBuildFragment;
 
@@ -142,62 +150,59 @@ public class DeckActivesFragment extends Fragment {
         }
     }
 
-    private TypedArray getSkills(int classe){
+    private ArrayList<Spell> getSkills(int classe){
+        boolean active=true;
         switch (classe){
             case 0:
-                return getResources().obtainTypedArray(R.array.cra_spells);
+                return new BD(getContext()).getSpells("cra",active);    //cra
             case 1:
-                return getResources().obtainTypedArray(R.array.cra_spells);
-            /*
+                return new BD(getContext()).getSpells("eca",active);    //ecaflip
             case 2:
-                head.setBackground(getResources().getDrawable(R.drawable.elio_head));
+                return new BD(getContext()).getSpells("elio",active);    //elio
             case 3:
-                head.setBackground(getResources().getDrawable(R.drawable.eni_head));
+                return new BD(getContext()).getSpells("eni",active);     //eniripsa
             case 4:
-                head.setBackground(getResources().getDrawable(R.drawable.enu_head));*/
+                return new BD(getContext()).getSpells("enu",active);     //enutrof
             case 5:
-                return getResources().obtainTypedArray(R.array.feca_spells);
+                return new BD(getContext()).getSpells("feca",active);     //feca
             case 6:
-                return getResources().obtainTypedArray(R.array.hupp_spells);/*
+                return new BD(getContext()).getSpells("hupp",active);     //huppermage
             case 7:
-                head.setBackground(getResources().getDrawable(R.drawable.iop_head));
+                return new BD(getContext()).getSpells("iop",active);     //iop
             case 8:
-                head.setBackground(getResources().getDrawable(R.drawable.osa_head));
+                return new BD(getContext()).getSpells("osa", active);    //osamodas
             case 9:
-                head.setBackground(getResources().getDrawable(R.drawable.panda_head));
+                return new BD(getContext()).getSpells("panda",active);     //panda
             case 10:
-                head.setBackground(getResources().getDrawable(R.drawable.lad_head));
+                return new BD(getContext()).getSpells("lad",active);     //ladino
             case 11:
-                head.setBackground(getResources().getDrawable(R.drawable.sac_head));
+                return new BD(getContext()).getSpells("sac",active);     //sacrier
             case 12:
-                head.setBackground(getResources().getDrawable(R.drawable.sad_head));*/
+                return new BD(getContext()).getSpells("sad",active);     //sadida
             case 13:
-                return getResources().obtainTypedArray(R.array.sram_spells);
+                return new BD(getContext()).getSpells("sram",active);    //sram
             case 14:
-                return getResources().obtainTypedArray(R.array.steam_spells);
+                return new BD(getContext()).getSpells("steam",active);     //steamer
             case 15:
-                return getResources().obtainTypedArray(R.array.xelor_spells);
+                return new BD(getContext()).getSpells("xelor",active);     //xelor
             case 16:
-                return getResources().obtainTypedArray(R.array.zob_spells);
+                return new BD(getContext()).getSpells("zob",active);     //zobal
             default:
-                return getResources().obtainTypedArray(R.array.cra_spells);
+                return new BD(getContext()).getSpells("cra", active);    //default cra
         }
     }
 
     // This defines your touch listener
-    private final class MyTouchListener implements View.OnTouchListener {
+    private final class MyTouchListener implements View.OnLongClickListener {
 
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                ClipData data = ClipData.newPlainText("", "");
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
 
-                view.startDrag(data, shadowBuilder, view, 0);
-                view.setVisibility(View.VISIBLE);
-                return true;
-            }else{
-                return false;
-            }
+            v.startDrag(data, shadowBuilder, v, 0);
+            v.setVisibility(View.VISIBLE);
+            return false;
         }
     }
 
@@ -234,42 +239,68 @@ public class DeckActivesFragment extends Fragment {
         }
     }
 
+    private class MyOnClickSpell implements View.OnClickListener {
+
+        Spell spell;
+
+        public MyOnClickSpell(Spell spell){
+            this.spell =spell;
+        }
+
+        @Override
+        public void onClick(View v) {
+            final Dialog d = new Dialog(getContext());
+            d.setTitle(getResources().getString(R.string.tiraitem));
+            d.setContentView(R.layout.spell_description);
+            SpellComponent spellComponent = (SpellComponent) d.findViewById(R.id.spell);
+            Log.e("SPELL", spell.getClasse()+" "+spell.getImage());
+            spellComponent.setSpell(d.getContext(), spell);
+            spellComponent.cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    d.dismiss();
+                }
+            });
+            d.show();
+        }
+    }
+
     private void SaveSpells(){
-        for(int i=1;i<elemental.length;i++){
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill1.getDrawable()).getBitmap())){
+        for(int i=0;i<spells.size();i++){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill1.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell1(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill2.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill2.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell2(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill3.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill3.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell3(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill4.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill4.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell4(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill5.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill5.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell5(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill6.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill6.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell6(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill7.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill7.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell7(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill8.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill8.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell8(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill9.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill9.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell9(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill10.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill10.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell10(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill11.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill11.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell11(i);
             }
-            if(((BitmapDrawable)spells.getDrawable(elemental[i])).getBitmap().equals(((BitmapDrawable)skill12.getDrawable()).getBitmap())){
+            if(((BitmapDrawable)GetImage(getContext(),spells.get(i).getImage())).getBitmap().equals(((BitmapDrawable)skill12.getDrawable()).getBitmap())){
                 ViewBuildActivity.build.setSpell12(i);
             }
         }
@@ -343,52 +374,48 @@ public class DeckActivesFragment extends Fragment {
             elemental_spells.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/namefont.ttf"));
 
             spells = getSkills(ViewBuildActivity.build.getClasse());
-            elemental= new int[spells.length()];
-            for (int i=1;i<spells.length();i++){
-                elemental[i]=i;
-            }
 
             skill1 = (ImageView) rootView.findViewById(R.id.active_skill1);
-            skill1.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell1(), R.drawable.spell_empty));
+            skill1.setImageDrawable(ViewBuildActivity.build.getSpell1()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell1()).getImage()));
             skill1.setOnDragListener(new MyDragListener());
             skill2 = (ImageView) rootView.findViewById(R.id.active_skill2);
-            skill2.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell2(), R.drawable.spell_empty));
+            skill2.setImageDrawable(ViewBuildActivity.build.getSpell2()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell2()).getImage()));
             skill2.setOnDragListener(new MyDragListener());
             skill3 = (ImageView) rootView.findViewById(R.id.active_skill3);
-            skill3.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell3(), R.drawable.spell_empty));
+            skill3.setImageDrawable(ViewBuildActivity.build.getSpell3()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell3()).getImage()));
             skill3.setOnDragListener(new MyDragListener());
             skill4 = (ImageView) rootView.findViewById(R.id.active_skill4);
-            skill4.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell4(), R.drawable.spell_empty));
+            skill4.setImageDrawable(ViewBuildActivity.build.getSpell4()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell4()).getImage()));
             skill4.setOnDragListener(new MyDragListener());
             skill5 = (ImageView) rootView.findViewById(R.id.active_skill5);
-            skill5.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell5(), R.drawable.spell_empty));
+            skill5.setImageDrawable(ViewBuildActivity.build.getSpell5()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell5()).getImage()));
             skill5.setOnDragListener(new MyDragListener());
             skill6 = (ImageView) rootView.findViewById(R.id.active_skill6);
-            skill6.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell6(), R.drawable.spell_empty));
+            skill6.setImageDrawable(ViewBuildActivity.build.getSpell6()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell6()).getImage()));
             skill6.setOnDragListener(new MyDragListener());
             if(ViewBuildActivity.build.getNivel()>=10) {
                 skill7 = (ImageView) rootView.findViewById(R.id.active_skill7);
-                skill7.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell7(), R.drawable.spell_empty));
+                skill7.setImageDrawable(ViewBuildActivity.build.getSpell7()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell7()).getImage()));
                 skill7.setOnDragListener(new MyDragListener());
                 if(ViewBuildActivity.build.getNivel()>=20) {
                     skill8 = (ImageView) rootView.findViewById(R.id.active_skill8);
-                    skill8.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell8(), R.drawable.spell_empty));
+                    skill8.setImageDrawable(ViewBuildActivity.build.getSpell8()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell8()).getImage()));
                     skill8.setOnDragListener(new MyDragListener());
                     if(ViewBuildActivity.build.getNivel()>=30) {
                         skill9 = (ImageView) rootView.findViewById(R.id.active_skill9);
-                        skill9.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell9(), R.drawable.spell_empty));
+                        skill9.setImageDrawable(ViewBuildActivity.build.getSpell9()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell9()).getImage()));
                         skill9.setOnDragListener(new MyDragListener());
                         if(ViewBuildActivity.build.getNivel()>=40) {
                             skill10 = (ImageView) rootView.findViewById(R.id.active_skill10);
-                            skill10.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell10(), R.drawable.spell_empty));
+                            skill10.setImageDrawable(ViewBuildActivity.build.getSpell10()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell10()).getImage()));
                             skill10.setOnDragListener(new MyDragListener());
                             if(ViewBuildActivity.build.getNivel()>=60) {
                                 skill11 = (ImageView) rootView.findViewById(R.id.active_skill11);
-                                skill11.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell11(), R.drawable.spell_empty));
+                                skill11.setImageDrawable(ViewBuildActivity.build.getSpell11()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell11()).getImage()));
                                 skill11.setOnDragListener(new MyDragListener());
                                 if(ViewBuildActivity.build.getNivel()>=80) {
                                     skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
-                                    skill12.setImageResource(spells.getResourceId(ViewBuildActivity.build.getSpell12(), R.drawable.spell_empty));
+                                    skill12.setImageDrawable(ViewBuildActivity.build.getSpell12()==0 ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(ViewBuildActivity.build.getSpell12()).getImage()));
                                     skill12.setOnDragListener(new MyDragListener());
                                 }else{
                                     skill12 = (ImageView) rootView.findViewById(R.id.active_skill12);
@@ -446,99 +473,128 @@ public class DeckActivesFragment extends Fragment {
             }
 
             ele1_1 = (ImageView) rootView.findViewById(R.id.active_ele1_1);
-            ele1_1.setImageResource(spells.getResourceId(elemental[1], 1));
-            ele1_1.setOnTouchListener(new MyTouchListener());
+            ele1_1.setImageDrawable(GetImage(getContext(),spells.get(1).getImage()));
+            ele1_1.setOnClickListener(new MyOnClickSpell(spells.get(1)));
+            ele1_1.setOnLongClickListener(new MyTouchListener());
             ele1_2 = (ImageView) rootView.findViewById(R.id.active_ele1_2);
-            ele1_2.setImageResource(spells.getResourceId(elemental[2], 2));
-            ele1_2.setOnTouchListener(new MyTouchListener());
+            ele1_2.setImageDrawable(GetImage(getContext(),spells.get(2).getImage()));
+            ele1_2.setOnClickListener(new MyOnClickSpell(spells.get(2)));
+            ele1_2.setOnLongClickListener(new MyTouchListener());
             ele1_3 = (ImageView) rootView.findViewById(R.id.active_ele1_3);
-            ele1_3.setImageResource(spells.getResourceId(elemental[3], 3));
-            ele1_3.setOnTouchListener(new MyTouchListener());
+            ele1_3.setImageDrawable(GetImage(getContext(),spells.get(3).getImage()));
+            ele1_3.setOnClickListener(new MyOnClickSpell(spells.get(3)));
+            ele1_3.setOnLongClickListener(new MyTouchListener());
             ele1_4 = (ImageView) rootView.findViewById(R.id.active_ele1_4);
-            ele1_4.setImageResource(spells.getResourceId(elemental[4], 4));
-            ele1_4.setOnTouchListener(new MyTouchListener());
+            ele1_4.setImageDrawable(GetImage(getContext(),spells.get(4).getImage()));
+            ele1_4.setOnClickListener(new MyOnClickSpell(spells.get(4)));
+            ele1_4.setOnLongClickListener(new MyTouchListener());
             ele1_5 = (ImageView) rootView.findViewById(R.id.active_ele1_5);
-            ele1_5.setImageResource(spells.getResourceId(elemental[5], 5));
-            ele1_5.setOnTouchListener(new MyTouchListener());
+            ele1_5.setImageDrawable(GetImage(getContext(),spells.get(5).getImage()));
+            ele1_5.setOnClickListener(new MyOnClickSpell(spells.get(5)));
+            ele1_5.setOnLongClickListener(new MyTouchListener());
 
             ele2_1 = (ImageView) rootView.findViewById(R.id.active_ele2_1);
-            ele2_1.setImageResource(spells.getResourceId(elemental[6], 6));
-            ele2_1.setOnTouchListener(new MyTouchListener());
+            ele2_1.setImageDrawable(GetImage(getContext(),spells.get(6).getImage()));
+            ele2_1.setOnClickListener(new MyOnClickSpell(spells.get(6)));
+            ele2_1.setOnLongClickListener(new MyTouchListener());
             ele2_2 = (ImageView) rootView.findViewById(R.id.active_ele2_2);
-            ele2_2.setImageResource(spells.getResourceId(elemental[7], 7));
-            ele2_2.setOnTouchListener(new MyTouchListener());
+            ele2_2.setImageDrawable(GetImage(getContext(),spells.get(7).getImage()));
+            ele2_2.setOnClickListener(new MyOnClickSpell(spells.get(7)));
+            ele2_2.setOnLongClickListener(new MyTouchListener());
             ele2_3 = (ImageView) rootView.findViewById(R.id.active_ele2_3);
-            ele2_3.setImageResource(spells.getResourceId(elemental[8], 8));
-            ele2_3.setOnTouchListener(new MyTouchListener());
+            ele2_3.setImageDrawable(GetImage(getContext(),spells.get(8).getImage()));
+            ele2_3.setOnClickListener(new MyOnClickSpell(spells.get(8)));
+            ele2_3.setOnLongClickListener(new MyTouchListener());
             ele2_4 = (ImageView) rootView.findViewById(R.id.active_ele2_4);
-            ele2_4.setImageResource(spells.getResourceId(elemental[9], 9));
-            ele2_4.setOnTouchListener(new MyTouchListener());
+            ele2_4.setImageDrawable(GetImage(getContext(),spells.get(9).getImage()));
+            ele2_4.setOnClickListener(new MyOnClickSpell(spells.get(9)));
+            ele2_4.setOnLongClickListener(new MyTouchListener());
             ele2_5 = (ImageView) rootView.findViewById(R.id.active_ele2_5);
-            ele2_5.setImageResource(spells.getResourceId(elemental[10], 10));
-            ele2_5.setOnTouchListener(new MyTouchListener());
+            ele2_5.setImageDrawable(GetImage(getContext(),spells.get(10).getImage()));
+            ele2_5.setOnClickListener(new MyOnClickSpell(spells.get(10)));
+            ele2_5.setOnLongClickListener(new MyTouchListener());
 
             ele3_1 = (ImageView) rootView.findViewById(R.id.active_ele3_1);
-            ele3_1.setImageResource(spells.getResourceId(elemental[11], 11));
-            ele3_1.setOnTouchListener(new MyTouchListener());
+            ele3_1.setImageDrawable(GetImage(getContext(),spells.get(11).getImage()));
+            ele3_1.setOnClickListener(new MyOnClickSpell(spells.get(11)));
+            ele3_1.setOnLongClickListener(new MyTouchListener());
             ele3_2 = (ImageView) rootView.findViewById(R.id.active_ele3_2);
-            ele3_2.setImageResource(spells.getResourceId(elemental[12], 12));
-            ele3_2.setOnTouchListener(new MyTouchListener());
+            ele3_2.setImageDrawable(GetImage(getContext(),spells.get(12).getImage()));
+            ele3_2.setOnClickListener(new MyOnClickSpell(spells.get(12)));
+            ele3_2.setOnLongClickListener(new MyTouchListener());
             ele3_3 = (ImageView) rootView.findViewById(R.id.active_ele3_3);
-            ele3_3.setImageResource(spells.getResourceId(elemental[13], 13));
-            ele3_3.setOnTouchListener(new MyTouchListener());
+            ele3_3.setImageDrawable(GetImage(getContext(),spells.get(13).getImage()));
+            ele3_3.setOnClickListener(new MyOnClickSpell(spells.get(13)));
+            ele3_3.setOnLongClickListener(new MyTouchListener());
             ele3_4 = (ImageView) rootView.findViewById(R.id.active_ele3_4);
-            ele3_4.setImageResource(spells.getResourceId(elemental[14], 14));
-            ele3_4.setOnTouchListener(new MyTouchListener());
+            ele3_4.setImageDrawable(GetImage(getContext(),spells.get(14).getImage()));
+            ele3_4.setOnClickListener(new MyOnClickSpell(spells.get(14)));
+            ele3_4.setOnLongClickListener(new MyTouchListener());
             ele3_5 = (ImageView) rootView.findViewById(R.id.active_ele3_5);
-            ele3_5.setImageResource(spells.getResourceId(elemental[15], 15));
-            ele3_5.setOnTouchListener(new MyTouchListener());
+            ele3_5.setImageDrawable(GetImage(getContext(),spells.get(15).getImage()));
+            ele3_5.setOnClickListener(new MyOnClickSpell(spells.get(15)));
+            ele3_5.setOnLongClickListener(new MyTouchListener());
 
             if(ViewBuildActivity.build.getClasse()==6){
-                //ativa o layout
+                //desativa o layout de skills do huppermago
                 hupper_ll = (LinearLayout) rootView.findViewById(R.id.active_huppermage);
                 LinearLayout.LayoutParams llp = (LinearLayout.LayoutParams) hupper_ll.getLayoutParams();
-                llp.weight = (float) 0.12;
+                llp.weight = (float) 0;
+                llp.width = 0;
+                llp.height = 0;
                 hupper_ll.setLayoutParams(llp);
 
-                //adiciona as skills
+                //adiciona as skills do huppermago
                 ele4_1 = (ImageView) rootView.findViewById(R.id.active_ele4_1);
-                ele4_1.setImageResource(spells.getResourceId(elemental[23], 23));
-                ele4_1.setOnTouchListener(new MyTouchListener());
+                ele4_1.setImageDrawable(GetImage(getContext(),spells.get(23).getImage()));
+                ele4_1.setOnClickListener(new MyOnClickSpell(spells.get(23)));
+                ele4_1.setOnLongClickListener(new MyTouchListener());
                 ele4_2 = (ImageView) rootView.findViewById(R.id.active_ele4_2);
-                ele4_2.setImageResource(spells.getResourceId(elemental[24], 24));
-                ele4_2.setOnTouchListener(new MyTouchListener());
+                ele4_2.setImageDrawable(GetImage(getContext(),spells.get(24).getImage()));
+                ele4_2.setOnClickListener(new MyOnClickSpell(spells.get(24)));
+                ele4_2.setOnLongClickListener(new MyTouchListener());
                 ele4_3 = (ImageView) rootView.findViewById(R.id.active_ele4_3);
-                ele4_3.setImageResource(spells.getResourceId(elemental[25], 25));
-                ele4_3.setOnTouchListener(new MyTouchListener());
+                ele4_3.setImageDrawable(GetImage(getContext(),spells.get(25).getImage()));
+                ele4_3.setOnClickListener(new MyOnClickSpell(spells.get(25)));
+                ele4_3.setOnLongClickListener(new MyTouchListener());
                 ele4_4 = (ImageView) rootView.findViewById(R.id.active_ele4_4);
-                ele4_4.setImageResource(spells.getResourceId(elemental[26], 26));
-                ele4_4.setOnTouchListener(new MyTouchListener());
+                ele4_4.setImageDrawable(GetImage(getContext(),spells.get(26).getImage()));
+                ele4_4.setOnClickListener(new MyOnClickSpell(spells.get(26)));
+                ele4_4.setOnLongClickListener(new MyTouchListener());
                 ele4_5 = (ImageView) rootView.findViewById(R.id.active_ele4_5);
-                ele4_5.setImageResource(spells.getResourceId(elemental[27], 27));
-                ele4_5.setOnTouchListener(new MyTouchListener());
+                ele4_5.setImageDrawable(GetImage(getContext(),spells.get(27).getImage()));
+                ele4_5.setOnClickListener(new MyOnClickSpell(spells.get(27)));
+                ele4_5.setOnLongClickListener(new MyTouchListener());
             }
 
             active1 = (ImageView) rootView.findViewById(R.id.active_active1);
-            active1.setImageResource(spells.getResourceId(elemental[16], 16));
-            active1.setOnTouchListener(new MyTouchListener());
+            active1.setImageDrawable(GetImage(getContext(),spells.get(16).getImage()));
+            active1.setOnClickListener(new MyOnClickSpell(spells.get(16)));
+            active1.setOnLongClickListener(new MyTouchListener());
             active2 = (ImageView) rootView.findViewById(R.id.active_active2);
-            active2.setImageResource(spells.getResourceId(elemental[17], 17));
-            active2.setOnTouchListener(new MyTouchListener());
+            active2.setImageDrawable(GetImage(getContext(),spells.get(17).getImage()));
+            active2.setOnClickListener(new MyOnClickSpell(spells.get(17)));
+            active2.setOnLongClickListener(new MyTouchListener());
             active3 = (ImageView) rootView.findViewById(R.id.active_active3);
-            active3.setImageResource(spells.getResourceId(elemental[18], 18));
-            active3.setOnTouchListener(new MyTouchListener());
+            active3.setImageDrawable(GetImage(getContext(),spells.get(18).getImage()));
+            active3.setOnClickListener(new MyOnClickSpell(spells.get(18)));
+            active3.setOnLongClickListener(new MyTouchListener());
             active4 = (ImageView) rootView.findViewById(R.id.active_active4);
-            active4.setImageResource(spells.getResourceId(elemental[19], 19));
-            active4.setOnTouchListener(new MyTouchListener());
+            active4.setImageDrawable(GetImage(getContext(),spells.get(19).getImage()));
+            active4.setOnClickListener(new MyOnClickSpell(spells.get(19)));
+            active4.setOnLongClickListener(new MyTouchListener());
             active5 = (ImageView) rootView.findViewById(R.id.active_active5);
-            active5.setImageResource(spells.getResourceId(elemental[20], 20));
-            active5.setOnTouchListener(new MyTouchListener());
+            active5.setImageDrawable(GetImage(getContext(),spells.get(20).getImage()));
+            active5.setOnClickListener(new MyOnClickSpell(spells.get(20)));
+            active5.setOnLongClickListener(new MyTouchListener());
             active6 = (ImageView) rootView.findViewById(R.id.active_active6);
-            active6.setImageResource(spells.getResourceId(elemental[21], R.drawable.spell_empty));
-            active6.setOnTouchListener(new MyTouchListener());
+            active6.setImageDrawable(GetImage(getContext(),spells.get(21).getImage())== null ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(21).getImage()));
+            active6.setOnClickListener(new MyOnClickSpell(spells.get(21)));
+            active6.setOnLongClickListener(new MyTouchListener());
             active7 = (ImageView) rootView.findViewById(R.id.active_active7);
-            active7.setImageResource(spells.getResourceId(elemental[22], R.drawable.spell_empty));
-            active7.setOnTouchListener(new MyTouchListener());
+            active7.setImageDrawable(GetImage(getContext(),spells.get(22).getImage())== null ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(22).getImage()));
+            active7.setOnClickListener(new MyOnClickSpell(spells.get(22)));
+            active7.setOnLongClickListener(new MyTouchListener());
             //caso seja                         feca                                       iop                                          steamer
             if(ViewBuildActivity.build.getClasse()==5 || ViewBuildActivity.build.getClasse()==7 || ViewBuildActivity.build.getClasse()==14 ||
                     //                                  osa                                     ladino                                      sacrier
@@ -546,11 +602,16 @@ public class DeckActivesFragment extends Fragment {
                     //                             sadida                                       Sram                                        Xelor
                    ViewBuildActivity.build.getClasse()==12 || ViewBuildActivity.build.getClasse()==13 || ViewBuildActivity.build.getClasse()==15) {
                 active8 = (ImageView) rootView.findViewById(R.id.active_active8);
-                active8.setImageResource(spells.getResourceId(elemental[23], R.drawable.spell_empty));
-                active8.setOnTouchListener(new MyTouchListener());
+                active8.setImageDrawable(GetImage(getContext(),spells.get(23).getImage())== null ? getResources().getDrawable(R.drawable.spell_empty) : GetImage(getContext(),spells.get(23).getImage()));
+                active8.setOnClickListener(new MyOnClickSpell(spells.get(23)));
+                active8.setOnLongClickListener(new MyTouchListener());
             }
         }
         return rootView;
+    }
+
+    private Drawable GetImage(Context c, String ImageName) {
+        return c.getResources().getDrawable(c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName()));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

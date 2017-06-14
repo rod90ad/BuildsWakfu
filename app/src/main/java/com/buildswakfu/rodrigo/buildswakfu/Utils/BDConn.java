@@ -207,6 +207,51 @@ public class BDConn extends SQLiteOpenHelper {
                 "passive4 int," +           //120
                 "passive5 int," +           //121
                 "passive6 int);");          //122
+        bd.execSQL("create table spell(" +
+                "_id integer primary key autoincrement," +  //id 0
+                "classe varchar(10) not null," +            //1
+                "active boolean not null," +                //2
+                "area boolean," +                           //3
+                "basedmg int," +                            //4
+                "condition1 varchar (200)," +               //5
+                "condition2 varchar (200)," +               //6
+                "condition3 varchar (200)," +               //7
+                "condition4 varchar (200)," +               //8
+                "condition5 varchar (200)," +               //9
+                "condition6 varchar (200)," +               //10
+                "condition7 varchar (200)," +               //11
+                "condition8 varchar (200)," +               //12
+                "condition9 varchar (200)," +               //13
+                "condition10 varchar (200)," +              //14
+                "description varchar (500)," +              //15
+                "diagonal boolean," +                       //16
+                "image varchar (50)," +                     //17
+                "level int," +                              //18
+                "linear boolean," +                         //19
+                "line1 varchar (200)," +                    //20
+                "line2 varchar (200)," +                    //21
+                "line3 varchar (200)," +                    //22
+                "line4 varchar (200)," +                    //23
+                "line5 varchar (200)," +                    //24
+                "line6 varchar (200)," +                    //25
+                "line7 varchar (200)," +                //26
+                "line8 varchar (200)," +                //27
+                "line9 varchar (200)," +                //28
+                "line10 varchar (200)," +               //29
+                "line11 varchar (200)," +               //30
+                "line12 varchar (200)," +               //31
+                "line13 varchar (200)," +               //32
+                "line14 varchar (200)," +               //33
+                "line15 varchar (200)," +               //34
+                "linhadevisao boolean," +               //35
+                "name varchar (100)," +                 //36
+                "paused int," +                         //37
+                "pmused int," +                         //38
+                "pwused int," +                         //39
+                "rangeini int," +                       //40
+                "rangeend int," +                       //41
+                "rangemod boolean," +                   //42
+                "scale double);");                       //43
     }
 
     public void onCreateItem(SQLiteDatabase bd) {

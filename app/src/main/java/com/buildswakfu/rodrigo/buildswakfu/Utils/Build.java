@@ -136,26 +136,26 @@ public class Build {
     private Item montaria=new Item();
 
     //skills
-    private int spell1=0;
-    private int spell2=0;
-    private int spell3=0;
-    private int spell4=0;
-    private int spell5=0;
-    private int spell6=0;
-    private int spell7=0;
-    private int spell8=0;
-    private int spell9=0;
-    private int spell10=0;
-    private int spell11=0;
-    private int spell12=0;
+    private int spell1=-1;
+    private int spell2=-1;
+    private int spell3=-1;
+    private int spell4=-1;
+    private int spell5=-1;
+    private int spell6=-1;
+    private int spell7=-1;
+    private int spell8=-1;
+    private int spell9=-1;
+    private int spell10=-1;
+    private int spell11=-1;
+    private int spell12=-1;
 
     //passives
-    private int pSpell1=0;
-    private int pSpell2=0;
-    private int pSpell3=0;
-    private int pSpell4=0;
-    private int pSpell5=0;
-    private int pSpell6=0;
+    private int pSpell1=-1;
+    private int pSpell2=-1;
+    private int pSpell3=-1;
+    private int pSpell4=-1;
+    private int pSpell5=-1;
+    private int pSpell6=-1;
 
     public Build (){}
 
