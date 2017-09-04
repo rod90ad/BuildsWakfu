@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:503029112369:android:84de698cd2887d40",
+        "mobilesdk_app_id": "1:503029112369:android:b4865715e26ed160",
         "android_client_info": {
-          "package_name": "com.buildswakfu.rodrigo.buildswakfu"
+          "package_name": "com.rodrigoad.rodso.wakfustats"
         }
       },
       "oauth_client": [
         {
-          "client_id": "503029112369-hljcm09fb1rve9oi5ht4as0960rif6rv.apps.googleusercontent.com",
+          "client_id": "503029112369-d28r02d7bdcmk51ihhsf6cehlh4n8hgm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.buildswakfu.rodrigo.buildswakfu",
-            "certificate_hash": "1096bd000f8f7cd61cc0d9f26e99b5ae1713c3b1"
+            "package_name": "com.rodrigoad.rodso.wakfustats",
+            "certificate_hash": "5e3543c351c59d41631ae8be720d5898305af74d"
           }
         },
         {

@@ -2,6 +2,8 @@
     <string name="app_name">Builds Wakfu</string>
     <string name="propaganda">Your application to create Builds</string>
     <string name="banner_ad_unit_id">ca-app-pub-9806703878082584/1615165359</string>
+    <string name="buildselected">Build Selected</string>
+    <string name="buildsendtotop">Build Published</string>
     <string name="sim">Yes</string>
     <string name="nao">No</string>
     <string name="menu1">Search</string>
@@ -16,6 +18,9 @@
     <string name="criar">Create</string>
     <string name="limpar">Clear</string>
     <string name="cancelar">Cancel</string>
+    <string name="effects">Effects</string>
+    <string name="condition">Conditions</string>
+    <string name="passive">Passive</string>
     <string name="set">Set</string>
     <string name="and">and</string>
     <string name="createbuildsucess">Sucess on create Build!</string>
@@ -44,11 +49,19 @@
         <item>Actives</item>
         <item>Passives</item>
     </string-array>
+    <string name="aceitar">Accept</string>
     <string name="deck_actives">Actives</string>
     <string name="deck_passives">Passives</string>
     <string name="elemental_spells">Elemental Spells</string>
     <string name="active_spells">Active Spells</string>
     <string name="passive_spells">Passive Spells</string>
+    <string name="publishtittle">Send to Top Builds</string>
+    <string name="offline">You are offline =(</string>
+    <string name="remove">Remove</string>
+    <string name="mostraitem">Item</string>
+    <string name="welcome">Welcome </string>
+    <string name="loginfail">Offline</string>
+    <string name="publishmessage">Publish in Top Builds: \n Set this build public for all users. \n Your name will be visible in Build. \n Only you can delete the build. \n\n Publish in Top Builds?</string>
 
     <!-- Points Variable -->
     <string name="pontossalvos">points saved successfully</string>
@@ -95,7 +108,7 @@
     <!-- Import Variables -->
     <string name="addbuildsucess">Sucess on add Build!</string>
     <string name="wait">Wait...</string>
-    <string name="adicionando">Adding Itens...</string>
+    <string name="adicionando">Adding Itens and Spells...</string>
     <string name="permsok">Permission Granted!</string>
     <string name="permsnok">Permission Denied!</string>
     <string name="imagesaved">Image Saved!</string>
@@ -224,6 +237,8 @@
     <string name="posCtrl">Control</string>
     <string name="posEva">Dodge</string>
     <string name="posRes">Elemental Resistence</string>
+    <string name="posresmp">MP Resistance</string>
+    <string name="posresap">AP Resistance</string>
     <string name="posResw">Resistance Water</string>
     <string name="posResf">Resistance Fire</string>
     <string name="posResa">Resistence Air</string>
@@ -302,6 +317,8 @@
     <string name="pretrocaanel">You are with the Rings:</string>
     <string name="ring1">Ring 1</string>
     <string name="ring2">Ring 2</string>
+    <string name="pretrocaanel1">Ring 1:</string>
+    <string name="pretrocaanel2">Ring 2: </string>
     <string name="postrocaanel">Which you want to trade for:</string>
     <string name="pretroca2h">Your current weapon is One-Handed :</string>
     <string name="postroca2h">you want to trade for:</string>
@@ -370,4 +387,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_view_build">ViewBuildActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_share_build">ShareBuildActivity</string>
+    <string name="title_activity_share_build_acitivy">ShareBuildAcitivy</string>
 </resources>

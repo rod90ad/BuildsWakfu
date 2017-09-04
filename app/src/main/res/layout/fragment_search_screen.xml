@@ -4,143 +4,142 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frag_search_screen"
-    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.SearchScreenFragment">
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.SearchScreenFragment">
 
     <RelativeLayout
+        android:id="@+id/propaganda"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/propaganda">
+        android:layout_height="match_parent">
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             ads:adSize="SMART_BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
-        </com.google.android.gms.ads.AdView>
+            ads:adUnitId="@string/banner_ad_unit_id"/>
 
         <RelativeLayout
+            android:id="@+id/rlrv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rlrv"
             android:layout_below="@+id/adView">
 
             <android.support.v7.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:id="@+id/recyclerview">
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp">
 
             </android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/relativemain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/relativemain"
-            android:elevation="2dp"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:elevation="2dp">
 
             <GridLayout
-                android:layout_width="match_parent"
                 android:id="@+id/grid_topsv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="3"
-                android:columnCount="1"
+                android:layout_gravity="center_horizontal"
                 android:background="@color/colorPrimaryDark"
-                android:layout_gravity="center_horizontal">
+                android:columnCount="1"
+                android:rowCount="3">
 
                 <RelativeLayout
+                    android:id="@+id/rlsearch"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rlsearch">
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
                         android:id="@+id/txnivelleft"
-                        android:text="@string/nivel"
-                        android:layout_toLeftOf="@+id/numberpickerleft"/>
-
-                    <NumberPicker
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:id="@+id/numberpickerleft"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@+id/txnivelate">
-
-                    </NumberPicker>
-
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/numberpickerleft"
+                        android:text="@string/nivel" />
 
+                    <TextView
+                        android:id="@+id/numberpickerleft"
+                        android:layout_width="30dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/txnivelate"
+                        android:gravity="center"
+                        android:text="1">
+
+                    </TextView>
+
+                    <TextView
                         android:id="@+id/txnivelate"
-                        android:text="@string/ate"
-                        android:layout_centerHorizontal="true"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/ate" />
 
-                    <NumberPicker
+                    <TextView
+                        android:id="@+id/numberpickerright"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/txnivelate"
-                        android:id="@+id/numberpickerright">
+                        android:gravity="center"
+                        android:text="200">
 
-                    </NumberPicker>
+                    </TextView>
 
-                    <ImageButton
+                    <ImageView
+                        android:id="@+id/procurar_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/numberpickerright"
-                        android:id="@+id/procurar_button"
-                        android:background="@color/colorPrimary"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/ic_search_black_18dp"/>
+                        android:layout_toRightOf="@+id/numberpickerright"
+                        android:src="@android:drawable/ic_menu_search" />
 
-                    <ImageButton
+                    <ImageView
+                        android:id="@+id/morebutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="6dp"
-                        android:layout_alignParentRight="true"
-                        android:id="@+id/morebutton"
-                        android:background="@color/colorPrimary"
-                        android:src="@drawable/ic_add_white_18dp"/>
+                        android:src="@android:drawable/ic_menu_add" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rlstats"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:id="@+id/rlstats">
+                    android:layout_height="0dp">
 
                     <LinearLayout
+                        android:id="@+id/rlspinners"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:paddingLeft="2dp"
                         android:paddingRight="2dp"
-                        android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:id="@+id/rlspinners">
+                        android:weightSum="1">
 
                         <Spinner
+                            android:id="@+id/spinnerRaridade"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:id="@+id/spinnerRaridade"/>
+                            android:layout_weight="0.5" />
 
                         <Spinner
+                            android:id="@+id/spinnerTipo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:id="@+id/spinnerTipo"/>
+                            android:layout_weight="0.5" />
 
                     </LinearLayout>
 
@@ -150,20 +149,20 @@
                         android:layout_below="@+id/rlspinners">
 
                         <TextView
+                            android:id="@+id/txstats"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="6dp"
                             android:layout_centerVertical="true"
-                            android:id="@+id/txstats"
-                            android:text="@string/stats"/>
+                            android:padding="6dp"
+                            android:text="@string/stats" />
 
                         <Spinner
+                            android:id="@+id/spinnerstats"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:paddingRight="6dp"
-                            android:id="@+id/spinnerstats"
-                            android:layout_toRightOf="@+id/txstats">
+                            android:layout_toRightOf="@+id/txstats"
+                            android:paddingRight="6dp">
 
                         </Spinner>
 

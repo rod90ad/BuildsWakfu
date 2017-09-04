@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="6dp"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.CreateBuildFragment">
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.CreateBuildFragment">
 
     <GridLayout
         android:layout_width="wrap_content"

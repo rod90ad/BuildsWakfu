@@ -1,0 +1,1078 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.TopBuildsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/topBuilds_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/colorPrimary">
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_cra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_craHead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/cra_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_cra_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_cra_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_cra_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_cra_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_cra_number"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/cra"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_cra_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_craHead"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_cra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_cra_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_eca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_cra"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_eca_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/eca_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_eca_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_eca_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toStartOf="@+id/topBuilds_eca_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_eca_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_eca_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/eca"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_eca_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_eca_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_eca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_eca_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_elio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_eca"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_elio_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/elio_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_elio_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_elio_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_elio_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_elio_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_elio_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/elio"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_elio_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_elio_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_elio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_elio_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_eni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_elio"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_eni_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/eni_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_eni_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_eni_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_eni_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_eni_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_eni_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/eni"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_eni_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_eni_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_eni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_eni_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_enu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_eni"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_enu_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/enu_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_enu_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_enu_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_enu_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_enu_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_enu_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/enu"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_enu_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_enu_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_enu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_enu_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_feca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_enu"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_feca_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feca_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_feca_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_feca_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_feca_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_feca_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_feca_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/feca"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_feca_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_feca_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_feca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_feca_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_hupp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_feca"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_hupp_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/hupp_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_hupp_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_hupp_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_hupp_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_hupp_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_hupp_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/hupp"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_hupp_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_hupp_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_hupp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_hupp_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_iop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_hupp"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_iop_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/iop_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_iop_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_iop_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_iop_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_iop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_iop_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/iop"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_iop_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_iop_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_iop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_iop_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_osa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_iop"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_osa_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/osa_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_osa_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_osa_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_osa_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_osa_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_osa_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/osa"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_osa_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_osa_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_osa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_osa_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_panda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_osa"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_panda_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panda_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_panda_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_panda_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_panda_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_panda_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_panda_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/panda"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_panda_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_panda_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_panda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_panda_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_lad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_panda"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_lad_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/lad_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_lad_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_lad_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_lad_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_lad_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_lad_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lad"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_lad_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_lad_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_lad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_lad_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_sac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_lad"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_sac_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sac_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_sac_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sac_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_sac_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sac_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_sac_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/sac"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_sac_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_sac_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_sac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_sac_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_sad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_sac"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_sad_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sad_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_sad_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sad_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_sad_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sad_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_sad_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/sad"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_sad_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_sad_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_sad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_sad_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_sram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_sad"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_sram_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sram_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_sram_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sram_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_sram_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_sram_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_sram_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/sram"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_sram_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_sram_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_sram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_sram_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_steam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_sram"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_steam_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/steam_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_steam_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_steam_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_steam_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_steam_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_steam_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/steamer"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_steam_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_steam_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_steam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_steam_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_xelor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_steam"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_xelor_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/xelor_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_xelor_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_xelor_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_xelor_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_xelor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_xelor_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/xelor"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_xelor_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_xelor_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_xelor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_xelor_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/topBuilds_zob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topBuilds_xelor"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/topBuilds_zob_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/zob_head" />
+
+                <ImageView
+                    android:id="@+id/topBuilds_zob_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@android:drawable/ic_menu_add" />
+
+                <TextView
+                    android:id="@+id/topBuilds_zob_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_toLeftOf="@+id/topBuilds_zob_more"
+                    android:text="0"
+                    android:textColor="@color/nivel"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/topBuilds_zob_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/topBuilds_zob_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/zob"
+                    android:textColor="@color/blank"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:id="@+id/topBuilds_zob_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topBuilds_zob_head"
+                    android:background="@drawable/end_bg" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/topBuilds_rv_zob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topBuilds_zob_end"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="2dp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

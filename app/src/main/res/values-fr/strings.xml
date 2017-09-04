@@ -1,4 +1,95 @@
 <resources>
+    <!-- new strings after tabview Update -->
+    <string name="buildselected">Build Sélectionné</string>
+    <string name="buildsendtotop">Build Publicada</string>
+    <string name="cancelar">Annuler</string>
+    <string name="effects">Effets</string>
+    <string name="condition">Termes</string>
+    <string name="passive">Passif</string>
+    <string name="set">Set</string>
+    <string name="and">et</string>
+    <string name="select_lang">Select Language</string>
+    <string-array name="viewpoints">
+        <item>Int</item>
+        <item>For</item>
+        <item>Agi</item>
+        <item>Cha</item>
+        <item>Mjr</item>
+    </string-array>
+    <string-array name="screens">
+        <item>Chercher</item>
+        <item>Builds</item>
+        <item>Best Builds</item>
+        <item>Paramètres</item>
+    </string-array>
+    <string-array name="viewscreens">
+        <item>Build</item>
+        <item>Points</item>
+        <item>Sorts</item>
+    </string-array>
+    <string-array name="deckscreens">
+        <item>Actifs</item>
+        <item>Passifs</item>
+    </string-array>
+    <string name="aceitar">Accepter</string>
+    <string name="ring1">Bague 1</string>
+    <string name="ring2">Bague 2</string>
+    <string name="sharebuild">Partager</string>
+    <string name="deck_actives">Actifs</string>
+    <string name="deck_passives">Passifs</string>
+    <string name="elemental_spells">Sorts Elémentaries</string>
+    <string name="active_spells">Sorts Actifs</string>
+    <string name="passive_spells">Passifs</string>
+    <string name="publishtittle">Envoyer à Top Builds</string>
+    <string name="offline">Vous êtes déconnecté =(</string>
+    <string name="remove">Remove</string>
+    <string name="mostraitem">Item</string>
+    <string name="welcome">Bienvenue </string>
+    <string name="loginfail">Offline</string>
+    <string name="publishmessage">Publier sur Best Builds: \n transforme cette build publique pour tout le monde. \n Votre nom sera visible dans Build. \n Vous pouvez uniquement supprimer la build. \n \n Publish Best Builds?</string>
+
+    <!-- Points Variable -->
+    <string name="pontossalvos">Points sauvegardés avec succès!</string>
+    <string name="save">Salvar</string>
+    <string name="major">Majeur</string>
+    <string name="chance">Chance</string>
+    <string name="agility">Agilité</string>
+    <string name="strength">Force</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="option_health_percent">% Points de Vie</string>
+    <string name="option_eleres">Résistance Elémentarie</string>
+    <string name="option_barrier">Barrière</string>
+    <string name="option_heal_receive">% Soins reçus</string>
+    <string name="option_armorperlife">% Points de Vie en Armure</string>
+    <string name="option_lock">Tacle</string>
+    <string name="option_dodge">Esquive</string>
+    <string name="option_ele_mastery">Maîtrise Elémentaire</string>
+    <string name="option_single_mastery">Maîtrise Monocible</string>
+    <string name="option_area_mastery">Maîtrise Zone</string>
+    <string name="option_cac_mastery">Maîtrise Mêlée</string>
+    <string name="option_distance_mastery">Maîtrise Distance</string>
+    <string name="option_health_points">Points de Vie</string>
+    <string name="option_iniciative">Initiative</string>
+    <string name="option_lockanddodge">Tacle et Esquive</string>
+    <string name="option_apandmpremoval">% Retrait PA et PM</string>
+    <string name="option_apandmpresist">% Résistance PA et PM</string>
+    <string name="option_criticalchance">% Coup Critique</string>
+    <string name="option_block">% Parade</string>
+    <string name="option_criticaldmg">Maîtrise Critique</string>
+    <string name="option_rear">Maîtrise Dos</string>
+    <string name="option_berserk">Maîtrise Berserk (PdV &#60;50%)</string>
+    <string name="option_healingmastery">Maîtrise Soin</string>
+    <string name="option_rearres">Résistance Dos</string>
+    <string name="option_criticalres">Résistance Critique</string>
+    <string name="option_ap">Point d\'Action</string>
+    <string name="option_mp">Point de Mouvement et dégàts</string>
+    <string name="option_rangeanddmg">Portée et dégàts</string>
+    <string name="option_wakfu">Point de Wakfu</string>
+    <string name="option_controlanddmg">Contrôle et dégàts</string>
+    <string name="option_finaldmg">% Dommages infligés</string>
+    <string name="option_resmjr">Résistance Elémentaire</string>
+    <string name="points_to_dist">Points à répartir:</string>
+
     <string name="app_name">Builds Wakfu</string>
     <string name="propaganda">Votre création d\'applications  builds</string>
     <string name="banner_ad_unit_id">ca-app-pub-9806703878082584/1615165359</string>
@@ -23,7 +114,7 @@
     <!-- Import Variables -->
     <string name="addbuildsucess">Sucess sur add Build!</string>
     <string name="wait">Attendez...</string>
-    <string name="adicionando">Ajout d\'Itens ...</string>
+    <string name="adicionando">Ajout d\'Itens et Sorts...</string>
     <string name="permsok">Permission accordée!</string>
     <string name="permsnok">Permission refusée!</string>
     <string name="imagesaved">Image enregistrée!</string>
@@ -151,6 +242,8 @@
     <string name="posCtrl">Contrôle</string>
     <string name="posEva">Esquive</string>
     <string name="posRes">Résistance Elémentaire</string>
+    <string name="posresmp">Résistance PM</string>
+    <string name="posresap">Résistance PA</string>
     <string name="posResw">Résistance Eau</string>
     <string name="posResf">Résistance Feu</string>
     <string name="posResa">Résistance Air</string>
@@ -295,4 +388,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_build">ViewBuildActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_share_build">ShareBuildActivity</string>
+    <string name="title_activity_share_build_acitivy">ShareBuildAcitivy</string>
 </resources>

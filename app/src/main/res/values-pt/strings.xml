@@ -1,4 +1,97 @@
 <resources>
+    <!-- new strings after tabview Update -->
+    <string name="buildselected">Build Selecionada</string>
+    <string name="buildsendtotop">Build Publicada</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="effects">Effeitos</string>
+    <string name="condition">Condições</string>
+    <string name="passive">Passiva</string>
+    <string name="set">Aplicar</string>
+    <string name="and">e</string>
+    <string name="select_lang">Selecionar Linguagem</string>
+    <string-array name="viewpoints">
+        <item>Int</item>
+        <item>For</item>
+        <item>Agi</item>
+        <item>Sor</item>
+        <item>Pri</item>
+    </string-array>
+    <string-array name="screens">
+        <item>Buscar</item>
+        <item>Builds</item>
+        <item>Melhores Builds</item>
+        <item>Configurações</item>
+    </string-array>
+    <string-array name="viewscreens">
+        <item>Build</item>
+        <item>Pontos</item>
+        <item>Habilidades</item>
+    </string-array>
+    <string-array name="deckscreens">
+        <item>Ativas</item>
+        <item>Passivas</item>
+    </string-array>
+    <string name="aceitar">Aceitar</string>
+    <string name="posresmp">de Resistência de PM</string>
+    <string name="posresap">de Resistência de PA</string>
+    <string name="ring1">Anel 1</string>
+    <string name="ring2">Anel 2</string>
+    <string name="sharebuild">Compartilhar</string>
+    <string name="deck_actives">Ativos</string>
+    <string name="deck_passives">Passivos</string>
+    <string name="elemental_spells">Feitiços Elementais</string>
+    <string name="active_spells">Feitiços Ativos</string>
+    <string name="passive_spells">Passivos</string>
+    <string name="publishtittle">Enviar para Melhores Builds</string>
+    <string name="offline">Você esta desconectado =(</string>
+    <string name="remove">Remover</string>
+    <string name="mostraitem">Item</string>
+    <string name="welcome">Bem vindo </string>
+    <string name="loginfail">Desconectado</string>
+    <string name="publishmessage">Publicar em Melhores Builds: \n Transforma esta build publica para todos. \n Seu nome sera visivel na Build. \n Somente você pode deletar a build. \n\n Publicar em Melhores Builds?</string>
+
+    <!-- Points Variable -->
+    <string name="pontossalvos">Pontos salvos com sucesso!</string>
+    <string name="save">Salvar</string>
+    <string name="major">Principal</string>
+    <string name="chance">Sorte</string>
+    <string name="agility">Agilidade</string>
+    <string name="strength">Força</string>
+    <string name="intelligence">Inteligência</string>
+    <string name="option_health_percent">% Pontos de Vida</string>
+    <string name="option_eleres">Resistencia Elementar</string>
+    <string name="option_barrier">Barreira</string>
+    <string name="option_heal_receive">% de curas recebidas</string>
+    <string name="option_armorperlife">% pontos de vida em armadura</string>
+    <string name="option_lock">Bloqueio</string>
+    <string name="option_dodge">Esquiva</string>
+    <string name="option_ele_mastery">Domínio Elementar</string>
+    <string name="option_single_mastery">Domínio de alvo único</string>
+    <string name="option_area_mastery">Domínio de zona</string>
+    <string name="option_cac_mastery">Domínio de luta corpo a corpo</string>
+    <string name="option_distance_mastery">Domínio de distància</string>
+    <string name="option_health_points">Pontos de vida</string>
+    <string name="option_iniciative">Iniciativa</string>
+    <string name="option_lockanddodge">Bloqueio e esquiva</string>
+    <string name="option_apandmpremoval">% de retirada e PA e PM</string>
+    <string name="option_apandmpresist">% de resistência de PA e PM</string>
+    <string name="option_criticalchance">% de golpe crítico</string>
+    <string name="option_block">% de parada</string>
+    <string name="option_criticaldmg">Domínio crítico</string>
+    <string name="option_rear">Domínio costas</string>
+    <string name="option_berserk">Domínio de Berserk (PdV &#60;50%)</string>
+    <string name="option_healingmastery">Domínio de cura</string>
+    <string name="option_rearres">Resistência de costas</string>
+    <string name="option_criticalres">Resistência crítica</string>
+    <string name="option_ap">Pontos de ação</string>
+    <string name="option_mp">Pontos de movimento e danos</string>
+    <string name="option_rangeanddmg">Alcance e danos</string>
+    <string name="option_wakfu">Pontos de Wakfu</string>
+    <string name="option_controlanddmg">Controle e danos</string>
+    <string name="option_finaldmg">% de danos causados</string>
+    <string name="option_resmjr">Resistência elementar</string>
+    <string name="points_to_dist">Pontos Disponiveis:</string>
+
     <string name="app_name">Builds Wakfu</string>
     <string name="propaganda">O seu aplicativo de criação de builds</string>
     <string name="banner_ad_unit_id">ca-app-pub-9806703878082584/1615165359</string>
@@ -18,17 +111,11 @@
     <string name="createbuildsucess">Build criada com sucesso!</string>
     <string name="errornamesame">Builds não podem ter nomes iguais.</string>
     <string name="backmsg">"Pressione voltar novamente para sair"</string>
-    <string-array name="screens">
-        <item>Buscar</item>
-        <item>Builds</item>
-        <item>Melhores Builds</item>
-        <item>Configurações</item>
-    </string-array>
 
     <!-- Import Variables -->
     <string name="addbuildsucess">Sucesso em Adicionar Build!</string>
     <string name="wait">Espere...</string>
-    <string name="adicionando">Adicionando Itens...</string>
+    <string name="adicionando">Adicionando Itens e Feitiços...</string>
     <string name="permsok">Permissão Garantida!</string>
     <string name="permsnok">Permissão Negada!</string>
     <string name="imagesaved">Imagem Salva!</string>
@@ -301,4 +388,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_build">ViewBuildActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_share_build">ShareBuildActivity</string>
+    <string name="title_activity_share_build_acitivy">ShareBuildAcitivy</string>
 </resources>

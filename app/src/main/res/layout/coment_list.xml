@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/coment_cv"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:id="@+id/ll_tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/coment_cv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="Rodrigo Dias"
+                    android:layout_weight="0.03"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_margin="1dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.02"
+                    android:text=":"/>
+
+                <TextView
+                    android:id="@+id/coment_cv_coment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.95"
+                    android:layout_gravity="center"
+                    android:textColor="@color/textColorPrimary"
+                    android:text="Is a great Build"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

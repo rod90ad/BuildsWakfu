@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:padding="3dp"
-    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.SettingsFragment">
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.SettingsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -30,7 +30,7 @@
 
             </RelativeLayout>
 
-            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+            <com.rodrigoad.rodso.wakfustats.Utils.ItemComponent
                 android:id="@+id/item1"
                 android:layout_below="@+id/rl_preMessage"
                 android:padding="3dp"
@@ -52,7 +52,7 @@
 
             </RelativeLayout>
 
-            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+            <com.rodrigoad.rodso.wakfustats.Utils.ItemComponent
                 android:layout_below="@id/rl_and"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -74,7 +74,7 @@
 
             </RelativeLayout>
 
-            <com.buildswakfu.rodrigo.buildswakfu.Utils.ItemComponent
+            <com.rodrigoad.rodso.wakfustats.Utils.ItemComponent
                 android:layout_below="@id/rl_posMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

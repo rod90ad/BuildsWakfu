@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.buildswakfu.rodrigo.buildswakfu.Utils.SpellComponent
+        <com.rodrigoad.rodso.wakfustats.Utils.SpellComponent
             android:id="@+id/spell"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

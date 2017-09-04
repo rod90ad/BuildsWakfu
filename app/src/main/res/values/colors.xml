@@ -21,4 +21,6 @@
     <color name="red">#ff0000</color>
     <color name="facebook">#3b7398</color>
     <color name="facebook_messager">#00b6ff</color>
+    <color name="deactive">#6e807c</color>
+    <color name="active">#c6cece</color>
 </resources>

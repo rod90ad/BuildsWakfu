@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blank"
-    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks.DeckPassivesFragment">
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.Decks.DeckPassivesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

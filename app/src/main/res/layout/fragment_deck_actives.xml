@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/frag_deckActives"
     android:background="@color/blank"
-    tools:context="com.buildswakfu.rodrigo.buildswakfu.Layouts.Decks.DeckActivesFragment">
+    tools:context="com.rodrigoad.rodso.wakfustats.Layouts.Decks.DeckActivesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
